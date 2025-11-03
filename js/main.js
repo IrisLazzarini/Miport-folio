@@ -36,6 +36,178 @@ function initializeGallery() {
     });
 }
 
+// Modal de proyectos (carrusel de imágenes)
+function initializeProjectModal() {
+    const modal = document.getElementById('project-modal');
+    const modalContent = modal.querySelector('.modal-content');
+    const modalGallery = modal.querySelector('.modal-gallery');
+    const modalNav = modal.querySelector('.modal-nav');
+    const modalIndicators = modal.querySelector('.modal-indicators');
+    const closeBtn = modal.querySelector('.close-modal');
+    const prevBtn = modal.querySelector('.modal-prev');
+    const nextBtn = modal.querySelector('.modal-next');
+
+    let currentImages = [];
+    let currentIndex = 0;
+    let galleryInner = null;
+
+    function createGalleryInner() {
+        if (!galleryInner) {
+            galleryInner = document.createElement('div');
+            galleryInner.className = 'modal-gallery-inner';
+            modalGallery.innerHTML = '';
+            modalGallery.appendChild(galleryInner);
+        }
+        return galleryInner;
+    }
+
+    function renderCarousel() {
+        if (!currentImages.length) return;
+        
+        const inner = createGalleryInner();
+        inner.innerHTML = '';
+        
+        currentImages.forEach((src, index) => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = `Vista ${index + 1} del proyecto`;
+            img.loading = 'lazy';
+            inner.appendChild(img);
+        });
+        
+        updateCarouselPosition();
+        updateIndicators();
+        updateNavigationVisibility();
+    }
+
+    function updateCarouselPosition() {
+        if (!galleryInner) return;
+        const translateX = -currentIndex * 100;
+        galleryInner.style.transform = `translateX(${translateX}%)`;
+    }
+
+    function updateIndicators() {
+        if (!currentImages.length) return;
+        
+        modalIndicators.innerHTML = '';
+        
+        // Solo mostrar indicadores si hay más de una imagen
+        if (currentImages.length <= 1) {
+            modalIndicators.classList.add('hidden');
+            return;
+        }
+        
+        modalIndicators.classList.remove('hidden');
+        
+        currentImages.forEach((_, index) => {
+            const indicator = document.createElement('div');
+            indicator.className = 'modal-indicator';
+            if (index === currentIndex) {
+                indicator.classList.add('active');
+            }
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarouselPosition();
+                updateIndicators();
+            });
+            modalIndicators.appendChild(indicator);
+        });
+    }
+
+    function updateNavigationVisibility() {
+        // Ocultar navegación si solo hay una imagen
+        if (currentImages.length <= 1) {
+            modalNav.classList.add('hidden');
+        } else {
+            modalNav.classList.remove('hidden');
+        }
+    }
+
+    function goToPrev() {
+        if (!currentImages.length) return;
+        currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+        updateCarouselPosition();
+        updateIndicators();
+    }
+
+    function goToNext() {
+        if (!currentImages.length) return;
+        currentIndex = (currentIndex + 1) % currentImages.length;
+        updateCarouselPosition();
+        updateIndicators();
+    }
+
+    function openModal(images) {
+        currentImages = images;
+        currentIndex = 0;
+        renderCarousel();
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+        currentImages = [];
+        currentIndex = 0;
+        if (galleryInner) {
+            galleryInner.innerHTML = '';
+        }
+        modalIndicators.innerHTML = '';
+    }
+
+    // Navegación con botones
+    prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        goToPrev();
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        goToNext();
+    });
+
+    // Cerrar modal
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
+
+    // Navegación con teclado
+    document.addEventListener('keydown', (e) => {
+        if (!modal.classList.contains('open')) return;
+        if (e.key === 'Escape') {
+            closeModal();
+        } else if (e.key === 'ArrowLeft') {
+            goToPrev();
+        } else if (e.key === 'ArrowRight') {
+            goToNext();
+        }
+    });
+
+    // Click en "Ver Proyecto"
+    document.querySelectorAll('.project-card .project-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const card = link.closest('.project-card');
+
+            // Recolectar imágenes del proyecto (de .project-gallery o imagen única)
+            let imgs = [];
+            const gallery = card.querySelector('.project-gallery');
+            if (gallery) {
+                imgs = Array.from(gallery.querySelectorAll('img')).map(i => i.getAttribute('src'));
+            } else {
+                const singleImg = card.querySelector('.project-image img');
+                if (singleImg) imgs = [singleImg.getAttribute('src')];
+            }
+
+            if (imgs.length) {
+                openModal(imgs);
+            }
+        });
+    });
+}
+
 // Navbar scroll effect
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
@@ -117,14 +289,33 @@ contactForm.addEventListener('submit', function(e) {
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
     
-    // Aquí puedes agregar la lógica para enviar el formulario
-    // Por ahora solo mostraremos un mensaje de éxito
-    alert('¡Gracias por tu mensaje! Te contactaré pronto.');
-    contactForm.reset();
+    // Crear el enlace mailto con los datos del formulario
+    const subject = encodeURIComponent(`Contacto desde portafolio - ${name}`);
+    const body = encodeURIComponent(`Nombre: ${name}\nEmail: ${email}\n\nMensaje:\n${message}`);
+    const mailtoLink = `mailto:irislazzarini81@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Abrir el cliente de correo
+    window.location.href = mailtoLink;
+    
+    // Mensaje de confirmación
+    setTimeout(() => {
+        alert('¡Gracias por tu mensaje! Se abrirá tu cliente de correo para enviar el mensaje.');
+        contactForm.reset();
+    }, 100);
 });
 
 // Inicializar todas las funcionalidades cuando se carga el DOM
 document.addEventListener('DOMContentLoaded', function() {
     initializeGallery();
     animateSkills();
+    initializeProjectModal();
+    // Inicializar AOS (Animate On Scroll)
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+    }
 });

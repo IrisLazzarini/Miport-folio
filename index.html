@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <!-- Navbar -->
@@ -32,9 +34,8 @@
     <section id="inicio" class="hero">
         <div class="container">
             <h1 class="fade-in">Iris Lazzarini</h1>
-            <h2 class="subtitle fade-in">Portafolio Profesional</h2>
+            <h2 class="subtitle fade-in">Port-folio Profesional</h2>
             <p class="tagline fade-in">Desarrollo soluciones tecnológicas funcionales combinando programación, análisis de sistemas y administración.</p>
-            <a href="#contacto" class="cta-btn">Contáctame</a>
         </div>
     </section>
 
@@ -43,12 +44,12 @@
         <div class="container">
             <h2 class="section-title">Sobre Mí</h2>
             <div class="about-content">
-                <div class="about-text">
+                <div class="about-image" data-aos="fade-right">
+                    <img src="Img/Sobremi.png" alt="Iris Lazzarini - Perfil Profesional" class="profile-img">
+                </div>
+                <div class="about-text" data-aos="fade-left">
                     <p>Como estudiante de tercer año de Análisis de Sistemas, combino mis habilidades técnicas en programación y manejo de bases de datos con sólidos conocimientos en administración y contabilidad. Mi experiencia en proyectos reales me ha permitido desarrollar soluciones efectivas que responden a necesidades concretas del mercado.</p>
                     <p>Me destaco por mi capacidad de análisis, resolución de problemas y trabajo en equipo, siempre orientada a implementar soluciones tecnológicas que generen valor y resultados medibles.</p>
-                </div>
-                <div class="about-image">
-                    <img src="assets/profile-placeholder.jpg" alt="Iris Lazzarini" class="profile-img">
                 </div>
             </div>
         </div>
@@ -59,8 +60,8 @@
         <div class="container">
             <h2 class="section-title">Proyectos Destacados</h2>
             <div class="projects-grid">
-                <!-- Proyecto 1 -->
-                <div class="project-card">
+                <!-- Proyecto 1: Agromapa -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="0">
                     <div class="project-image">
                         <div class="project-gallery">
                             <img src="Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.26.jpeg" alt="Agromapa Vista 1">
@@ -73,110 +74,207 @@
                         <p>Plataforma orientada al sector agropecuario que permite el análisis de cultivos y condiciones de suelo, facilitando la toma de decisiones en el campo.</p>
                         <div class="project-tech">
                             <span>Python</span>
-                            <span>Django</span>
-                            <span>PostgreSQL</span>
+                            <span>Flask</span>
+                            <span>MySQL</span>
                         </div>
                         <div class="project-gallery-nav">
-                            <button class="gallery-prev"><i class="fas fa-chevron-left"></i></button>
-                            <button class="gallery-next"><i class="fas fa-chevron-right"></i></button>
+                            <button class="gallery-prev" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
+                            <button class="gallery-next" aria-label="Imagen siguiente"><i class="fas fa-chevron-right"></i></button>
                         </div>
-                        <a href="#" class="project-link">Ver Proyecto</a>
+                        <a href="#" class="project-link" data-project="agromapa">
+                            <span>Ver Proyecto</span>
+                            <i class="fas fa-images"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Proyecto 2 -->
-                <div class="project-card">
+                <!-- Proyecto 2: Sistema Contable Completo -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-image">
-                        <img src="assets/sistema-contable.jpg" alt="Sistema Contable">
+                        <div class="project-gallery">
+                            <img src="Img/Sistemadistribuidoras/Inicio.png" alt="Sistema Contable - Inicio">
+                            <img src="Img/Sistemadistribuidoras/Facturas.png" alt="Sistema Contable - Facturas">
+                            <img src="Img/Sistemadistribuidoras/Analisis financiero .png" alt="Sistema Contable - Análisis Financiero">
+                            <img src="Img/Sistemadistribuidoras/Asientos COntables.png" alt="Sistema Contable - Asientos Contables">
+                            <img src="Img/Sistemadistribuidoras/Libro de iva.png" alt="Sistema Contable - Libro de IVA">
+                            <img src="Img/Sistemadistribuidoras/Nota de creditos .png" alt="Sistema Contable - Notas de Crédito">
+                        </div>
                     </div>
                     <div class="project-info">
                         <h3>Sistema Contable Completo</h3>
                         <p>Sistema integral para la gestión de finanzas, control de ingresos y egresos, con generación automática de reportes y dashboards analíticos.</p>
                         <div class="project-tech">
+                            <span>PHP</span>
+                            <span>MySQL</span>
                             <span>JavaScript</span>
-                            <span>Node.js</span>
-                            <span>MongoDB</span>
                         </div>
-                        <a href="#" class="project-link">Ver Proyecto</a>
+                        <div class="project-gallery-nav">
+                            <button class="gallery-prev" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
+                            <button class="gallery-next" aria-label="Imagen siguiente"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <a href="#" class="project-link" data-project="sistema-contable">
+                            <span>Ver Proyecto</span>
+                            <i class="fas fa-images"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Proyecto 3 -->
-                <div class="project-card">
+                <!-- Proyecto 3: Polo Estudiantil -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-image">
-                        <img src="assets/polo-estudiantil.jpg" alt="Polo Estudiantil">
+                        <img src="Img/Fondo.png" alt="Polo Estudiantil">
                     </div>
                     <div class="project-info">
                         <h3>Polo Estudiantil</h3>
                         <p>Plataforma web educativa que integra noticias, biblioteca digital y foros de discusión para la comunidad estudiantil.</p>
                         <div class="project-tech">
-                            <span>React</span>
-                            <span>Firebase</span>
-                            <span>Material-UI</span>
+                            <span>PHP</span>
+                            <span>HTML</span>
+                            <span>MySQL</span>
                         </div>
-                        <a href="#" class="project-link">Ver Proyecto</a>
+                        <a href="#" class="project-link" data-project="polo-estudiantil">
+                            <span>Ver Proyecto</span>
+                            <i class="fas fa-images"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 4: Hojalatería Chartier -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-image">
+                        <img src="Img/Inicio.png" alt="Hojalatería Chartier - Página Web Corporativa">
+                    </div>
+                    <div class="project-info">
+                        <h3>Hojalatería Chartier</h3>
+                        <p>Página web corporativa desarrollada para Hojalatería Chartier SRL que muestra la historia de la empresa, resalta sus servicios y productos de alta tecnología, y facilita la comunicación con el cliente. Diseño industrial con paleta de colores neutros metálicos y toques de azul tecnológico.</p>
+                        <div class="project-tech">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <a href="#" class="project-link" data-project="hojalateria-chartier">
+                            <span>Ver Proyecto</span>
+                            <i class="fas fa-images"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sección Habilidades -->
+    <!-- Sección Perfil Profesional (Conocimientos Técnicos, Habilidades, Aptitudes) -->
     <section id="habilidades" class="skills">
         <div class="container">
-            <h2 class="section-title">Habilidades</h2>
-            <div class="skills-container">
-                <div class="skills-category">
-                    <h3>Habilidades Técnicas</h3>
-                    <div class="skill-item">
-                        <span class="skill-name">Python</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="90"></div>
+            <h2 class="section-title" data-aos="fade-up" data-aos-delay="0">Perfil Profesional</h2>
+            <p class="skills-intro" data-aos="fade-up" data-aos-delay="80">Estas son las competencias que mejor representan mi perfil: una combinación de análisis técnico, pensamiento crítico y orientación a soluciones tecnológicas.</p>
+
+            <div class="profile-grid">
+                <!-- Bloque 1: Conocimientos Técnicos -->
+                <div class="profile-block" data-aos="fade-up" data-aos-delay="120">
+                    <div class="block-header">
+                        <span class="block-icon"><i class="fas fa-microchip"></i></span>
+                        <h3>Conocimientos Técnicos</h3>
+                    </div>
+
+                    <div class="block-section">
+                        <h4><i class="fas fa-code"></i> Lenguajes de Programación</h4>
+                        <div class="tech-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">PHP</span>
+                            <span class="tag">Java</span>
+                            <span class="tag">HTML5</span>
+                            <span class="tag">CSS3</span>
+                            <span class="tag">SQL</span>
                         </div>
                     </div>
-                    <div class="skill-item">
-                        <span class="skill-name">HTML/CSS</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="85"></div>
+
+                    <div class="block-section">
+                        <h4><i class="fas fa-database"></i> Bases de Datos</h4>
+                        <div class="tech-tags">
+                            <span class="tag">MySQL</span>
+                            <span class="tag">SQLite</span>
+                            <span class="tag">Modelado y consultas</span>
+                            <span class="tag">Normalización</span>
                         </div>
                     </div>
-                    <div class="skill-item">
-                        <span class="skill-name">JavaScript</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="80"></div>
-                        </div>
+
+                    <div class="block-section">
+                        <h4><i class="fas fa-globe"></i> Desarrollo Web</h4>
+                        <ul class="block-list">
+                            <li><i class="fas fa-check"></i> Frontend con HTML5, CSS3 y JavaScript</li>
+                            <li><i class="fas fa-check"></i> Backend con PHP y bases de datos relacionales</li>
+                        </ul>
                     </div>
-                    <div class="skill-item">
-                        <span class="skill-name">SQL</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="85"></div>
+
+                    <div class="block-section">
+                        <h4><i class="fas fa-toolbox"></i> Ofimática y Herramientas Digitales</h4>
+                        <div class="tech-tags">
+                            <span class="tag">Microsoft Word</span>
+                            <span class="tag">Excel</span>
+                            <span class="tag">PowerPoint</span>
+                            <span class="tag">Google Docs</span>
+                            <span class="tag">Sheets</span>
+                            <span class="tag">Slides</span>
                         </div>
                     </div>
                 </div>
-                <div class="skills-category">
-                    <h3>Habilidades Administrativas</h3>
-                    <div class="skill-item">
-                        <span class="skill-name">Gestión de Proyectos</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="85"></div>
-                        </div>
+
+                <!-- Bloque 2: Habilidades -->
+                <div class="profile-block" data-aos="fade-up" data-aos-delay="160">
+                    <div class="block-header">
+                        <span class="block-icon"><i class="fas fa-handshake-angle"></i></span>
+                        <h3>Habilidades</h3>
                     </div>
-                    <div class="skill-item">
-                        <span class="skill-name">Análisis de Sistemas</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="90"></div>
-                        </div>
+
+                    <ul class="block-list spaced">
+                        <li><i class="fas fa-users"></i> Trabajo en equipo: colaboración proactiva con foco en objetivos comunes.</li>
+                        <li><i class="fas fa-headphones"></i> Escucha activa y responsabilidad: adaptación a necesidades del equipo y proyecto.</li>
+                        <li><i class="fas fa-brain"></i> Capacidad de análisis: detección de problemas y propuesta de soluciones eficientes.</li>
+                        <li><i class="fas fa-lightbulb"></i> Creatividad en soluciones digitales: ideas innovadoras orientadas al usuario.</li>
+                        <li><i class="fas fa-diagram-project"></i> Gestión de Proyectos (Jira).</li>
+                    </ul>
+                </div>
+
+                <!-- Bloque 3: Aptitudes -->
+                <div class="profile-block" data-aos="fade-up" data-aos-delay="200">
+                    <div class="block-header">
+                        <span class="block-icon"><i class="fas fa-chart-line"></i></span>
+                        <h3>Aptitudes</h3>
                     </div>
-                    <div class="skill-item">
-                        <span class="skill-name">Contabilidad</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="75"></div>
-                        </div>
-                    </div>
+
+                    <ul class="block-list spaced">
+                        <li><i class="fas fa-book"></i> Aprendizaje constante.</li>
+                        <li><i class="fas fa-magnifying-glass"></i> Pensamiento analítico.</li>
+                        <li><i class="fas fa-briefcase"></i> Compromiso y responsabilidad.</li>
+                        <li><i class="fas fa-comments"></i> Buena comunicación.</li>
+                        <li><i class="fas fa-palette"></i> Creatividad aplicada.</li>
+                        <li><i class="fas fa-seedling"></i> Resiliencia y adaptabilidad.</li>
+                        <li><i class="fas fa-search-plus"></i> Atención al detalle.</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Modal para mostrar proyectos -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-gallery-container">
+                <div class="modal-gallery">
+                    <!-- Las imágenes se cargarán dinámicamente aquí -->
+                </div>
+                <div class="modal-nav">
+                    <button class="modal-prev" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
+                    <button class="modal-next" aria-label="Imagen siguiente"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="modal-indicators">
+                    <!-- Los indicadores se cargarán dinámicamente aquí -->
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Sección Contacto -->
     <section id="contacto" class="contact">
@@ -198,19 +296,6 @@
                     </div>
                     <button type="submit" class="submit-btn">Enviar Mensaje</button>
                 </form>
-                <div class="contact-info">
-                    <div class="social-links">
-                        <a href="https://linkedin.com" target="_blank" class="social-link">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://github.com" target="_blank" class="social-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="mailto:iris.lazzarini@email.com" class="social-link">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -219,13 +304,16 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>&copy; 2024 Iris Lazzarini. Todos los derechos reservados.</p>
+
                 <div class="social-links">
-                    <a href="https://linkedin.com" target="_blank">
+                    <a href="https://www.linkedin.com/in/iris-lazzarini-7600881a3" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="https://github.com" target="_blank">
+                    <a href="https://github.com/IrisLazzarini" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:irislazzarini81@gmail.com">
+                        <i class="fas fa-envelope"></i>
                     </a>
                 </div>
             </div>
@@ -233,10 +321,11 @@
     </footer>
 
     <!-- Botón WhatsApp -->
-    <a href="https://wa.me/1234567890" class="whatsapp-btn" target="_blank">
+    <a href="https://wa.me/3498522611" class="whatsapp-btn" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
