@@ -307,7 +307,7 @@ body {
     font-weight: 600;
 }
 
-.project-info p {
+ .project-info p {
     color: var(--text-color);
     line-height: 1.7;
     margin-bottom: 1.25rem;
@@ -315,6 +315,49 @@ body {
     font-size: 0.95rem;
 }
 
+/* Read more / collapse for long project descriptions */
+.project-description {
+    max-height: 160px; /* altura visible por defecto */
+    overflow: hidden;
+    position: relative;
+    transition: max-height 0.35s ease;
+}
+
+.project-description.expanded {
+    max-height: 2000px; /* lo suficientemente grande para expandir */
+}
+
+.project-description::after {
+    /* sutil degradado para indicar que hay más contenido */
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3.2rem;
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(248,249,250,1) 90%);
+    pointer-events: none;
+}
+
+.project-description.expanded::after {
+    display: none;
+}
+
+.read-more-btn {
+    margin: 0.5rem 0 1rem 0;
+    background: transparent;
+    border: none;
+    color: var(--primary-color);
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    align-self: flex-start;
+    transition: color 0.2s ease;
+}
+
+.read-more-btn:hover {
+    color: var(--accent-color);
+}
 .project-tech {
     display: flex;
     flex-wrap: wrap;

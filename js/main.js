@@ -208,6 +208,48 @@ function initializeProjectModal() {
     });
 }
 
+// Read-more (VER MÁS) behavior for long project descriptions
+function initializeReadMore() {
+    const maxHeight = 160; // matches CSS
+
+    document.querySelectorAll('.project-card').forEach(card => {
+        const desc = card.querySelector('.project-description');
+        const btn = card.querySelector('.read-more-btn');
+        if (!desc) return;
+
+        // Defer measurement until layout
+        setTimeout(() => {
+            // Si el contenido no supera la altura, ocultar el botón
+            if (desc.scrollHeight <= maxHeight) {
+                if (btn) btn.style.display = 'none';
+                return;
+            }
+
+            // Asegurar el estado inicial
+            desc.style.maxHeight = maxHeight + 'px';
+            desc.style.overflow = 'hidden';
+
+            if (btn) {
+                btn.style.display = '';
+                btn.addEventListener('click', () => {
+                    const expanded = desc.classList.toggle('expanded');
+                    if (expanded) {
+                        // expandir: fijar a la altura real para permitir transición
+                        desc.style.maxHeight = desc.scrollHeight + 'px';
+                        btn.textContent = 'VER MENOS';
+                        btn.setAttribute('aria-expanded', 'true');
+                    } else {
+                        // contraer
+                        desc.style.maxHeight = maxHeight + 'px';
+                        btn.textContent = 'VER MÁS';
+                        btn.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+        }, 0);
+    });
+}
+
 // Navbar scroll effect
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
@@ -309,6 +351,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeGallery();
     animateSkills();
     initializeProjectModal();
+    initializeReadMore();
     // Inicializar AOS (Animate On Scroll)
     if (typeof AOS !== 'undefined') {
         AOS.init({
