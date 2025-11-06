@@ -48,8 +48,10 @@
                     <img src="Img/Sobremi.png" alt="Iris Lazzarini - Perfil Profesional" class="profile-img">
                 </div>
                 <div class="about-text" data-aos="fade-left">
-                    <p>Como estudiante de tercer año de Análisis de Sistemas, combino mis habilidades técnicas en programación y manejo de bases de datos con sólidos conocimientos en administración y contabilidad. Mi experiencia en proyectos reales me ha permitido desarrollar soluciones efectivas que responden a necesidades concretas del mercado.</p>
-                    <p>Me destaco por mi capacidad de análisis, resolución de problemas y trabajo en equipo, siempre orientada a implementar soluciones tecnológicas que generen valor y resultados medibles.</p>
+                    <p>Como estudiante de tercer año de Análisis de Sistemas, integro mis habilidades en programación con Python y Go, junto con el manejo de bases de datos relacionales y no relacionales. Mi formación también incluye administración y contabilidad, lo que me permite abordar proyectos desde una visión técnica y organizacional.</p>
+                    <p>He trabajado en proyectos reales donde diseñé sistemas escalables utilizando UML para modelar arquitecturas complejas y optimicé consultas logrando mejorar el rendimiento en un 50%.</p>
+                    <p>Me destaco por mi capacidad de análisis, resolución de problemas y trabajo en equipo, siempre enfocada en crear soluciones tecnológicas que aporten valor real y resultados medibles.</p>
+                    <p>Además, disfruto seguir capacitándome y leer, porque creo en el aprendizaje continuo como parte esencial de la profesión.</p>
                 </div>
             </div>
         </div>
@@ -102,11 +104,46 @@
                     </div>
                     <div class="project-info">
                         <h3>Sistema Contable Completo</h3>
-                        <p>Sistema integral para la gestión de finanzas, control de ingresos y egresos, con generación automática de reportes y dashboards analíticos.</p>
+                        <div class="project-description">
+                            <p>Desarrollé un sistema de gestión de comprobantes (facturación) modular y adaptable, construido íntegramente en PHP. El objetivo principal fue crear una aplicación robusta que pudiera funcionar en diferentes entornos con una configuración mínima.</p>
+                            
+                            <p>El proyecto demuestra habilidades en arquitectura de software, manejo de bases de datos y simulación de servicios externos para pruebas.</p>
+                            
+                            <h4>1. Arquitectura de Datos Flexible (Estrategia de Fallback)</h4>
+                            <p>El mayor desafío fue asegurar que el sistema siempre funcionara, sin importar la configuración del servidor del usuario. Para lograrlo, implementé una estrategia de persistencia de datos con un "patrón de fallback" de tres niveles:</p>
+                            
+                            <p><strong>Nivel 1: MySQL (Opción Recomendada)</strong></p>
+                            <ul>
+                                <li>Es la opción principal y más robusta.</li>
+                                <li>Creé un script de instalación (conectar_bd.php) que automatiza todo el proceso: verifica la conexión al servidor, crea la base de datos sistema_comprobantes si no existe, y ejecuta el script mysql_setup.sql para generar la estructura de tablas.</li>
+                            </ul>
+                            
+                            <p><strong>Nivel 2: SQLite (Respaldo Automático)</strong></p>
+                            <ul>
+                                <li>Si el sistema detecta que la extensión PDO para MySQL no está disponible o la conexión falla, automáticamente utiliza SQLite.</li>
+                                <li>Esto permite que la aplicación funcione sin necesidad de un servidor de base de datos externo, creando un archivo database.sqlite local.</li>
+                            </ul>
+                            
+                            <p><strong>Nivel 3: Archivos JSON (Fallback Definitivo)</strong></p>
+                            <ul>
+                                <li>Como última instancia, si ni MySQL ni SQLite están disponibles, el sistema entra en modo "fallback" y guarda todos los datos en archivos .json en la carpeta data/.</li>
+                            </ul>
+                            
+                            <h4>2. Simulación de API Externa (AFIP)</h4>
+                            <p>Para desarrollar y probar la funcionalidad de facturación electrónica sin depender de una conexión real a la AFIP, desarrollé un módulo de simulación que:</p>
+                            <ul>
+                                <li>Simula respuestas del servicio web de la AFIP</li>
+                                <li>Genera datos ficticios pero realistas, incluyendo CAE y códigos QR</li>
+                                <li>Incluye simulación de errores comunes para testing robusto</li>
+                            </ul>
+                        </div>
+                        <button class="read-more-btn" aria-expanded="false">VER MÁS</button>
                         <div class="project-tech">
                             <span>PHP</span>
                             <span>MySQL</span>
                             <span>JavaScript</span>
+                             <span>Simulador de AFIP</span>
+                             <span>Archivos JSON</span>
                         </div>
                         <div class="project-gallery-nav">
                             <button class="gallery-prev" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
@@ -167,15 +204,38 @@
                         </div>
                     </div>
                     <div class="project-info">
-                        <h3>Hojalatería Chartier</h3>
+                        <h3>Landing Page Corporativa "Hojalatería Chartier"</h3>
                         <div class="project-description">
-                            <p>Página web corporativa desarrollada para Hojalatería Chartier SRL que muestra la historia de la empresa, resalta sus servicios y productos de alta tecnología, y facilita la comunicación con el cliente. Diseño industrial con paleta de colores neutros metálicos y toques de azul tecnológico.</p>
+                            <p>Desarrollé una landing page corporativa One-Page (de una sola página) para "Hojalatería Chartier", un proyecto enfocado en crear una presencia digital moderna, profesional y 100% responsiva.</p>
+                            
+                            <p>El principal objetivo fue construir una interfaz de usuario atractiva y fluida utilizando únicamente tecnologías web puras (HTML, CSS y JavaScript "Vanilla"), sin depender de frameworks o librerías externas.</p>
+                            
+                            <h4>1. Maquetación Avanzada con CSS Grid y Flexbox</h4>
+                            <p>El proyecto demuestra un dominio profundo de las técnicas de layout modernas de CSS para crear un diseño adaptable a cualquier dispositivo, desde móviles hasta monitores de escritorio.</p>
+                            
+                            <ul>
+                                <li><strong>Diseño Responsivo (Mobile-First):</strong> La estructura se diseñó desde cero para ser "mobile-first". Utilicé Media Queries de forma intensiva para reorganizar el contenido, asegurando una experiencia de usuario óptima en tablets y móviles.</li>
+                                <li><strong>CSS Grid:</strong> Implementé CSS Grid para la sección de "Contacto", creando una maquetación asimétrica y compleja que posiciona las tarjetas de información y el formulario de manera organizada y visualmente impactante.</li>
+                                <li><strong>Flexbox:</strong> Usé Flexbox en todo el sitio para el alineamiento de componentes, como la barra de navegación, el hero section y las tarjetas de servicios.</li>
+                            </ul>
+                            
+                            <h4>2. Interactividad con JavaScript Puro (Vanilla JS)</h4>
+                            <p>Toda la interactividad del sitio se programó con JavaScript "Vanilla" (puro), demostrando una sólida comprensión de la manipulación del DOM.</p>
+                            
+                            <ul>
+                                <li><strong>Navegación Responsiva:</strong> Programé el menú de navegación móvil (tipo "hamburguesa"), que se desliza desde el lateral y aplica un overlay al contenido principal, todo manejado con eventos de click y conmutación de clases CSS.</li>
+                                <li><strong>Acordeón de Servicios:</strong> Desarrollé la funcionalidad "VER MÁS / VER MENOS" de las secciones "Servicios" y "Productos". Mediante JavaScript, el botón detecta el estado de la tarjeta y añade o quita una clase (.expanded), que a su vez activa una animación CSS fluida que expande o contrae el contenido.</li>
+                                <li><strong>Formulario de Contacto (Client-Side):</strong> El formulario de contacto se maneja 100% del lado del cliente. Un script captura el evento submit, previene la recarga de la página, y utiliza los datos ingresados para generar dinámicamente un enlace mailto: con la información pre-cargada.</li>
+                            </ul>
                         </div>
                         <button class="read-more-btn" aria-expanded="false">VER MÁS</button>
                         <div class="project-tech">
                             <span>HTML5</span>
                             <span>CSS3</span>
-                            <span>JavaScript</span>
+                            <span>JavaScript Vanilla</span>
+                            <span>CSS Grid</span>
+                            <span>Flexbox</span>
+                            <span>Mobile-First</span>
                         </div>
                         <div class="project-gallery-nav">
                             <button class="gallery-prev" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
