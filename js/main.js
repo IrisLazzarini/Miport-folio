@@ -250,15 +250,65 @@ function initializeReadMore() {
     });
 }
 
-// Navbar scroll effect
+// Barra de progreso de scroll
+function updateScrollProgress() {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    
+    let progressBar = document.querySelector('.scroll-progress');
+    if (!progressBar) {
+        progressBar = document.createElement('div');
+        progressBar.className = 'scroll-progress';
+        document.body.prepend(progressBar);
+    }
+    progressBar.style.width = scrolled + '%';
+}
+
+// Back to Top Button
+function initBackToTop() {
+    let backToTopBtn = document.querySelector('.back-to-top');
+    
+    if (!backToTopBtn) {
+        backToTopBtn = document.createElement('button');
+        backToTopBtn.className = 'back-to-top';
+        backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        backToTopBtn.setAttribute('aria-label', 'Volver arriba');
+        document.body.appendChild(backToTopBtn);
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+    
+    return backToTopBtn;
+}
+
+// Navbar scroll effect mejorado
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
+    const backToTopBtn = document.querySelector('.back-to-top');
+    
+    // Actualizar scroll progress
+    updateScrollProgress();
+    
+    // Navbar effect
     if (window.scrollY > 50) {
-        navbar.style.backgroundColor = '#ffffff';
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        navbar.classList.add('scrolled');
     } else {
-        navbar.style.backgroundColor = 'transparent';
-        navbar.style.boxShadow = 'none';
+        navbar.classList.remove('scrolled');
+    }
+    
+    // Back to top button
+    if (backToTopBtn) {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
     }
 });
 
@@ -280,8 +330,17 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 // Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        
+        // Ignorar enlaces vacíos o solo "#"
+        if (!href || href === '#') return;
+        
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(href);
+        
+        // Verificar que el elemento existe
+        if (!target) return;
+        
         const offset = 80; // Altura del navbar
         const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
         
@@ -320,6 +379,40 @@ document.querySelectorAll('.fade-in, .skill-progress').forEach(element => {
     observer.observe(element);
 });
 
+// Validación de formulario en tiempo real
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+function initFormValidation() {
+    const inputs = document.querySelectorAll('#contact-form input, #contact-form textarea');
+    
+    inputs.forEach(input => {
+        input.addEventListener('blur', function() {
+            if (this.value.trim() === '') {
+                this.classList.add('error');
+            } else if (this.type === 'email' && !validateEmail(this.value)) {
+                this.classList.add('error');
+            } else {
+                this.classList.remove('error');
+            }
+        });
+        
+        input.addEventListener('input', function() {
+            if (this.classList.contains('error')) {
+                if (this.type === 'email') {
+                    if (validateEmail(this.value)) {
+                        this.classList.remove('error');
+                    }
+                } else if (this.value.trim() !== '') {
+                    this.classList.remove('error');
+                }
+            }
+        });
+    });
+}
+
 // Formulario de contacto
 const contactForm = document.getElementById('contact-form');
 
@@ -327,31 +420,74 @@ contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
     
     // Obtener los valores del formulario
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
+    
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const message = messageInput.value.trim();
+    
+    // Validar campos
+    let isValid = true;
+    
+    if (name === '') {
+        nameInput.classList.add('error');
+        isValid = false;
+    }
+    
+    if (email === '' || !validateEmail(email)) {
+        emailInput.classList.add('error');
+        isValid = false;
+    }
+    
+    if (message === '') {
+        messageInput.classList.add('error');
+        isValid = false;
+    }
+    
+    if (!isValid) {
+        return;
+    }
     
     // Crear el enlace mailto con los datos del formulario
     const subject = encodeURIComponent(`Contacto desde portafolio - ${name}`);
     const body = encodeURIComponent(`Nombre: ${name}\nEmail: ${email}\n\nMensaje:\n${message}`);
     const mailtoLink = `mailto:irislazzarini81@gmail.com?subject=${subject}&body=${body}`;
     
-    // Abrir el cliente de correo
-    window.location.href = mailtoLink;
+    // Cambiar el botón temporalmente
+    const submitBtn = this.querySelector('.submit-btn');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = '✓ Enviando...';
+    submitBtn.style.backgroundColor = '#28a745';
     
-    // Mensaje de confirmación
+    // Abrir el cliente de correo
     setTimeout(() => {
-        alert('¡Gracias por tu mensaje! Se abrirá tu cliente de correo para enviar el mensaje.');
-        contactForm.reset();
-    }, 100);
+        window.location.href = mailtoLink;
+        
+        // Mensaje de confirmación
+        setTimeout(() => {
+            alert('¡Gracias por tu mensaje! Se abrirá tu cliente de correo para enviar el mensaje.');
+            contactForm.reset();
+            submitBtn.textContent = originalText;
+            submitBtn.style.backgroundColor = '';
+        }, 500);
+    }, 300);
 });
 
 // Inicializar todas las funcionalidades cuando se carga el DOM
 document.addEventListener('DOMContentLoaded', function() {
+    // Funcionalidades principales
     initializeGallery();
     animateSkills();
     initializeProjectModal();
     initializeReadMore();
+    
+    // Nuevas funcionalidades UX
+    initBackToTop();
+    initFormValidation();
+    updateScrollProgress();
+    
     // Inicializar AOS (Animate On Scroll)
     if (typeof AOS !== 'undefined') {
         AOS.init({
