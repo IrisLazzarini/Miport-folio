@@ -13,6 +13,18 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
+    <!-- Pantalla de Inicio (Overlay) -->
+    <div id="start-overlay" class="start-overlay">
+        <div class="start-content">
+            <img src="Img/Avatar/Avatar_mio.jpeg" alt="Avatar Iris Lazzarini" class="start-avatar">
+            <h1 class="start-title">Iris Lazzarini</h1>
+            <p class="start-subtitle">Portfolio Profesional</p>
+            <div class="start-instruction">
+                <span class="blink">🖱️ Haz clic o presiona una tecla para iniciar</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Navbar -->
     <nav class="navbar">
         <div class="navbar-container">
@@ -52,7 +64,7 @@
             <h2 class="section-title">Sobre Mí</h2>
             <div class="about-content">
                 <div class="about-image" data-aos="fade-right">
-                    <img src="Img/Sobremi.png" alt="Iris Lazzarini - Perfil Profesional" class="profile-img">
+                    <img src="Img/Avatar/Avatar_mio.jpeg" alt="Iris Lazzarini - Perfil Profesional" class="profile-img">
                 </div>
                 <div class="about-text" data-aos="fade-left">
                     <p>Como estudiante de tercer año de Análisis de Sistemas, integro mis habilidades en programación con Python y Go, junto con el manejo de bases de datos relacionales y no relacionales. Mi formación también incluye administración y contabilidad, lo que me permite abordar proyectos desde una visión técnica y organizacional.</p>
@@ -192,9 +204,9 @@
                             <button class="gallery-prev" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
                             <button class="gallery-next" aria-label="Imagen siguiente"><i class="fas fa-chevron-right"></i></button>
                         </div>
-                        <a href="#" class="project-link" data-project="polo-universitario">
-                            <span>Ver Proyecto</span>
-                            <i class="fas fa-images"></i>
+                        <a href="https://polousanjusto.com.ar/" target="_blank" class="project-link" data-project="polo-universitario">
+                            <span>Visitar Sitio</span>
+                            <i class="fas fa-external-link-alt"></i>
                         </a>
                     </div>
                 </div>
@@ -248,9 +260,53 @@
                             <button class="gallery-prev" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
                             <button class="gallery-next" aria-label="Imagen siguiente"><i class="fas fa-chevron-right"></i></button>
                         </div>
-                        <a href="#" class="project-link" data-project="hojalateria-chartier">
-                            <span>Ver Proyecto</span>
-                            <i class="fas fa-images"></i>
+                        <a href="https://hojalateriachartier.com/" target="_blank" class="project-link" data-project="hojalateria-chartier">
+                            <span>Visitar Sitio</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 5: Escuela Superior de Comercio Nº 45 -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-image">
+                        <div class="project-gallery">
+                            <img src="Img/Comercio45/Campus.png" alt="Escuela Superior de Comercio Nº 45 - Campus Virtual">
+                            <img src="Img/Comercio45/Estudiantes.png" alt="Escuela Superior de Comercio Nº 45 - Estudiantes">
+                            <img src="Img/Comercio45/Ficha.png" alt="Escuela Superior de Comercio Nº 45 - Ficha de Inscripción">
+                            <img src="Img/Comercio45/Historia.png" alt="Escuela Superior de Comercio Nº 45 - Historia">
+                            <img src="Img/Comercio45/Inscripcion.png" alt="Escuela Superior de Comercio Nº 45 - Inscripción">
+                            <img src="Img/Comercio45/Propedeutico.png" alt="Escuela Superior de Comercio Nº 45 - Curso Propedéutico">
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Escuela Superior de Comercio Nº 45</h3>
+                        <div class="project-description">
+                            <p>Desarrollo del sitio web institucional para la Escuela Superior de Comercio Nº 45 "Dr. José Roberto González", institución referente en educación superior de la región desde 1957.</p>
+                            
+                            <p>El sitio ofrece información integral sobre la oferta académica, incluyendo la Tecnicatura Superior en Análisis Funcional de Sistemas Informáticos. Funciona como canal de comunicación oficial y punto de acceso a recursos para estudiantes y docentes.</p>
+
+                            <h4>Características Destacadas</h4>
+                            <ul>
+                                <li><strong>Diseño Institucional:</strong> Interfaz profesional que refleja la identidad y trayectoria de la escuela.</li>
+                                <li><strong>Información Académica:</strong> Secciones detalladas sobre carreras, planes de estudio y competencias profesionales.</li>
+                                <li><strong>Acceso a Recursos:</strong> Enlaces directos a documentación oficial y novedades institucionales.</li>
+                            </ul>
+                        </div>
+                        <button class="read-more-btn" aria-expanded="false">VER MÁS</button>
+                        <div class="project-tech">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                            <span>Web Institucional</span>
+                        </div>
+                        <div class="project-gallery-nav">
+                            <button class="gallery-prev" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
+                            <button class="gallery-next" aria-label="Imagen siguiente"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <a href="https://escomercio45.edu.ar/" target="_blank" class="project-link" data-project="escuela-45">
+                            <span>Visitar Sitio</span>
+                            <i class="fas fa-external-link-alt"></i>
                         </a>
                     </div>
                 </div>

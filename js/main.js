@@ -188,6 +188,9 @@ function initializeProjectModal() {
     // Click en "Ver Proyecto"
     document.querySelectorAll('.project-card .project-link').forEach(link => {
         link.addEventListener('click', (e) => {
+            // Si el enlace apunta a una URL externa (no es #), dejar que funcione normalmente
+            if (link.getAttribute('href') !== '#') return;
+
             e.preventDefault();
             const card = link.closest('.project-card');
 
@@ -497,4 +500,41 @@ document.addEventListener('DOMContentLoaded', function() {
             offset: 100
         });
     }
+});
+
+// Pantalla de Inicio (Overlay)
+function initStartOverlay() {
+    const overlay = document.getElementById('start-overlay');
+    if (!overlay) return;
+
+    // Bloquear scroll inicial
+    document.body.classList.add('no-scroll');
+
+    // Función para cerrar el overlay
+    const closeOverlay = () => {
+        overlay.classList.add('hidden');
+        document.body.classList.remove('no-scroll');
+        
+        // Iniciar animaciones de AOS después de cerrar el overlay
+        if (typeof AOS !== 'undefined') {
+            setTimeout(() => {
+                AOS.refresh();
+            }, 500);
+        }
+        
+        // Remover event listeners para evitar múltiples llamadas
+        document.removeEventListener('click', closeOverlay);
+        document.removeEventListener('keydown', closeOverlay);
+        document.removeEventListener('touchstart', closeOverlay);
+    };
+
+    // Escuchar eventos para cerrar
+    document.addEventListener('click', closeOverlay);
+    document.addEventListener('keydown', closeOverlay);
+    document.addEventListener('touchstart', closeOverlay);
+}
+
+// Inicializar overlay
+document.addEventListener('DOMContentLoaded', function() {
+    initStartOverlay();
 });
