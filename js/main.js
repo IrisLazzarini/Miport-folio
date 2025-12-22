@@ -4,8 +4,20 @@ function initializeGallery() {
     
     galleries.forEach(gallery => {
         const images = gallery.querySelectorAll('img');
+        
+        // Si no hay imágenes (por ejemplo, si hay un iframe), saltar esta galería
+        if (images.length === 0) {
+            return;
+        }
+        
         const prevBtn = gallery.parentElement.parentElement.querySelector('.gallery-prev');
         const nextBtn = gallery.parentElement.parentElement.querySelector('.gallery-next');
+        
+        // Si no hay botones de navegación, saltar esta galería
+        if (!prevBtn || !nextBtn) {
+            return;
+        }
+        
         let currentIndex = 0;
 
         // Mostrar la primera imagen
