@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Iris Lazzarini – Portfolio Profesional</title>
     <link rel="stylesheet" href="css/styles.css">
     <!-- Font Awesome para iconos -->
@@ -336,6 +336,118 @@
                         </a>
                     </div>
                 </div>
+
+                <!-- Proyecto 7: Fondo Becario -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="project-image">
+                        <div class="project-gallery">
+                            <img src="Img/Fondo_becario/Inicio.png" alt="Fondo Becario - Inicio" class="active">
+                            <img src="Img/Fondo_becario/Vista de inicio.png" alt="Fondo Becario - Vista de Inicio">
+                            <img src="Img/Fondo_becario/Balances.png" alt="Fondo Becario - Balances">
+                            <img src="Img/Fondo_becario/Balance consolidado.png" alt="Fondo Becario - Balance Consolidado">
+                            <img src="Img/Fondo_becario/Balance.png" alt="Fondo Becario - Balance">
+                            <img src="Img/Fondo_becario/Gestion de inscripciones.png" alt="Fondo Becario - Gestión de Inscripciones">
+                            <img src="Img/Fondo_becario/Becas.png" alt="Fondo Becario - Becas">
+                            <img src="Img/Fondo_becario/Auditoria.png" alt="Fondo Becario - Auditoría">
+                            <img src="Img/Fondo_becario/Egresos.png" alt="Fondo Becario - Egresos">
+                            <img src="Img/Fondo_becario/pagos de fondos.png" alt="Fondo Becario - Pagos de Fondos">
+                            <img src="Img/Fondo_becario/Normalizar excel.png" alt="Fondo Becario - Normalizar Excel">
+                            <img src="Img/Fondo_becario/Eliminacion.png" alt="Fondo Becario - Eliminación">
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Fondo Becario</h3>
+                        <div class="project-description">
+                            <p><strong>Sistema de Gestión y Análisis Financiero</strong></p>
+                            
+                            <h4><i class="fas fa-info-circle"></i> ¿Qué es este proyecto?</h4>
+                            <p>Fondo Becario es un sistema web que desarrollé para gestionar de forma integral los ingresos, egresos y becas de un fondo institucional, resolviendo un problema muy común: <i class="fas fa-arrow-right"></i> datos financieros desordenados en Excel, cálculos manuales y balances poco confiables.</p>
+                            
+                            <p>El sistema permite importar datos crudos desde Excel, procesarlos de forma automática y generar balances consolidados y dashboards financieros profesionales, sin depender de fórmulas cargadas por el usuario.</p>
+                            
+                            <h4><i class="fas fa-exclamation-triangle"></i> Problema que resuelve</h4>
+                            <p><strong>Antes de este sistema:</strong></p>
+                            <ul>
+                                <li>La información llegaba en múltiples archivos Excel</li>
+                                <li>Cada archivo tenía formatos distintos</li>
+                                <li>Los cálculos se hacían a mano</li>
+                                <li>Los balances eran propensos a errores</li>
+                                <li>No había una visión clara del estado del fondo</li>
+                            </ul>
+                            
+                            <h4><i class="fas fa-check-circle"></i> Solución que implementé</h4>
+                            <p>Diseñé e implementé un sistema que:</p>
+                            <ul>
+                                <li><i class="fas fa-download"></i> <strong>Importa archivos Excel sin fórmulas</strong></li>
+                                <li><i class="fas fa-brain"></i> <strong>Normaliza los datos en el backend</strong></li>
+                                <li><i class="fas fa-chart-bar"></i> <strong>Calcula balances consolidados automáticamente</strong></li>
+                                <li><i class="fas fa-upload"></i> <strong>Exporta un dashboard ejecutivo a Excel</strong>, con:
+                                    <ul>
+                                        <li>KPIs claros (Ingresos, Egresos, Saldo)</li>
+                                        <li>Fórmulas dinámicas generadas por el sistema</li>
+                                        <li>Actualización automática si se modifican los datos</li>
+                                    </ul>
+                                </li>
+                                <li><i class="fas fa-lock"></i> <strong>Mantiene la lógica de negocio dentro del sistema</strong>, no en los archivos externos</li>
+                            </ul>
+                            
+                            <h4><i class="fas fa-star"></i> Funcionalidades principales</h4>
+                            <ul>
+                                <li>Importación de Excel multi-hoja</li>
+                                <li>Detección automática de columnas por encabezado</li>
+                                <li>Balance anual por mes y tipo</li>
+                                <li>Dashboard financiero con KPIs jerarquizados</li>
+                                <li>Exportación a Excel con fórmulas dinámicas en español</li>
+                                <li>Gestión de becas e inscripciones</li>
+                                <li>Validaciones y control de integridad de datos</li>
+                            </ul>
+                            
+                            <h4><i class="fas fa-brain"></i> Decisiones clave del diseño</h4>
+                            <ul>
+                                <li>El Excel de entrada es solo fuente de datos, no contiene lógica</li>
+                                <li>Todos los cálculos se realizan en el sistema</li>
+                                <li>El Excel exportado es un reporte profesional, no un archivo manual</li>
+                                <li>El diseño está pensado para usuarios administrativos y contables</li>
+                            </ul>
+                            
+                            <h4><i class="fas fa-tools"></i> Tecnologías utilizadas</h4>
+                            <ul>
+                                <li>PHP 8</li>
+                                <li>MySQL 8</li>
+                                <li>PhpSpreadsheet</li>
+                                <li>Arquitectura MVC simple</li>
+                                <li>Automatización y análisis de datos en Excel</li>
+                            </ul>
+                            
+                            <h4><i class="fas fa-bullseye"></i> Resultado</h4>
+                            <p>Un sistema:</p>
+                            <ul>
+                                <li>Confiable</li>
+                                <li>Escalable</li>
+                                <li>Fácil de usar</li>
+                                <li>Orientado a un uso real, no académico</li>
+                            </ul>
+                            
+                            <p>Este proyecto refleja mi forma de trabajar: analizar el problema, ordenar los datos, automatizar procesos y generar información clara para la toma de decisiones.</p>
+                        </div>
+                        <button class="read-more-btn" aria-expanded="false">VER MÁS</button>
+                        <div class="project-tech">
+                            <span>PHP 8</span>
+                            <span>MySQL 8</span>
+                            <span>PhpSpreadsheet</span>
+                            <span>MVC</span>
+                            <span>Excel Automation</span>
+                        </div>
+                        <div class="project-gallery-nav">
+                            <button class="gallery-prev" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
+                            <button class="gallery-next" aria-label="Imagen siguiente"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <a href="#" class="project-link" data-project="fondo-becario">
+                            <span>Ver Proyecto</span>
+                            <i class="fas fa-images"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -462,15 +574,15 @@
                 <form id="contact-form" class="contact-form">
                     <div class="form-group">
                         <label for="name">Nombre</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" autocomplete="name" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" autocomplete="email" required>
                     </div>
                     <div class="form-group">
                         <label for="message">Mensaje</label>
-                        <textarea id="message" name="message" required></textarea>
+                        <textarea id="message" name="message" autocomplete="off" required></textarea>
                     </div>
                     <button type="submit" class="submit-btn">Enviar Mensaje</button>
                 </form>

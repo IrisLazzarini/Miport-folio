@@ -1,3 +1,154 @@
+// ============================================================================
+// UTILIDADES PARA MANEJO ROBUSTO DE IMÁGENES
+// ============================================================================
+
+/**
+ * Normaliza un nombre de archivo a un formato seguro para URLs
+ * @param {string} filename - Nombre del archivo original
+ * @returns {string} - Nombre normalizado
+ */
+function sanitizeFileName(filename) {
+    if (!filename) return '';
+    
+    // Remover acentos y caracteres especiales
+    const normalized = filename
+        .normalize('NFD') // Descompone caracteres con acentos
+        .replace(/[\u0300-\u036f]/g, '') // Elimina diacríticos
+        .toLowerCase() // Convertir a minúsculas
+        .trim();
+    
+    // Reemplazar espacios y caracteres especiales por guiones
+    const sanitized = normalized
+        .replace(/\s+/g, '-') // Espacios por guiones
+        .replace(/[()]/g, '') // Eliminar paréntesis
+        .replace(/\.+/g, '.') // Eliminar puntos duplicados
+        .replace(/[^a-z0-9.\-_]/g, '-') // Solo letras, números, puntos, guiones y guiones bajos
+        .replace(/-+/g, '-') // Eliminar guiones duplicados
+        .replace(/^-|-$/g, ''); // Eliminar guiones al inicio/final
+    
+    return sanitized;
+}
+
+/**
+ * Mapping de nombres originales a nombres normalizados para Fondo Becario
+ * Este mapping evita problemas con nombres largos y caracteres especiales
+ * NOTA: Si los archivos físicos tienen espacios, el sistema los sanitizará automáticamente
+ */
+const IMAGE_NAME_MAPPING = {
+    // Fondo Becario - Mapeo de nombres originales a normalizados
+    'Img/Fondo_becario/Inicio.png': 'Img/Fondo_becario/Inicio.png',
+    'Img/Fondo_becario/Vista de inicio.png': 'Img/Fondo_becario/Vista de inicio.png',
+    'Img/Fondo_becario/Balances.png': 'Img/Fondo_becario/Balances.png',
+    'Img/Fondo_becario/Balance consolidado.png': 'Img/Fondo_becario/Balance consolidado.png',
+    'Img/Fondo_becario/Balance.png': 'Img/Fondo_becario/Balance.png',
+    'Img/Fondo_becario/Gestion de inscripciones.png': 'Img/Fondo_becario/Gestion de inscripciones.png',
+    'Img/Fondo_becario/Becas.png': 'Img/Fondo_becario/Becas.png',
+    'Img/Fondo_becario/Auditoria.png': 'Img/Fondo_becario/Auditoria.png',
+    'Img/Fondo_becario/Egresos.png': 'Img/Fondo_becario/Egresos.png',
+    'Img/Fondo_becario/pagos de fondos.png': 'Img/Fondo_becario/pagos de fondos.png',
+    'Img/Fondo_becario/Normalizar excel.png': 'Img/Fondo_becario/Normalizar excel.png',
+    'Img/Fondo_becario/Eliminacion.png': 'Img/Fondo_becario/Eliminacion.png',
+};
+
+/**
+ * Normaliza una ruta de imagen usando el mapping o sanitización
+ * @param {string} originalPath - Ruta original de la imagen
+ * @returns {string} - Ruta normalizada (con codificación de URL para espacios)
+ */
+function normalizeImagePath(originalPath) {
+    if (!originalPath) return '';
+    
+    // Primero verificar si hay un mapping directo
+    let normalizedPath = IMAGE_NAME_MAPPING[originalPath];
+    
+    if (!normalizedPath) {
+        // Si no hay mapping, usar sanitización
+        const parts = originalPath.split('/');
+        const filename = parts.pop();
+        const sanitizedFilename = sanitizeFileName(filename);
+        const directory = parts.join('/');
+        normalizedPath = sanitizedFilename ? `${directory}/${sanitizedFilename}` : originalPath;
+    }
+    
+    // Codificar correctamente los espacios y caracteres especiales en la URL
+    // Dividir la ruta y codificar solo el nombre del archivo
+    const parts = normalizedPath.split('/');
+    const filename = parts.pop();
+    // Codificar el nombre del archivo para URL (espacios → %20, etc.)
+    const encodedFilename = encodeURIComponent(filename);
+    const directory = parts.join('/');
+    
+    return `${directory}/${encodedFilename}`;
+}
+
+/**
+ * Convierte una ruta relativa a absoluta basada en el root del servidor
+ * @param {string} relativePath - Ruta relativa
+ * @returns {string} - Ruta absoluta
+ */
+function getAbsoluteImagePath(relativePath) {
+    if (!relativePath) return '';
+    
+    // Si ya es una URL absoluta, retornarla
+    if (relativePath.startsWith('http://') || relativePath.startsWith('https://')) {
+        return relativePath;
+    }
+    
+    // Obtener el protocolo y host actual
+    const protocol = window.location.protocol;
+    const host = window.location.host;
+    
+    // Asegurar que la ruta comience con /
+    const cleanPath = relativePath.startsWith('/') ? relativePath : '/' + relativePath;
+    
+    return `${protocol}//${host}${cleanPath}`;
+}
+
+/**
+ * Crea un placeholder SVG para imágenes que fallan al cargar
+ * @param {string} altText - Texto alternativo
+ * @returns {string} - Data URL del SVG placeholder
+ */
+function createImagePlaceholder(altText = 'Imagen no disponible') {
+    const svg = `
+        <svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100%" height="100%" fill="#1a1a1a"/>
+            <text x="50%" y="50%" font-family="Arial, sans-serif" font-size="24" fill="#666" 
+                  text-anchor="middle" dominant-baseline="middle">${altText}</text>
+        </svg>
+    `.trim();
+    return 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svg)));
+}
+
+/**
+ * Valida y normaliza un array de rutas de imágenes
+ * @param {string[]} imagePaths - Array de rutas originales
+ * @returns {string[]} - Array de rutas normalizadas y absolutas
+ */
+function normalizeImagePaths(imagePaths) {
+    if (!Array.isArray(imagePaths) || imagePaths.length === 0) {
+        console.warn('normalizeImagePaths: Array vacío o inválido');
+        return [];
+    }
+    
+    return imagePaths.map((path, index) => {
+        const normalized = normalizeImagePath(path);
+        const absolute = getAbsoluteImagePath(normalized);
+        
+        console.log(`[${index + 1}/${imagePaths.length}] Normalizando imagen:`, {
+            original: path,
+            normalized: normalized,
+            absolute: absolute
+        });
+        
+        return absolute;
+    });
+}
+
+// ============================================================================
+// GALERÍA DE IMÁGENES
+// ============================================================================
+
 // Galería de imágenes
 function initializeGallery() {
     const galleries = document.querySelectorAll('.project-gallery');
@@ -81,9 +232,60 @@ function initializeProjectModal() {
         
         currentImages.forEach((src, index) => {
             const img = document.createElement('img');
+            const imageIndex = index + 1;
+            const totalImages = currentImages.length;
+            
+            img.alt = `Vista ${imageIndex} del proyecto`;
+            img.loading = 'eager';
+            img.style.display = 'block';
+            img.style.width = '100%';
+            img.style.height = '100%';
+            img.style.objectFit = 'contain';
+            img.style.opacity = '0';
+            img.style.transition = 'opacity 0.3s ease';
+            img.style.backgroundColor = '#1a1a1a';
+            
+            // Datos para debugging
+            img.dataset.originalSrc = src;
+            img.dataset.imageIndex = imageIndex;
+            
+            // Manejo de errores de carga con placeholder
+            img.onerror = function() {
+                const failedSrc = this.src;
+                const originalSrc = this.dataset.originalSrc || failedSrc;
+                
+                console.error(`❌ [${imageIndex}/${totalImages}] Error 404 cargando imagen:`, {
+                    original: originalSrc,
+                    attempted: failedSrc,
+                    timestamp: new Date().toISOString()
+                });
+                
+                // Mostrar placeholder en lugar de ocultar
+                this.src = createImagePlaceholder(`Imagen ${imageIndex} no disponible`);
+                this.style.opacity = '1';
+                this.style.filter = 'grayscale(100%) opacity(0.5)';
+                
+                // Agregar indicador visual de error
+                this.title = `Error: No se pudo cargar la imagen\nOriginal: ${originalSrc}`;
+            };
+            
+            // Asegurar que la imagen se muestre cuando esté cargada
+            img.onload = function() {
+                const loadedSrc = this.src;
+                const originalSrc = this.dataset.originalSrc || loadedSrc;
+                
+                console.log(`✅ [${imageIndex}/${totalImages}] Imagen cargada correctamente:`, {
+                    original: originalSrc,
+                    loaded: loadedSrc
+                });
+                
+                this.style.opacity = '1';
+                this.style.filter = 'none';
+            };
+            
+            // Establecer la fuente después de configurar los handlers
             img.src = src;
-            img.alt = `Vista ${index + 1} del proyecto`;
-            img.loading = 'lazy';
+            
             inner.appendChild(img);
         });
         
@@ -150,7 +352,23 @@ function initializeProjectModal() {
     }
 
     function openModal(images) {
-        currentImages = images;
+        if (!images || images.length === 0) {
+            console.error('❌ openModal: No hay imágenes para mostrar');
+            return;
+        }
+        
+        console.log('🖼️ Abriendo modal con imágenes:', images.length);
+        
+        // Normalizar y validar las rutas de las imágenes
+        currentImages = normalizeImagePaths(images);
+        
+        if (currentImages.length === 0) {
+            console.error('❌ openModal: No se pudieron normalizar las imágenes');
+            return;
+        }
+        
+        console.log('✅ Imágenes normalizadas:', currentImages);
+        
         currentIndex = 0;
         renderCarousel();
         modal.classList.add('open');
@@ -209,15 +427,31 @@ function initializeProjectModal() {
             // Recolectar imágenes del proyecto (de .project-gallery o imagen única)
             let imgs = [];
             const gallery = card.querySelector('.project-gallery');
+            
             if (gallery) {
-                imgs = Array.from(gallery.querySelectorAll('img')).map(i => i.getAttribute('src'));
+                // Obtener todas las imágenes de la galería
+                imgs = Array.from(gallery.querySelectorAll('img')).map(i => {
+                    // Priorizar el atributo src original del HTML
+                    const originalSrc = i.getAttribute('src');
+                    return originalSrc || i.src || '';
+                }).filter(src => src !== ''); // Filtrar vacíos
             } else {
+                // Buscar imagen única
                 const singleImg = card.querySelector('.project-image img');
-                if (singleImg) imgs = [singleImg.getAttribute('src')];
+                if (singleImg) {
+                    const originalSrc = singleImg.getAttribute('src') || singleImg.src;
+                    if (originalSrc) {
+                        imgs = [originalSrc];
+                    }
+                }
             }
 
-            if (imgs.length) {
+            if (imgs.length > 0) {
+                console.log('📸 Imágenes recolectadas del proyecto:', imgs.length);
+                console.log('📋 Lista de imágenes originales:', imgs);
                 openModal(imgs);
+            } else {
+                console.warn('⚠️ No se encontraron imágenes en el proyecto');
             }
         });
     });
@@ -489,6 +723,9 @@ contactForm.addEventListener('submit', function(e) {
         }, 500);
     }, 300);
 });
+
+// No necesitamos codificar manualmente, el navegador lo hace automáticamente
+// Esta función se eliminó porque causaba doble codificación
 
 // Inicializar todas las funcionalidades cuando se carga el DOM
 document.addEventListener('DOMContentLoaded', function() {
