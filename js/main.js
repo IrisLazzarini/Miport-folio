@@ -359,8 +359,8 @@ function initializeProjectModal() {
         
         console.log('🖼️ Abriendo modal con imágenes:', images.length);
         
-        // Normalizar y validar las rutas de las imágenes
-        currentImages = normalizeImagePaths(images);
+        // Conservar los nombres reales y la base del despliegue (por ejemplo, /Miport-folio/).
+        currentImages = images.map(path => new URL(path, document.baseURI).href);
         
         if (currentImages.length === 0) {
             console.error('❌ openModal: No se pudieron normalizar las imágenes');
