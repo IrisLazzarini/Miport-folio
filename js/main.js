@@ -372,11 +372,13 @@ function initializeProjectModal() {
         currentIndex = 0;
         renderCarousel();
         modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
     }
 
     function closeModal() {
         modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
         currentImages = [];
         currentIndex = 0;
@@ -419,7 +421,7 @@ function initializeProjectModal() {
     document.querySelectorAll('.project-card .project-link').forEach(link => {
         link.addEventListener('click', (e) => {
             // Si el enlace apunta a una URL externa (no es #), dejar que funcione normalmente
-            if (link.getAttribute('href') !== '#') return;
+            if (!link.classList.contains('gallery-link') && link.getAttribute('href') !== '#') return;
 
             e.preventDefault();
             const card = link.closest('.project-card');
@@ -566,13 +568,15 @@ const menuBtn = document.querySelector('.menu-btn');
 const navLinks = document.querySelector('.nav-links');
 
 menuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
+    const isOpen = navLinks.classList.toggle('active');
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
 });
 
 // Close mobile menu when clicking a link
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('active');
+        menuBtn.setAttribute('aria-expanded', 'false');
     });
 });
 
@@ -662,6 +666,54 @@ function initFormValidation() {
     });
 }
 
+// Lightweight bilingual content switcher. It keeps the page static and SEO-friendly.
+const translations = {
+    es: {
+        'nav.home': 'Inicio', 'nav.about': 'Sobre mí', 'nav.services': 'Servicios', 'nav.projects': 'Proyectos', 'nav.technologies': 'Tecnologías', 'nav.contact': 'Contacto',
+        'hero.availability': 'disponible para proyectos freelance', 'hero.role': 'Analista Funcional <span>&amp;</span> Desarrolladora Full Stack',
+        'hero.tagline': 'Desarrollo aplicaciones web modernas que ayudan a las empresas a convertir procesos complejos en productos digitales claros y confiables.', 'hero.projects': 'Ver proyectos', 'hero.contact': 'Hablemos de tu proyecto', 'hero.location': 'Desde Argentina · trabajo remoto',
+        'about.index': '01 / sobre mí', 'about.title': 'Pensamiento técnico.<br><span>Resultados útiles.</span>', 'about.paragraph1': 'Ayudo a empresas y equipos a transformar necesidades operativas reales en productos digitales más fáciles de usar, mantener y hacer crecer. Combino análisis funcional con desarrollo full stack para que las decisiones estén conectadas con las personas y los procesos detrás del software.', 'about.paragraph2': 'Trabajo con JavaScript, PHP, Python, APIs y bases de datos relacionales, eligiendo la solución confiable más simple para cada proyecto. Obtienes comunicación clara, entregas ordenadas y software construido alrededor de tus objetivos, no una plantilla genérica.', 'about.link': 'Mira cómo puedo ayudarte',
+        'services.index': '02 / servicios', 'services.title': 'Lo que puedo construir<br><span>contigo.</span>', 'services.intro': 'Apoyo concreto para lanzar, mejorar o mantener productos digitales.',
+        'service.web.title': 'Desarrollo web', 'service.web.text': 'Sitios responsivos que hacen que tu propuesta sea clara y creíble en cualquier pantalla.', 'service.apps.title': 'Aplicaciones web a medida', 'service.apps.text': 'Herramientas de negocio adaptadas a tu flujo, usuarios y datos, sin soluciones genéricas.', 'service.analysis.title': 'Análisis funcional', 'service.analysis.text': 'Requisitos, flujos y prioridades claros antes de comenzar a desarrollar.', 'service.api.title': 'Desarrollo de APIs', 'service.api.text': 'Integraciones y endpoints ordenados para que tus sistemas intercambien datos de forma segura.', 'service.database.title': 'Diseño de bases de datos', 'service.database.text': 'Modelos y consultas organizadas para mantener la información consistente y útil.', 'service.support.title': 'Mantenimiento y soporte', 'service.support.text': 'Mejoras prácticas, correcciones y acompañamiento para software que ya está en uso.',
+        'projects.index': '03 / trabajos seleccionados', 'projects.title': 'Proyectos construidos sobre<br><span>problemas reales.</span>', 'projects.intro': 'Ejemplos de cómo el análisis, el diseño y el desarrollo se convierten en productos útiles.', 'project.gallery': 'Ver galería', 'project.demo': 'Demo en vivo', 'project.problem': 'Problema', 'project.solution': 'Solución', 'project.result': 'Resultado',
+        'project.agromapa.intro': 'Plataforma orientada a datos para el análisis agropecuario y mejores decisiones en el campo.', 'project.agromapa.problem': 'La información del campo era difícil de interpretar y comparar.', 'project.agromapa.solution': 'Una interfaz práctica para organizar datos de cultivos y suelos.', 'project.agromapa.result': 'Información más clara para tomar decisiones operativas con rapidez.',
+        'project.accounting.intro': 'Herramienta modular de facturación y contabilidad diseñada para operaciones diarias resilientes.', 'project.accounting.problem': 'La facturación debía funcionar en distintas configuraciones de servidor.', 'project.accounting.solution': 'Arquitectura de datos alternativa con opciones MySQL, SQLite y JSON.', 'project.accounting.result': 'Un sistema robusto que continúa funcionando cuando la infraestructura cambia.',
+        'project.scholarship.intro': 'Sistema de gestión financiera que convierte planillas desordenadas en información confiable.', 'project.scholarship.problem': 'Múltiples formatos de Excel, cálculos manuales y balances poco confiables.', 'project.scholarship.solution': 'Importaciones normalizadas, reglas de negocio e informes consolidados automáticos.', 'project.scholarship.result': 'Una visión confiable de ingresos, egresos y becas.',
+        'project.chartier.intro': 'Presencia de una página que hace fáciles de encontrar los servicios, productos y medios de contacto.', 'project.chartier.problem': 'El negocio necesitaba una puerta de entrada digital creíble.', 'project.chartier.solution': 'Sitio liviano y responsivo con caminos claros hacia la conversión.', 'project.chartier.result': 'Presencia online profesional que funciona en todos los dispositivos.',
+        'project.polo.intro': 'Plataforma educativa que conecta información académica, comunidad y recursos para estudiantes.', 'project.polo.problem': 'Estudiantes e instituciones necesitaban un centro de información accesible.', 'project.polo.solution': 'Navegación estructurada, herramientas comunitarias y recursos de autoservicio.', 'project.polo.result': 'Un camino más claro desde conocer una propuesta hasta realizar una acción.',
+        'project.pulveragro.intro': 'Sitio corporativo claro para una empresa de pulverización agrícola.', 'project.pulveragro.problem': 'La empresa necesitaba explicar rápidamente su cobertura y servicios.', 'project.pulveragro.solution': 'Sitio responsivo y limpio con caminos directos de contacto.', 'project.pulveragro.result': 'Una primera impresión más profesional para clientes agropecuarios.', 'tech.responsive': 'Diseño responsivo',
+        'tech.index': '04 / herramientas', 'tech.title': 'Las herramientas quedan<br><span>en segundo plano.</span>', 'tech.intro': 'Te importa el resultado. Estas son las herramientas que uso para hacerlo confiable.', 'tech.frontend': 'Frontend', 'tech.backend': 'Backend', 'tech.database': 'Base de datos', 'tech.tools': 'Herramientas',
+        'contact.index': '05 / contacto', 'contact.title': 'Construyamos tu<br><span>próximo proyecto.</span>', 'contact.intro': 'Cuéntame qué quieres mejorar, construir o simplificar. Te responderé con el próximo paso práctico.', 'contact.formIntro': 'envía tu idea', 'form.name': 'Tu nombre', 'form.email': 'Correo electrónico', 'form.message': '¿En qué estás trabajando?', 'form.submit': 'Enviar consulta', 'form.note': 'El mensaje se abrirá en tu cliente de correo. No se guardan datos aquí.'
+    }
+};
+
+function initLanguageSwitcher() {
+    const buttons = document.querySelectorAll('[data-language]');
+    const elements = document.querySelectorAll('[data-i18n]');
+    if (!buttons.length) return;
+    const originalContent = new Map(Array.from(elements, (element) => [element, element.innerHTML]));
+
+    const applyLanguage = (language) => {
+        elements.forEach((element) => {
+            const translation = translations[language]?.[element.dataset.i18n];
+            element.innerHTML = translation || originalContent.get(element);
+        });
+
+        buttons.forEach((button) => {
+            const isActive = button.dataset.language === language;
+            button.classList.toggle('active', isActive);
+            button.setAttribute('aria-pressed', String(isActive));
+        });
+        document.documentElement.lang = language;
+        try { localStorage.setItem('portfolio-language', language); } catch (error) { /* Private browsing can block storage. */ }
+    };
+
+    buttons.forEach((button) => button.addEventListener('click', () => applyLanguage(button.dataset.language)));
+    let savedLanguage = 'en';
+    try { savedLanguage = localStorage.getItem('portfolio-language') || 'en'; } catch (error) { /* Use English by default. */ }
+    applyLanguage(savedLanguage === 'es' ? 'es' : 'en');
+}
+
 // Formulario de contacto
 const contactForm = document.getElementById('contact-form');
 
@@ -738,6 +790,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Nuevas funcionalidades UX
     initBackToTop();
     initFormValidation();
+    initLanguageSwitcher();
     updateScrollProgress();
     
     // Inicializar AOS (Animate On Scroll)

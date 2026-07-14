@@ -1,619 +1,180 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Iris Lazzarini – Portfolio Profesional</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Iris Lazzarini is a Functional Analyst & Full Stack Developer building reliable web applications, APIs and data-driven tools for businesses.">
+    <meta name="theme-color" content="#050706">
+    <title>Iris Lazzarini | Functional Analyst & Full Stack Developer</title>
+    <link rel="canonical" href="https://irislazzarini.github.io/Miport-folio/">
     <link rel="stylesheet" href="css/styles.css">
-    <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- AOS Animation Library -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Pantalla de Inicio (Overlay) -->
-    <div id="start-overlay" class="start-overlay">
+    <div id="start-overlay" class="start-overlay" aria-label="Welcome">
         <div class="start-content">
-            <img src="Img/Avatar/AVATARMIO.jpeg" alt="Avatar Iris Lazzarini" class="start-avatar">
+            <span class="terminal-label">IRIS_LAZZARINI / PORTFOLIO</span>
+            <img src="Img/Avatar/AVATARMIO.jpeg" alt="Iris Lazzarini" class="start-avatar">
             <h1 class="start-title">Iris Lazzarini</h1>
-            <p class="start-subtitle">Portfolio Profesional</p>
-            <div class="start-instruction">
-                <span class="blink">🖱️ Haz clic o presiona una tecla para iniciar</span>
-            </div>
+            <p class="start-subtitle">Functional Analyst & Full Stack Developer</p>
+            <div class="start-instruction"><span class="blink">[ click to enter ]</span></div>
         </div>
     </div>
 
-    <!-- Navbar -->
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main navigation">
         <div class="navbar-container">
-            <a href="#" class="logo">IL</a>
+            <a href="#inicio" class="logo" aria-label="Iris Lazzarini home">IL<span>.</span></a>
+            <button class="menu-btn" type="button" aria-label="Open navigation menu" aria-expanded="false">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
             <div class="nav-links">
-                <a href="#inicio">Inicio</a>
-                <a href="#sobre-mi">Sobre Mí</a>
-                <a href="#proyectos">Proyectos</a>
-                <a href="#habilidades">Habilidades</a>
-                <a href="#contacto">Contacto</a>
+                <a href="#inicio" data-i18n="nav.home">Home</a>
+                <a href="#sobre-mi" data-i18n="nav.about">About</a>
+                <a href="#servicios" data-i18n="nav.services">Services</a>
+                <a href="#proyectos" data-i18n="nav.projects">Projects</a>
+                <a href="#tecnologias" data-i18n="nav.technologies">Technologies</a>
+                <a href="#contacto" data-i18n="nav.contact">Contact</a>
             </div>
-            <div class="menu-btn">
-                <i class="fas fa-bars"></i>
+            <div class="language-switcher" role="group" aria-label="Language selector">
+                <button type="button" data-language="en" class="active" aria-pressed="true">EN</button>
+                <span>/</span>
+                <button type="button" data-language="es" aria-pressed="false">ES</button>
             </div>
         </div>
     </nav>
 
-    <!-- Sección Inicio -->
-    <section id="inicio" class="hero">
-        <!-- Iconos decorativos flotantes -->
-        <i class="fas fa-code hero-icon"></i>
-        <i class="fas fa-laptop-code hero-icon"></i>
-        <i class="fas fa-database hero-icon"></i>
-        <i class="fas fa-brain hero-icon"></i>
-        <i class="fas fa-project-diagram hero-icon"></i>
-        
-        <div class="container">
-            <h1 class="fade-in">Iris Lazzarini</h1>
-            <h2 class="subtitle fade-in">Portfolio Profesional</h2>
-            <p class="tagline fade-in">Desarrollo soluciones tecnológicas funcionales combinando programación, análisis de sistemas y administración.</p>
-        </div>
-    </section>
-
-    <!-- Sección Sobre Mí -->
-    <section id="sobre-mi" class="about">
-        <div class="container">
-            <h2 class="section-title">Sobre Mí</h2>
-            <div class="about-content">
-                <div class="about-image" data-aos="fade-right">
-                    <img src="Img/Avatar/AVATARMIO.jpeg" alt="Iris Lazzarini - Perfil Profesional" class="profile-img">
+    <main>
+        <section id="inicio" class="hero">
+            <i class="fas fa-code hero-icon hero-icon-one" aria-hidden="true"></i>
+            <i class="fas fa-database hero-icon hero-icon-two" aria-hidden="true"></i>
+            <i class="fas fa-terminal hero-icon hero-icon-three" aria-hidden="true"></i>
+            <div class="container hero-layout">
+                <div class="hero-copy" data-aos="fade-up">
+                    <p class="eyebrow"><span class="prompt">&gt;</span> <span data-i18n="hero.availability">available for freelance projects</span></p>
+                    <h1>Iris Lazzarini</h1>
+                    <h2 data-i18n="hero.role">Functional Analyst <span>&amp;</span> Full Stack Developer</h2>
+                    <p class="tagline" data-i18n="hero.tagline">I build modern web applications that help businesses turn complex processes into clear, reliable digital products.</p>
+                    <div class="hero-actions">
+                        <a href="#proyectos" class="button button-primary"><span data-i18n="hero.projects">View projects</span> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                        <a href="#contacto" class="button button-secondary"><span data-i18n="hero.contact">Start a conversation</span> <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="hero-note"><span class="status-dot"></span> <span data-i18n="hero.location">Based in Argentina · working remotely</span></div>
                 </div>
-                <div class="about-text" data-aos="fade-left">
-                    <p>Soy egresada de la carrera de Análisis de Sistemas Informáticos y trabajo en el desarrollo de soluciones tecnológicas aplicadas a contextos reales. Integro programación en Python y Go con el manejo de bases de datos relacionales y no relacionales, abordando los proyectos desde una visión técnica, analítica y organizacional.</p>
-                    <p>He participado en proyectos reales donde diseñé sistemas escalables, utilizando UML para modelar arquitecturas y optimizar procesos. En estos trabajos logré mejoras de rendimiento de hasta un 50% mediante la optimización de consultas y la reorganización de la lógica del sistema.</p>
-                    <p>Me destaco por mi capacidad de análisis, resolución de problemas y trabajo en equipo, con foco en desarrollar soluciones claras, mantenibles y orientadas a resultados concretos.</p>
-                    <p>Mantengo una formación continua a través de la capacitación y la lectura técnica, entendiendo el aprendizaje permanente como una parte esencial del ejercicio profesional.</p>
+                <div class="hero-aside" data-aos="fade-left" data-aos-delay="150">
+                    <div class="code-window" aria-label="How I approach projects">
+                        <div class="window-bar"><span></span><span></span><span></span><small>approach.js</small></div>
+                        <pre><code><span class="code-muted">01</span> <span class="code-keyword">const</span> <span class="code-name">project</span> = {
+<span class="code-muted">02</span>   <span class="code-key">clarity</span>: <span class="code-string">"first"</span>,
+<span class="code-muted">03</span>   <span class="code-key">solution</span>: <span class="code-string">"built to last"</span>,
+<span class="code-muted">04</span>   <span class="code-key">outcome</span>: <span class="code-string">"measurable"</span>
+<span class="code-muted">05</span> };</code></pre>
+                    </div>
+                    <div class="hero-aside-caption">From business need to working product.</div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Sección Proyectos -->
-    <section id="proyectos" class="projects">
-        <div class="container">
-            <h2 class="section-title">Proyectos Destacados</h2>
-            <div class="projects-grid">
-                <!-- Proyecto 1: Agromapa -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="0">
-                    <div class="project-image">
-                        <div class="project-gallery">
-                            <img src="Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.26.jpeg" alt="Agromapa Vista 1">
-                            <img src="Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.26 (1).jpeg" alt="Agromapa Vista 2">
-                            <img src="Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.26 (2).jpeg" alt="Agromapa Vista 3">
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Agromapa</h3>
-                        <p>Plataforma orientada al sector agropecuario que permite el análisis de cultivos y condiciones de suelo, facilitando la toma de decisiones en el campo.</p>
-                        <div class="project-tech">
-                            <span>Python</span>
-                            <span>Flask</span>
-                            <span>MySQL</span>
-                        </div>
-                        <div class="project-gallery-nav">
-                            <button class="gallery-prev" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
-                            <button class="gallery-next" aria-label="Imagen siguiente"><i class="fas fa-chevron-right"></i></button>
-                        </div>
-                        <a href="#" class="project-link" data-project="agromapa">
-                            <span>Ver Proyecto</span>
-                            <i class="fas fa-images"></i>
-                        </a>
-                    </div>
+        <section id="sobre-mi" class="about section-shell">
+            <div class="container about-grid">
+                <div class="section-heading" data-aos="fade-up">
+                    <span class="section-index" data-i18n="about.index">01 / about</span>
+                    <h2 data-i18n="about.title">Technical thinking.<br><span>Useful outcomes.</span></h2>
                 </div>
-
-                <!-- Proyecto 2: Sistema Contable Completo -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="project-image">
-                        <div class="project-gallery">
-                            <img src="Img/Sistemadistribuidoras/Inicio.png" alt="Sistema Contable - Inicio">
-                            <img src="Img/Sistemadistribuidoras/Facturas.png" alt="Sistema Contable - Facturas">
-                            <img src="Img/Sistemadistribuidoras/Analisis financiero .png" alt="Sistema Contable - Análisis Financiero">
-                            <img src="Img/Sistemadistribuidoras/Asientos COntables.png" alt="Sistema Contable - Asientos Contables">
-                            <img src="Img/Sistemadistribuidoras/Libro de iva.png" alt="Sistema Contable - Libro de IVA">
-                            <img src="Img/Sistemadistribuidoras/Nota de creditos .png" alt="Sistema Contable - Notas de Crédito">
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Sistema Contable Completo</h3>
-                        <div class="project-description">
-                            <p>Desarrollé un sistema de gestión de comprobantes (facturación) modular y adaptable, construido íntegramente en PHP. El objetivo principal fue crear una aplicación robusta que pudiera funcionar en diferentes entornos con una configuración mínima.</p>
-                            
-                            <p>El proyecto demuestra habilidades en arquitectura de software, manejo de bases de datos y simulación de servicios externos para pruebas.</p>
-                            
-                            <h4>1. Arquitectura de Datos Flexible (Estrategia de Fallback)</h4>
-                            <p>El mayor desafío fue asegurar que el sistema siempre funcionara, sin importar la configuración del servidor del usuario. Para lograrlo, implementé una estrategia de persistencia de datos con un "patrón de fallback" de tres niveles:</p>
-                            
-                            <p><strong>Nivel 1: MySQL (Opción Recomendada)</strong></p>
-                            <ul>
-                                <li>Es la opción principal y más robusta.</li>
-                                <li>Creé un script de instalación (conectar_bd.php) que automatiza todo el proceso: verifica la conexión al servidor, crea la base de datos sistema_comprobantes si no existe, y ejecuta el script mysql_setup.sql para generar la estructura de tablas.</li>
-                            </ul>
-                            
-                            <p><strong>Nivel 2: SQLite (Respaldo Automático)</strong></p>
-                            <ul>
-                                <li>Si el sistema detecta que la extensión PDO para MySQL no está disponible o la conexión falla, automáticamente utiliza SQLite.</li>
-                                <li>Esto permite que la aplicación funcione sin necesidad de un servidor de base de datos externo, creando un archivo database.sqlite local.</li>
-                            </ul>
-                            
-                            <p><strong>Nivel 3: Archivos JSON (Fallback Definitivo)</strong></p>
-                            <ul>
-                                <li>Como última instancia, si ni MySQL ni SQLite están disponibles, el sistema entra en modo "fallback" y guarda todos los datos en archivos .json en la carpeta data/.</li>
-                            </ul>
-                            
-                            <h4>2. Simulación de API Externa (AFIP)</h4>
-                            <p>Para desarrollar y probar la funcionalidad de facturación electrónica sin depender de una conexión real a la AFIP, desarrollé un módulo de simulación que:</p>
-                            <ul>
-                                <li>Simula respuestas del servicio web de la AFIP</li>
-                                <li>Genera datos ficticios pero realistas, incluyendo CAE y códigos QR</li>
-                                <li>Incluye simulación de errores comunes para testing robusto</li>
-                            </ul>
-                        </div>
-                        <button class="read-more-btn" aria-expanded="false">VER MÁS</button>
-                        <div class="project-tech">
-                            <span>PHP</span>
-                            <span>MySQL</span>
-                            <span>JavaScript</span>
-                             <span>Simulador de AFIP</span>
-                             <span>Archivos JSON</span>
-                        </div>
-                        <div class="project-gallery-nav">
-                            <button class="gallery-prev" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
-                            <button class="gallery-next" aria-label="Imagen siguiente"><i class="fas fa-chevron-right"></i></button>
-                        </div>
-                        <a href="#" class="project-link" data-project="sistema-contable">
-                            <span>Ver Proyecto</span>
-                            <i class="fas fa-images"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Proyecto 3: Polo Estudiantil -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-image">
-                        <div class="project-gallery">
-                            <img src="Img/Polo/Inicio.png" alt="Polo - Inicio">
-                            <img src="Img/Polo/Comunidad .png" alt="Polo - Comunidad">
-                            <img src="Img/Polo/Comunidad2.png" alt="Polo - Comunidad 2">
-                            <img src="Img/Polo/CV.png" alt="Polo - Crear CV">
-                            <img src="Img/Polo/Sobre nosotros.png" alt="Polo - Sobre Nosotros">
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Polo Universitario San Justo</h3>
-                        <div class="project-description">
-                            <p>El Polo Universitario de San Justo es una plataforma educativa digital desarrollada para centralizar la información académica, promover la vinculación institucional y potenciar la participación de estudiantes y docentes de la región.</p>
-                            <p>El sitio presenta un diseño moderno, intuitivo y accesible, que permite explorar la oferta académica, conocer las novedades institucionales y acceder fácilmente a servicios de inscripción y contacto.</p>
-                            <p>Una de sus principales innovaciones es la sección “Comunidad”, un espacio colaborativo donde los usuarios pueden compartir materiales de estudio, realizar consultas, intercambiar experiencias e incluso crear y diseñar su propio currículum vitae desde la plataforma.</p>
-                            <p>El proyecto refleja el compromiso del Polo con la educación inclusiva, la tecnología y el desarrollo local, integrando herramientas digitales que promueven el aprendizaje compartido y la conexión entre instituciones, estudiantes y profesionales.</p>
-                        </div>
-                        <button class="read-more-btn" aria-expanded="false">VER MÁS</button>
-                        <div class="project-tech">
-                            <span>PHP</span>
-                            <span>HTML</span>
-                            <span>MySQL</span>
-                        </div>
-                        <div class="project-gallery-nav">
-                            <button class="gallery-prev" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
-                            <button class="gallery-next" aria-label="Imagen siguiente"><i class="fas fa-chevron-right"></i></button>
-                        </div>
-                        <a href="https://polousanjusto.com.ar/" target="_blank" class="project-link" data-project="polo-universitario">
-                            <span>Visitar Sitio</span>
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Proyecto 4: Hojalatería Chartier -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="project-image">
-                        <div class="project-gallery">
-                            <img src="Img/HojalateriaCH/Inicio.png" alt="Hojalatería Chartier - Inicio">
-                            <img src="Img/HojalateriaCH/Servicios.png" alt="Hojalatería Chartier - Servicios">
-                            <img src="Img/HojalateriaCH/Productos.png" alt="Hojalatería Chartier - Productos">
-                            <img src="Img/HojalateriaCH/Contacto.png" alt="Hojalatería Chartier - Contacto">
-                            <img src="Img/HojalateriaCH/Sobre Nosotros.png" alt="Hojalatería Chartier - Sobre Nosotros">
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Landing Page Corporativa "Hojalatería Chartier"</h3>
-                        <div class="project-description">
-                            <p>Desarrollé una landing page corporativa One-Page (de una sola página) para "Hojalatería Chartier", un proyecto enfocado en crear una presencia digital moderna, profesional y 100% responsiva.</p>
-                            
-                            <p>El principal objetivo fue construir una interfaz de usuario atractiva y fluida utilizando únicamente tecnologías web puras (HTML, CSS y JavaScript "Vanilla"), sin depender de frameworks o librerías externas.</p>
-                            
-                            <h4>1. Maquetación Avanzada con CSS Grid y Flexbox</h4>
-                            <p>El proyecto demuestra un dominio profundo de las técnicas de layout modernas de CSS para crear un diseño adaptable a cualquier dispositivo, desde móviles hasta monitores de escritorio.</p>
-                            
-                            <ul>
-                                <li><strong>Diseño Responsivo (Mobile-First):</strong> La estructura se diseñó desde cero para ser "mobile-first". Utilicé Media Queries de forma intensiva para reorganizar el contenido, asegurando una experiencia de usuario óptima en tablets y móviles.</li>
-                                <li><strong>CSS Grid:</strong> Implementé CSS Grid para la sección de "Contacto", creando una maquetación asimétrica y compleja que posiciona las tarjetas de información y el formulario de manera organizada y visualmente impactante.</li>
-                                <li><strong>Flexbox:</strong> Usé Flexbox en todo el sitio para el alineamiento de componentes, como la barra de navegación, el hero section y las tarjetas de servicios.</li>
-                            </ul>
-                            
-                            <h4>2. Interactividad con JavaScript Puro (Vanilla JS)</h4>
-                            <p>Toda la interactividad del sitio se programó con JavaScript "Vanilla" (puro), demostrando una sólida comprensión de la manipulación del DOM.</p>
-                            
-                            <ul>
-                                <li><strong>Navegación Responsiva:</strong> Programé el menú de navegación móvil (tipo "hamburguesa"), que se desliza desde el lateral y aplica un overlay al contenido principal, todo manejado con eventos de click y conmutación de clases CSS.</li>
-                                <li><strong>Acordeón de Servicios:</strong> Desarrollé la funcionalidad "VER MÁS / VER MENOS" de las secciones "Servicios" y "Productos". Mediante JavaScript, el botón detecta el estado de la tarjeta y añade o quita una clase (.expanded), que a su vez activa una animación CSS fluida que expande o contrae el contenido.</li>
-                                <li><strong>Formulario de Contacto (Client-Side):</strong> El formulario de contacto se maneja 100% del lado del cliente. Un script captura el evento submit, previene la recarga de la página, y utiliza los datos ingresados para generar dinámicamente un enlace mailto: con la información pre-cargada.</li>
-                            </ul>
-                        </div>
-                        <button class="read-more-btn" aria-expanded="false">VER MÁS</button>
-                        <div class="project-tech">
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-                            <span>JavaScript Vanilla</span>
-                            <span>CSS Grid</span>
-                            <span>Flexbox</span>
-                            <span>Mobile-First</span>
-                        </div>
-                        <div class="project-gallery-nav">
-                            <button class="gallery-prev" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
-                            <button class="gallery-next" aria-label="Imagen siguiente"><i class="fas fa-chevron-right"></i></button>
-                        </div>
-                        <a href="https://hojalateriachartier.com/" target="_blank" class="project-link" data-project="hojalateria-chartier">
-                            <span>Visitar Sitio</span>
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Proyecto 5: Escuela Superior de Comercio Nº 45 -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="project-image">
-                        <div class="project-gallery">
-                            <img src="Img/Comercio45/Campus.png" alt="Escuela Superior de Comercio Nº 45 - Campus Virtual">
-                            <img src="Img/Comercio45/Estudiantes.png" alt="Escuela Superior de Comercio Nº 45 - Estudiantes">
-                            <img src="Img/Comercio45/Ficha.png" alt="Escuela Superior de Comercio Nº 45 - Ficha de Inscripción">
-                            <img src="Img/Comercio45/Historia.png" alt="Escuela Superior de Comercio Nº 45 - Historia">
-                            <img src="Img/Comercio45/Inscripcion.png" alt="Escuela Superior de Comercio Nº 45 - Inscripción">
-                            <img src="Img/Comercio45/Propedeutico.png" alt="Escuela Superior de Comercio Nº 45 - Curso Propedéutico">
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Escuela Superior de Comercio Nº 45</h3>
-                        <div class="project-description">
-                            <p>Desarrollo del sitio web institucional para la Escuela Superior de Comercio Nº 45 "Dr. José Roberto González", institución referente en educación superior de la región desde 1957.</p>
-                            
-                            <p>El sitio ofrece información integral sobre la oferta académica, incluyendo la Tecnicatura Superior en Análisis Funcional de Sistemas Informáticos. Funciona como canal de comunicación oficial y punto de acceso a recursos para estudiantes y docentes.</p>
-
-                            <h4>Características Destacadas</h4>
-                            <ul>
-                                <li><strong>Diseño Institucional:</strong> Interfaz profesional que refleja la identidad y trayectoria de la escuela.</li>
-                                <li><strong>Información Académica:</strong> Secciones detalladas sobre carreras, planes de estudio y competencias profesionales.</li>
-                                <li><strong>Acceso a Recursos:</strong> Enlaces directos a documentación oficial y novedades institucionales.</li>
-                            </ul>
-                        </div>
-                        <button class="read-more-btn" aria-expanded="false">VER MÁS</button>
-                        <div class="project-tech">
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-                            <span>JavaScript</span>
-                            <span>Web Institucional</span>
-                        </div>
-                        <div class="project-gallery-nav">
-                            <button class="gallery-prev" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
-                            <button class="gallery-next" aria-label="Imagen siguiente"><i class="fas fa-chevron-right"></i></button>
-                        </div>
-                        <a href="https://escomercio45.edu.ar/" target="_blank" class="project-link" data-project="escuela-45">
-                            <span>Visitar Sitio</span>
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Proyecto 6: PulverAgro -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="500">
-                    <div class="project-image">
-                        <div class="project-gallery">
-                            <iframe src="https://irislazzarini.github.io/Maquinaria/" frameborder="0" class="project-iframe" loading="lazy" title="Vista previa de PulverAgro"></iframe>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>PulverAgro</h3>
-                        <p>Sitio web corporativo desarrollado para una empresa de pulverización agrícola de San Justo, Santa Fe. El objetivo del proyecto fue presentar de manera clara y profesional los servicios de la empresa, su misión, cobertura de trabajo y medios de contacto. El sitio está orientado a clientes del sector agropecuario y prioriza una navegación simple, diseño visual limpio y accesibilidad desde dispositivos móviles.</p>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>Diseño Responsive</span>
-                        </div>
-                        <div class="project-gallery-nav">
-                            <button class="gallery-prev" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
-                            <button class="gallery-next" aria-label="Imagen siguiente"><i class="fas fa-chevron-right"></i></button>
-                        </div>
-                        <a href="https://irislazzarini.github.io/Maquinaria/" target="_blank" class="project-link" data-project="pulveragro">
-                            <span>Visitar Sitio</span>
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Proyecto 7: Fondo Becario -->
-                <div class="project-card" data-aos="fade-up" data-aos-delay="600">
-                    <div class="project-image">
-                        <div class="project-gallery">
-                            <img src="Img/Fondo_becario/Inicio.png" alt="Fondo Becario - Inicio" class="active">
-                            <img src="Img/Fondo_becario/Vista de inicio.png" alt="Fondo Becario - Vista de Inicio">
-                            <img src="Img/Fondo_becario/Balances.png" alt="Fondo Becario - Balances">
-                            <img src="Img/Fondo_becario/Balance consolidado.png" alt="Fondo Becario - Balance Consolidado">
-                            <img src="Img/Fondo_becario/Balance.png" alt="Fondo Becario - Balance">
-                            <img src="Img/Fondo_becario/Gestion de inscripciones.png" alt="Fondo Becario - Gestión de Inscripciones">
-                            <img src="Img/Fondo_becario/Becas.png" alt="Fondo Becario - Becas">
-                            <img src="Img/Fondo_becario/Auditoria.png" alt="Fondo Becario - Auditoría">
-                            <img src="Img/Fondo_becario/Egresos.png" alt="Fondo Becario - Egresos">
-                            <img src="Img/Fondo_becario/pagos de fondos.png" alt="Fondo Becario - Pagos de Fondos">
-                            <img src="Img/Fondo_becario/Normalizar excel.png" alt="Fondo Becario - Normalizar Excel">
-                            <img src="Img/Fondo_becario/Eliminacion.png" alt="Fondo Becario - Eliminación">
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Fondo Becario</h3>
-                        <div class="project-description">
-                            <p><strong>Sistema de Gestión y Análisis Financiero</strong></p>
-                            
-                            <h4><i class="fas fa-info-circle"></i> ¿Qué es este proyecto?</h4>
-                            <p>Fondo Becario es un sistema web que desarrollé para gestionar de forma integral los ingresos, egresos y becas de un fondo institucional, resolviendo un problema muy común: <i class="fas fa-arrow-right"></i> datos financieros desordenados en Excel, cálculos manuales y balances poco confiables.</p>
-                            
-                            <p>El sistema permite importar datos crudos desde Excel, procesarlos de forma automática y generar balances consolidados y dashboards financieros profesionales, sin depender de fórmulas cargadas por el usuario.</p>
-                            
-                            <h4><i class="fas fa-exclamation-triangle"></i> Problema que resuelve</h4>
-                            <p><strong>Antes de este sistema:</strong></p>
-                            <ul>
-                                <li>La información llegaba en múltiples archivos Excel</li>
-                                <li>Cada archivo tenía formatos distintos</li>
-                                <li>Los cálculos se hacían a mano</li>
-                                <li>Los balances eran propensos a errores</li>
-                                <li>No había una visión clara del estado del fondo</li>
-                            </ul>
-                            
-                            <h4><i class="fas fa-check-circle"></i> Solución que implementé</h4>
-                            <p>Diseñé e implementé un sistema que:</p>
-                            <ul>
-                                <li><i class="fas fa-download"></i> <strong>Importa archivos Excel sin fórmulas</strong></li>
-                                <li><i class="fas fa-brain"></i> <strong>Normaliza los datos en el backend</strong></li>
-                                <li><i class="fas fa-chart-bar"></i> <strong>Calcula balances consolidados automáticamente</strong></li>
-                                <li><i class="fas fa-upload"></i> <strong>Exporta un dashboard ejecutivo a Excel</strong>, con:
-                                    <ul>
-                                        <li>KPIs claros (Ingresos, Egresos, Saldo)</li>
-                                        <li>Fórmulas dinámicas generadas por el sistema</li>
-                                        <li>Actualización automática si se modifican los datos</li>
-                                    </ul>
-                                </li>
-                                <li><i class="fas fa-lock"></i> <strong>Mantiene la lógica de negocio dentro del sistema</strong>, no en los archivos externos</li>
-                            </ul>
-                            
-                            <h4><i class="fas fa-star"></i> Funcionalidades principales</h4>
-                            <ul>
-                                <li>Importación de Excel multi-hoja</li>
-                                <li>Detección automática de columnas por encabezado</li>
-                                <li>Balance anual por mes y tipo</li>
-                                <li>Dashboard financiero con KPIs jerarquizados</li>
-                                <li>Exportación a Excel con fórmulas dinámicas en español</li>
-                                <li>Gestión de becas e inscripciones</li>
-                                <li>Validaciones y control de integridad de datos</li>
-                            </ul>
-                            
-                            <h4><i class="fas fa-brain"></i> Decisiones clave del diseño</h4>
-                            <ul>
-                                <li>El Excel de entrada es solo fuente de datos, no contiene lógica</li>
-                                <li>Todos los cálculos se realizan en el sistema</li>
-                                <li>El Excel exportado es un reporte profesional, no un archivo manual</li>
-                                <li>El diseño está pensado para usuarios administrativos y contables</li>
-                            </ul>
-                            
-                            <h4><i class="fas fa-tools"></i> Tecnologías utilizadas</h4>
-                            <ul>
-                                <li>PHP 8</li>
-                                <li>MySQL 8</li>
-                                <li>PhpSpreadsheet</li>
-                                <li>Arquitectura MVC simple</li>
-                                <li>Automatización y análisis de datos en Excel</li>
-                            </ul>
-                            
-                            <h4><i class="fas fa-bullseye"></i> Resultado</h4>
-                            <p>Un sistema:</p>
-                            <ul>
-                                <li>Confiable</li>
-                                <li>Escalable</li>
-                                <li>Fácil de usar</li>
-                                <li>Orientado a un uso real, no académico</li>
-                            </ul>
-                            
-                            <p>Este proyecto refleja mi forma de trabajar: analizar el problema, ordenar los datos, automatizar procesos y generar información clara para la toma de decisiones.</p>
-                        </div>
-                        <button class="read-more-btn" aria-expanded="false">VER MÁS</button>
-                        <div class="project-tech">
-                            <span>PHP 8</span>
-                            <span>MySQL 8</span>
-                            <span>PhpSpreadsheet</span>
-                            <span>MVC</span>
-                            <span>Excel Automation</span>
-                        </div>
-                        <div class="project-gallery-nav">
-                            <button class="gallery-prev" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
-                            <button class="gallery-next" aria-label="Imagen siguiente"><i class="fas fa-chevron-right"></i></button>
-                        </div>
-                        <a href="#" class="project-link" data-project="fondo-becario">
-                            <span>Ver Proyecto</span>
-                            <i class="fas fa-images"></i>
-                        </a>
-                    </div>
+                <div class="about-text" data-aos="fade-up" data-aos-delay="100">
+                    <p data-i18n="about.paragraph1">I help businesses and teams transform real operational needs into digital products that are easier to use, maintain and grow. My work combines functional analysis with full stack development, so decisions stay connected to the people and processes behind the software.</p>
+                    <p data-i18n="about.paragraph2">I work with JavaScript, PHP, Python, APIs and relational databases, choosing the simplest reliable solution for each project. You get clear communication, structured delivery and software built around your goals, not a generic template.</p>
+                    <a href="#servicios" class="text-link"><span data-i18n="about.link">See how I can help</span> <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Sección Perfil Profesional (Conocimientos Técnicos, Habilidades, Aptitudes) -->
-    <section id="habilidades" class="skills">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up" data-aos-delay="0">Perfil Profesional</h2>
-            <p class="skills-intro" data-aos="fade-up" data-aos-delay="80">Estas son las competencias que mejor representan mi perfil: una combinación de análisis técnico, pensamiento crítico y orientación a soluciones tecnológicas.</p>
-
-            <div class="profile-grid">
-                <!-- Bloque 1: Conocimientos Técnicos -->
-                <div class="profile-block" data-aos="fade-up" data-aos-delay="120">
-                    <div class="block-header">
-                        <span class="block-icon"><i class="fas fa-microchip"></i></span>
-                        <h3>Conocimientos Técnicos</h3>
-                    </div>
-
-                    <div class="block-section">
-                        <h4><i class="fas fa-code"></i> Lenguajes de Programación</h4>
-                        <div class="tech-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">PHP</span>
-                            <span class="tag">Java</span>
-                            <span class="tag">HTML5</span>
-                            <span class="tag">CSS3</span>
-                            <span class="tag">SQL</span>
-                        </div>
-                    </div>
-
-                    <div class="block-section">
-                        <h4><i class="fas fa-database"></i> Bases de Datos</h4>
-                        <div class="tech-tags">
-                            <span class="tag">MySQL</span>
-                            <span class="tag">SQLite</span>
-                            <span class="tag">Modelado y consultas</span>
-                            <span class="tag">Normalización</span>
-                        </div>
-                    </div>
-
-                    <div class="block-section">
-                        <h4><i class="fas fa-globe"></i> Desarrollo Web</h4>
-                        <ul class="block-list">
-                            <li><i class="fas fa-check"></i> Desarrollo del frontend con tecnologías web modernas, garantizando interfaces rápidas, accesibles y responsivas.</li>
-                            <li><i class="fas fa-check"></i> Implementación del backend con PHP y bases de datos relacionales para asegurar una gestión de datos confiable y escalable.</li>
-                        </ul>
-                    </div>
-
-                    <div class="block-section">
-                        <h4><i class="fas fa-toolbox"></i> Ofimática y Herramientas Digitales</h4>
-                        <div class="tech-tags">
-                            <span class="tag">Microsoft Word</span>
-                            <span class="tag">Excel</span>
-                            <span class="tag">PowerPoint</span>
-                            <span class="tag">Google Docs</span>
-                            <span class="tag">Sheets</span>
-                            <span class="tag">Slides</span>
-                        </div>
-                    </div>
+        <section id="servicios" class="services section-shell section-dark">
+            <div class="container">
+                <div class="section-heading section-heading-wide" data-aos="fade-up">
+                    <span class="section-index" data-i18n="services.index">02 / services</span>
+                    <h2 data-i18n="services.title">What I can build<br><span>with you.</span></h2>
+                    <p data-i18n="services.intro">Focused support for launching, improving or maintaining digital products.</p>
                 </div>
-
-                <!-- Bloque 2: Habilidades -->
-                <div class="profile-block" data-aos="fade-up" data-aos-delay="160">
-                    <div class="block-header">
-                        <span class="block-icon"><i class="fas fa-handshake-angle"></i></span>
-                        <h3>Habilidades</h3>
-                    </div>
-
-                    <ul class="block-list spaced">
-                        <li><i class="fas fa-users"></i> Trabajo en equipo: colaboración proactiva con foco en objetivos comunes.</li>
-                        <li><i class="fas fa-headphones"></i> Escucha activa y responsabilidad: adaptación a necesidades del equipo y proyecto.</li>
-                        <li><i class="fas fa-brain"></i> Capacidad de análisis: detección de problemas y propuesta de soluciones eficientes.</li>
-                        <li><i class="fas fa-lightbulb"></i> Creatividad en soluciones digitales: ideas innovadoras orientadas al usuario.</li>
-                        <li><i class="fas fa-diagram-project"></i> Gestión de Proyectos (Jira).</li>
-                    </ul>
-                </div>
-
-                <!-- Bloque 3: Aptitudes -->
-                <div class="profile-block" data-aos="fade-up" data-aos-delay="200">
-                    <div class="block-header">
-                        <span class="block-icon"><i class="fas fa-chart-line"></i></span>
-                        <h3>Aptitudes</h3>
-                    </div>
-
-                    <ul class="block-list spaced">
-                        <li><i class="fas fa-book"></i> Aprendizaje constante.</li>
-                        <li><i class="fas fa-magnifying-glass"></i> Pensamiento analítico.</li>
-                        <li><i class="fas fa-briefcase"></i> Compromiso y responsabilidad.</li>
-                        <li><i class="fas fa-comments"></i> Buena comunicación.</li>
-                        <li><i class="fas fa-palette"></i> Creatividad aplicada.</li>
-                        <li><i class="fas fa-seedling"></i> Resiliencia y adaptabilidad.</li>
-                        <li><i class="fas fa-search-plus"></i> Trabajo en equipo</li>
-                    </ul>
+                <div class="services-grid">
+                    <article class="service-card" data-aos="fade-up"><span class="service-number">01</span><i class="fas fa-laptop-code service-icon" aria-hidden="true"></i><h3 data-i18n="service.web.title">Web Development</h3><p data-i18n="service.web.text">Responsive websites that make your offer clear and credible on every screen.</p></article>
+                    <article class="service-card" data-aos="fade-up" data-aos-delay="60"><span class="service-number">02</span><i class="fas fa-layer-group service-icon" aria-hidden="true"></i><h3 data-i18n="service.apps.title">Custom Web Applications</h3><p data-i18n="service.apps.text">Business tools tailored to your workflow, users and data instead of off-the-shelf compromises.</p></article>
+                    <article class="service-card" data-aos="fade-up" data-aos-delay="120"><span class="service-number">03</span><i class="fas fa-diagram-project service-icon" aria-hidden="true"></i><h3 data-i18n="service.analysis.title">Functional Analysis</h3><p data-i18n="service.analysis.text">Clear requirements, flows and priorities before development begins.</p></article>
+                    <article class="service-card" data-aos="fade-up" data-aos-delay="180"><span class="service-number">04</span><i class="fas fa-plug service-icon" aria-hidden="true"></i><h3 data-i18n="service.api.title">API Development</h3><p data-i18n="service.api.text">Well-structured integrations and endpoints that let systems exchange data safely.</p></article>
+                    <article class="service-card" data-aos="fade-up" data-aos-delay="240"><span class="service-number">05</span><i class="fas fa-database service-icon" aria-hidden="true"></i><h3 data-i18n="service.database.title">Database Design</h3><p data-i18n="service.database.text">Organized data models and queries that keep information consistent and useful.</p></article>
+                    <article class="service-card" data-aos="fade-up" data-aos-delay="300"><span class="service-number">06</span><i class="fas fa-screwdriver-wrench service-icon" aria-hidden="true"></i><h3 data-i18n="service.support.title">Maintenance &amp; Support</h3><p data-i18n="service.support.text">Practical improvements, fixes and ongoing care for software already in use.</p></article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Modal para mostrar proyectos -->
-    <div id="project-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="modal-gallery-container">
-                <div class="modal-gallery">
-                    <!-- Las imágenes se cargarán dinámicamente aquí -->
+        <section id="proyectos" class="projects section-shell">
+            <div class="container">
+                <div class="section-heading section-heading-wide" data-aos="fade-up">
+                    <span class="section-index" data-i18n="projects.index">03 / selected work</span>
+                    <h2 data-i18n="projects.title">Projects built around<br><span>real problems.</span></h2>
+                    <p data-i18n="projects.intro">A few examples of how analysis, design and development become useful products.</p>
                 </div>
-                <div class="modal-nav">
-                    <button class="modal-prev" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
-                    <button class="modal-next" aria-label="Imagen siguiente"><i class="fas fa-chevron-right"></i></button>
-                </div>
-                <div class="modal-indicators">
-                    <!-- Los indicadores se cargarán dinámicamente aquí -->
+                <div class="projects-grid">
+                    <article class="project-card" data-aos="fade-up">
+                        <div class="project-image"><div class="project-gallery"><img src="Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.26.jpeg" alt="Agromapa crop analysis" loading="lazy"><img src="Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.26 (1).jpeg" alt="Agromapa data view" loading="lazy"><img src="Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.26 (2).jpeg" alt="Agromapa agricultural map" loading="lazy"></div><span class="project-type">Web application</span></div>
+                        <div class="project-info"><div class="project-title-row"><h3>Agromapa</h3><span class="project-year">01</span></div><p class="project-intro" data-i18n="project.agromapa.intro">A data-focused platform for agricultural analysis and better field decisions.</p><dl class="project-proof"><div><dt data-i18n="project.problem">Problem</dt><dd data-i18n="project.agromapa.problem">Field information was difficult to interpret and compare.</dd></div><div><dt data-i18n="project.solution">Solution</dt><dd data-i18n="project.agromapa.solution">A practical interface to organize crop and soil data.</dd></div><div><dt data-i18n="project.result">Result</dt><dd data-i18n="project.agromapa.result">Clearer information for faster operational decisions.</dd></div></dl><div class="project-tech"><span>Python</span><span>Flask</span><span>MySQL</span></div><div class="project-footer"><button class="project-link gallery-link" type="button"><span data-i18n="project.gallery">View gallery</span><i class="fas fa-images" aria-hidden="true"></i></button><a href="https://github.com/IrisLazzarini" target="_blank" rel="noopener noreferrer" class="project-action">GitHub <i class="fab fa-github" aria-hidden="true"></i></a></div><div class="project-gallery-nav"><button class="gallery-prev" aria-label="Previous Agromapa image"><i class="fas fa-chevron-left" aria-hidden="true"></i></button><button class="gallery-next" aria-label="Next Agromapa image"><i class="fas fa-chevron-right" aria-hidden="true"></i></button></div></div>
+                    </article>
+
+                    <article class="project-card" data-aos="fade-up" data-aos-delay="80">
+                        <div class="project-image"><div class="project-gallery"><img src="Img/Sistemadistribuidoras/Inicio.png" alt="Accounting system dashboard" loading="lazy"><img src="Img/Sistemadistribuidoras/Facturas.png" alt="Accounting system invoices" loading="lazy"><img src="Img/Sistemadistribuidoras/Analisis financiero .png" alt="Accounting system financial analysis" loading="lazy"><img src="Img/Sistemadistribuidoras/Asientos COntables.png" alt="Accounting system entries" loading="lazy"><img src="Img/Sistemadistribuidoras/Libro de iva.png" alt="Accounting system VAT book" loading="lazy"><img src="Img/Sistemadistribuidoras/Nota de creditos .png" alt="Accounting system credit notes" loading="lazy"></div><span class="project-type">Custom application</span></div>
+                        <div class="project-info"><div class="project-title-row"><h3>Accounting System</h3><span class="project-year">02</span></div><p class="project-intro" data-i18n="project.accounting.intro">A modular invoicing and accounting tool designed for resilient day-to-day operations.</p><dl class="project-proof"><div><dt data-i18n="project.problem">Problem</dt><dd data-i18n="project.accounting.problem">Invoicing needed to work across different server configurations.</dd></div><div><dt data-i18n="project.solution">Solution</dt><dd data-i18n="project.accounting.solution">Fallback data architecture with MySQL, SQLite and JSON options.</dd></div><div><dt data-i18n="project.result">Result</dt><dd data-i18n="project.accounting.result">A robust system that keeps working when infrastructure varies.</dd></div></dl><div class="project-tech"><span>PHP</span><span>MySQL</span><span>JavaScript</span><span>AFIP simulator</span></div><div class="project-footer"><button class="project-link gallery-link" type="button"><span data-i18n="project.gallery">View gallery</span><i class="fas fa-images" aria-hidden="true"></i></button><a href="https://github.com/IrisLazzarini" target="_blank" rel="noopener noreferrer" class="project-action">GitHub <i class="fab fa-github" aria-hidden="true"></i></a></div><div class="project-gallery-nav"><button class="gallery-prev" aria-label="Previous accounting system image"><i class="fas fa-chevron-left" aria-hidden="true"></i></button><button class="gallery-next" aria-label="Next accounting system image"><i class="fas fa-chevron-right" aria-hidden="true"></i></button></div></div>
+                    </article>
+
+                    <article class="project-card" data-aos="fade-up" data-aos-delay="160">
+                        <div class="project-image"><div class="project-gallery"><img src="Img/Fondo_becario/Inicio.png" alt="Scholarship fund dashboard" loading="lazy"><img src="Img/Fondo_becario/Vista de inicio.png" alt="Scholarship fund home" loading="lazy"><img src="Img/Fondo_becario/Balances.png" alt="Scholarship fund balances" loading="lazy"><img src="Img/Fondo_becario/Balance consolidado.png" alt="Consolidated balance" loading="lazy"><img src="Img/Fondo_becario/Balance.png" alt="Financial balance" loading="lazy"><img src="Img/Fondo_becario/Gestion de inscripciones.png" alt="Scholarship registrations" loading="lazy"><img src="Img/Fondo_becario/Becas.png" alt="Scholarship management" loading="lazy"><img src="Img/Fondo_becario/Auditoria.png" alt="Audit screen" loading="lazy"><img src="Img/Fondo_becario/Egresos.png" alt="Expenses screen" loading="lazy"><img src="Img/Fondo_becario/pagos de fondos.png" alt="Fund payments" loading="lazy"><img src="Img/Fondo_becario/Normalizar excel.png" alt="Excel normalization" loading="lazy"><img src="Img/Fondo_becario/Eliminacion.png" alt="Data deletion" loading="lazy"></div><span class="project-type">Data &amp; automation</span></div>
+                        <div class="project-info"><div class="project-title-row"><h3>Fondo Becario</h3><span class="project-year">03</span></div><p class="project-intro" data-i18n="project.scholarship.intro">A financial management system that turns messy spreadsheets into reliable information.</p><dl class="project-proof"><div><dt data-i18n="project.problem">Problem</dt><dd data-i18n="project.scholarship.problem">Multiple Excel formats, manual calculations and unreliable balances.</dd></div><div><dt data-i18n="project.solution">Solution</dt><dd data-i18n="project.scholarship.solution">Normalized imports, business rules and automated consolidated reports.</dd></div><div><dt data-i18n="project.result">Result</dt><dd data-i18n="project.scholarship.result">A dependable overview of income, expenses and scholarships.</dd></div></dl><div class="project-tech"><span>PHP 8</span><span>MySQL 8</span><span>PhpSpreadsheet</span><span>MVC</span></div><div class="project-footer"><button class="project-link gallery-link" type="button"><span data-i18n="project.gallery">View gallery</span><i class="fas fa-images" aria-hidden="true"></i></button><a href="https://github.com/IrisLazzarini" target="_blank" rel="noopener noreferrer" class="project-action">GitHub <i class="fab fa-github" aria-hidden="true"></i></a></div><div class="project-gallery-nav"><button class="gallery-prev" aria-label="Previous scholarship fund image"><i class="fas fa-chevron-left" aria-hidden="true"></i></button><button class="gallery-next" aria-label="Next scholarship fund image"><i class="fas fa-chevron-right" aria-hidden="true"></i></button></div></div>
+                    </article>
+
+                    <article class="project-card" data-aos="fade-up">
+                        <div class="project-image"><div class="project-gallery"><img src="Img/HojalateriaCH/Inicio.png" alt="Hojalatería Chartier website" loading="lazy"><img src="Img/HojalateriaCH/Servicios.png" alt="Hojalatería Chartier services" loading="lazy"><img src="Img/HojalateriaCH/Productos.png" alt="Hojalatería Chartier products" loading="lazy"><img src="Img/HojalateriaCH/Contacto.png" alt="Hojalatería Chartier contact" loading="lazy"></div><span class="project-type">Business website</span></div>
+                        <div class="project-info"><div class="project-title-row"><h3>Hojalatería Chartier</h3><span class="project-year">04</span></div><p class="project-intro" data-i18n="project.chartier.intro">A focused one-page presence that makes services, products and contact options easy to find.</p><dl class="project-proof"><div><dt data-i18n="project.problem">Problem</dt><dd data-i18n="project.chartier.problem">The business needed a credible digital front door.</dd></div><div><dt data-i18n="project.solution">Solution</dt><dd data-i18n="project.chartier.solution">A responsive, lightweight site with clear conversion paths.</dd></div><div><dt data-i18n="project.result">Result</dt><dd data-i18n="project.chartier.result">A professional online presence that works across devices.</dd></div></dl><div class="project-tech"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div><div class="project-footer"><a href="https://hojalateriachartier.com/" target="_blank" rel="noopener noreferrer" class="project-link"><span data-i18n="project.demo">Live demo</span> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a><a href="https://github.com/IrisLazzarini" target="_blank" rel="noopener noreferrer" class="project-action">GitHub <i class="fab fa-github" aria-hidden="true"></i></a></div><div class="project-gallery-nav"><button class="gallery-prev" aria-label="Previous Hojalatería Chartier image"><i class="fas fa-chevron-left" aria-hidden="true"></i></button><button class="gallery-next" aria-label="Next Hojalatería Chartier image"><i class="fas fa-chevron-right" aria-hidden="true"></i></button></div></div>
+                    </article>
+
+                    <article class="project-card" data-aos="fade-up" data-aos-delay="80">
+                        <div class="project-image"><div class="project-gallery"><img src="Img/Polo/Inicio.png" alt="Polo Universitario website" loading="lazy"><img src="Img/Polo/Comunidad .png" alt="Polo Universitario community" loading="lazy"><img src="Img/Polo/Comunidad2.png" alt="Polo Universitario resources" loading="lazy"><img src="Img/Polo/CV.png" alt="Polo Universitario CV builder" loading="lazy"></div><span class="project-type">Education platform</span></div>
+                        <div class="project-info"><div class="project-title-row"><h3>Polo Universitario</h3><span class="project-year">05</span></div><p class="project-intro" data-i18n="project.polo.intro">An educational platform connecting academic information, community and student resources.</p><dl class="project-proof"><div><dt data-i18n="project.problem">Problem</dt><dd data-i18n="project.polo.problem">Students and institutions needed one accessible information hub.</dd></div><div><dt data-i18n="project.solution">Solution</dt><dd data-i18n="project.polo.solution">Structured navigation, community tools and self-service resources.</dd></div><div><dt data-i18n="project.result">Result</dt><dd data-i18n="project.polo.result">A clearer path from discovering an offer to taking action.</dd></div></dl><div class="project-tech"><span>PHP</span><span>HTML</span><span>MySQL</span></div><div class="project-footer"><a href="https://polousanjusto.com.ar/" target="_blank" rel="noopener noreferrer" class="project-link"><span data-i18n="project.demo">Live demo</span> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a><a href="https://github.com/IrisLazzarini" target="_blank" rel="noopener noreferrer" class="project-action">GitHub <i class="fab fa-github" aria-hidden="true"></i></a></div><div class="project-gallery-nav"><button class="gallery-prev" aria-label="Previous Polo Universitario image"><i class="fas fa-chevron-left" aria-hidden="true"></i></button><button class="gallery-next" aria-label="Next Polo Universitario image"><i class="fas fa-chevron-right" aria-hidden="true"></i></button></div></div>
+                    </article>
+
+                    <article class="project-card" data-aos="fade-up" data-aos-delay="160">
+                        <div class="project-image"><div class="project-gallery"><iframe src="https://irislazzarini.github.io/Maquinaria/" class="project-iframe" loading="lazy" title="PulverAgro live preview"></iframe></div><span class="project-type">Corporate website</span></div>
+                        <div class="project-info"><div class="project-title-row"><h3>PulverAgro</h3><span class="project-year">06</span></div><p class="project-intro" data-i18n="project.pulveragro.intro">A clear corporate website for an agricultural spraying company.</p><dl class="project-proof"><div><dt data-i18n="project.problem">Problem</dt><dd data-i18n="project.pulveragro.problem">The company needed to explain its coverage and services quickly.</dd></div><div><dt data-i18n="project.solution">Solution</dt><dd data-i18n="project.pulveragro.solution">A clean responsive site with direct contact paths.</dd></div><div><dt data-i18n="project.result">Result</dt><dd data-i18n="project.pulveragro.result">A more professional first impression for agricultural clients.</dd></div></dl><div class="project-tech"><span>HTML</span><span>CSS</span><span data-i18n="tech.responsive">Responsive design</span></div><div class="project-footer"><a href="https://irislazzarini.github.io/Maquinaria/" target="_blank" rel="noopener noreferrer" class="project-link"><span data-i18n="project.demo">Live demo</span> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a><a href="https://github.com/IrisLazzarini" target="_blank" rel="noopener noreferrer" class="project-action">GitHub <i class="fab fa-github" aria-hidden="true"></i></a></div></div>
+                    </article>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section id="tecnologias" class="technologies section-shell section-dark">
+            <div class="container">
+                <div class="section-heading section-heading-wide" data-aos="fade-up"><span class="section-index" data-i18n="tech.index">04 / toolkit</span><h2 data-i18n="tech.title">The tools stay<br><span>in the background.</span></h2><p data-i18n="tech.intro">You care about the result. These are the tools I use to make it reliable.</p></div>
+                <div class="tech-groups">
+                    <div class="tech-group" data-aos="fade-up"><h3><span>01</span> <span data-i18n="tech.frontend">Frontend</span></h3><div class="tech-logos"><span><i class="fab fa-js" aria-hidden="true"></i>JavaScript</span><span><i class="fab fa-html5" aria-hidden="true"></i>HTML5</span><span><i class="fab fa-css3-alt" aria-hidden="true"></i>CSS3</span></div></div>
+                    <div class="tech-group" data-aos="fade-up" data-aos-delay="80"><h3><span>02</span> <span data-i18n="tech.backend">Backend</span></h3><div class="tech-logos"><span><i class="fab fa-php" aria-hidden="true"></i>PHP</span><span><i class="fab fa-python" aria-hidden="true"></i>Python</span><span><i class="fas fa-plug" aria-hidden="true"></i>APIs</span></div></div>
+                    <div class="tech-group" data-aos="fade-up" data-aos-delay="160"><h3><span>03</span> <span data-i18n="tech.database">Database</span></h3><div class="tech-logos"><span><i class="fas fa-database" aria-hidden="true"></i>MySQL</span><span><i class="fas fa-database" aria-hidden="true"></i>SQLite</span><span><i class="fas fa-table" aria-hidden="true"></i>SQL</span></div></div>
+                    <div class="tech-group" data-aos="fade-up" data-aos-delay="240"><h3><span>04</span> <span data-i18n="tech.tools">Tools</span></h3><div class="tech-logos"><span><i class="fab fa-git-alt" aria-hidden="true"></i>Git</span><span><i class="fas fa-file-excel" aria-hidden="true"></i>Excel</span><span><i class="fas fa-diagram-project" aria-hidden="true"></i>UML</span></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="contact section-shell">
+            <div class="container contact-grid">
+                <div class="contact-copy" data-aos="fade-up"><span class="section-index" data-i18n="contact.index">05 / contact</span><h2 data-i18n="contact.title">Let's build your<br><span>next project.</span></h2><p data-i18n="contact.intro">Tell me what you are trying to improve, build or simplify. I will get back to you with the next practical step.</p><div class="contact-links"><a href="mailto:irislazzarini@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i><span>irislazzarini@gmail.com</span></a><a href="https://github.com/IrisLazzarini" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i><span>GitHub</span></a><a href="https://www.linkedin.com/in/iris-lazzarini-7600881a3" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a><a href="https://wa.me/3498522611" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span></a></div></div>
+                <form id="contact-form" class="contact-form" data-aos="fade-up" data-aos-delay="120"><div class="form-intro"><span class="prompt">&gt;</span> <span data-i18n="contact.formIntro">send a brief</span></div><div class="form-group"><label for="name" data-i18n="form.name">Your name</label><input type="text" id="name" name="name" autocomplete="name" placeholder="How should I call you?" required></div><div class="form-group"><label for="email" data-i18n="form.email">Email address</label><input type="email" id="email" name="email" autocomplete="email" placeholder="you@company.com" required></div><div class="form-group"><label for="message" data-i18n="form.message">What are you working on?</label><textarea id="message" name="message" autocomplete="off" placeholder="A few lines about the challenge, timeline or desired outcome..." required></textarea></div><button type="submit" class="submit-btn"><span data-i18n="form.submit">Send inquiry</span> <i class="fas fa-arrow-right" aria-hidden="true"></i></button><p class="form-note" data-i18n="form.note">Your message opens in your email client. No data is stored here.</p></form>
+            </div>
+        </section>
+    </main>
+
+    <div id="project-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-content"><button class="close-modal" type="button" aria-label="Close project gallery"><i class="fas fa-xmark" aria-hidden="true"></i></button><h2 id="modal-title" class="sr-only">Project gallery</h2><div class="modal-gallery-container"><div class="modal-gallery"></div><div class="modal-nav"><button class="modal-prev" type="button" aria-label="Previous image"><i class="fas fa-chevron-left" aria-hidden="true"></i></button><button class="modal-next" type="button" aria-label="Next image"><i class="fas fa-chevron-right" aria-hidden="true"></i></button></div><div class="modal-indicators" role="tablist" aria-label="Project images"></div></div></div>
     </div>
 
-    <!-- Sección Contacto -->
-    <section id="contacto" class="contact">
-        <div class="container">
-            <h2 class="section-title">Contacto</h2>
-            <div class="contact-content">
-                <form id="contact-form" class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Nombre</label>
-                        <input type="text" id="name" name="name" autocomplete="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" autocomplete="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Mensaje</label>
-                        <textarea id="message" name="message" autocomplete="off" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Enviar Mensaje</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/iris-lazzarini-7600881a3" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/IrisLazzarini" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="mailto:irislazzarini81@gmail.com">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Botón WhatsApp -->
-    <a href="https://wa.me/3498522611" class="whatsapp-btn" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <footer class="footer"><div class="container"><div class="footer-content"><p>© 2026 Iris Lazzarini <span>·</span> Built with clarity.</p><div class="social-links"><a href="https://github.com/IrisLazzarini" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/iris-lazzarini-7600881a3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a><a href="mailto:irislazzarini81@gmail.com" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a></div></div></div></footer>
+    <a href="https://wa.me/3498522611" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Contact via WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/main.js"></script>
