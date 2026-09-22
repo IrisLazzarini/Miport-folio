@@ -20,6 +20,7 @@ GitHub Pages puede servir directamente esta raíz. Todas las rutas de recursos y
 index.html                   Contenido estático, metadatos y estructura semántica
 css/styles.css               Tokens, componentes y composiciones responsive
 js/main.js                   Idiomas, menú, galería y mejoras progresivas
+js/showcase.js               Selector de proyectos en portada y copia del correo
 js/profile.js                CV, experiencia y participación pendiente de confirmar
 js/galleries.js              Inventario generado de las 52 capturas ES/EN
 assets/projects/             Capturas WebP y portadas optimizadas
@@ -43,11 +44,13 @@ El texto español está en el HTML. Cada atributo `data-en` contiene su traducci
 - `experiences`: vacío muestra experiencia aplicada a través de proyectos. Al cargar roles, organizaciones, períodos, responsabilidades y resultados verificables, se renderizan en la misma composición vertical.
 - `projectContributions.agromapa`: vacío omite una participación individual no documentada. Acepta `{ es: '...', en: '...' }`.
 
-El correo profesional confirmado es **irislazzarini81@gmail.com**. No hay formulario ni mensajes de envío ficticios: los enlaces de correo abren el cliente que tenga configurado el visitante.
+El correo profesional confirmado es **irislazzarini81@gmail.com**. Los enlaces de correo abren el cliente que tenga configurado el visitante. El botón **Copiar correo** utiliza el portapapeles del navegador; si no está disponible o el permiso se rechaza, selecciona el texto y explica cómo copiarlo manualmente.
 
 ## Proyectos y conservación
 
 Fondo Becario, Sistema contable y Agromapa son los casos destacados. Polo Universitario, Hojalatería Chartier, PulverAgro y Comercio 45 completan la selección. Las galerías cargan una sola captura a la vez, se controlan con flechas y Escape, conservan el foco y no avanzan automáticamente.
+
+La portada permite elegir entre los tres casos destacados con botones, flechas, Inicio y Fin. Cada selección muestra una captura real y enlaza al caso correspondiente. No avanza automáticamente y conserva la selección al cambiar de idioma. Los accesos directos de la sección Proyectos y las miniaturas del resto de trabajos facilitan explorar el portfolio.
 
 Los repositorios privados o vacíos no se presentan como código público. Los sitios externos que no resolvieron o devolvieron 404 durante la revisión se conservan en `docs/content-audit.md` para volver a verificarlos, con capturas accesibles desde el portfolio.
 
@@ -55,7 +58,7 @@ Los repositorios privados o vacíos no se presentan como código público. Los s
 
 Las 55 imágenes originales permanecen en `Img/`. Hay 52 capturas, una ilustración y dos fondos decorativos. Los fondos se conservan como material original, pero la identidad azul utiliza CSS y SVG. La imagen `Img/Agromapa/Portada.png` muestra Comercio 45 y se clasifica correctamente en esa galería.
 
-Las capturas, portadas e ilustración optimizadas suman aproximadamente **2,71 MB**, un **91,2 % menos** que los originales utilizados, incluso contando las portadas adicionales. Esto es el peso total del catálogo, no la descarga inicial. El sitio solo descarga portadas cercanas al viewport y la captura activa cuando se abre una galería.
+Las capturas, portadas e ilustración generadas desde los originales suman aproximadamente **2,71 MB**, un **91,2 % menos** que los originales utilizados, incluso contando las portadas adicionales. Se agrega una portada de PulverAgro de aproximadamente 39 KB, capturada de su sitio real; su procedencia se documenta en `docs/pulveragro-image-source.md`. Estos son pesos del catálogo, no la descarga inicial. El sitio solo descarga portadas cercanas al viewport y la captura activa cuando se abre una galería.
 
 Para regenerar imágenes, con Python y Pillow instalados:
 

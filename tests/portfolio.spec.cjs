@@ -16,6 +16,7 @@ const BASE_URL = process.env.PORTFOLIO_BASE_URL || 'http://127.0.0.1:4173/Miport
 const OUTPUT = process.env.PORTFOLIO_TEST_OUTPUT;
 const EMAIL = 'irislazzarini81@gmail.com';
 const PROJECT_COUNTS = { scholarship: 12, accounting: 17, agromapa: 6, chartier: 5, polo: 5, comercio45: 7 };
+const SHOWCASE_KEYS = ['scholarship', 'accounting', 'agromapa'];
 const results = [];
 let browser;
 
@@ -102,6 +103,41 @@ async function assertFocusInDialog(page) {
     'Keyboard focus stays inside the open modal');
 }
 
+async function assertShowcase(page, galleries, key, language) {
+  const gallery = galleries[key];
+  const title = language === 'en' ? gallery.titleEn : gallery.title;
+  const image = page.locator('.showcase-image');
+  await page.waitForFunction(src => {
+    const image = document.querySelector('.showcase-image');
+    return image.getAttribute('src') === src && image.complete && image.naturalWidth > 0;
+  }, gallery.cover);
+  assert.equal(await image.getAttribute('alt'), gallery.images[0][language]);
+  assert.equal((await page.locator('#showcase-title').textContent()).trim(), title);
+  assert.deepEqual(await page.locator('[data-showcase][aria-pressed="true"]').evaluateAll(buttons => buttons.map(button => button.dataset.showcase)), [key],
+    'Exactly the selected project is announced as pressed');
+  assert.equal((await page.locator('.showcase-number').textContent()).trim(), `0${SHOWCASE_KEYS.indexOf(key) + 1} / 03`);
+  for (const selector of ['.showcase-image-link', '.showcase-case']) {
+    assert.equal(await page.locator(selector).getAttribute('href'), `#${key}`);
+    assert.equal(await page.locator(`#${key}`).count(), 1, 'Showcase links target an existing case study');
+  }
+  assert.equal(await page.locator('.showcase-image-link').getAttribute('aria-labelledby'), 'showcase-title');
+}
+
+async function mockClipboard(page, mode) {
+  await page.addInitScript(selectedMode => {
+    window.__portfolioClipboardWrites = [];
+    Object.defineProperty(navigator, 'clipboard', {
+      configurable: true,
+      value: selectedMode === 'unavailable' ? undefined : {
+        async writeText(value) {
+          if (selectedMode === 'denied') throw new DOMException('Clipboard permission denied for test', 'NotAllowedError');
+          window.__portfolioClipboardWrites.push(value);
+        },
+      },
+    });
+  }, mode);
+}
+
 async function main() {
   browser = await chromium.launch({ headless: process.env.PORTFOLIO_HEADED !== '1', executablePath: process.env.PORTFOLIO_BROWSER_PATH || undefined });
   try {
@@ -175,13 +211,104 @@ async function main() {
       assert.deepEqual(errors, [], 'English copy and accessible attributes are fully translated');
       await page.reload({ waitUntil: 'networkidle' });
       await page.waitForFunction(() => document.documentElement.lang === 'en');
-      assert.equal((await page.locator('.hero-lead').textContent()).trim(), 'Understand the process. Build the solution.');
+      assert.equal((await page.locator('.hero-description').textContent()).trim(), 'I turn needs, processes and data into digital products that solve real problems.');
       await chooseLanguage(page, 'es');
       assert.deepEqual(await page.locator('[data-en]').evaluateAll(elements => elements.map(element => element.textContent)), spanish,
         'Switching back restores the original Spanish text');
       await page.reload({ waitUntil: 'networkidle' });
       await page.waitForFunction(() => document.documentElement.lang === 'es');
     }));
+
+    await check('Featured showcase selects all three cases, links correctly, and retains selection across ES/EN changes', () => withPage({}, async page => {
+      const galleries = await galleryData(page);
+      assert.deepEqual(await page.locator('[data-showcase]').evaluateAll(buttons => buttons.map(button => button.dataset.showcase)), SHOWCASE_KEYS);
+      assert.equal(await page.locator('.showcase-switcher').getAttribute('role'), 'group');
+      assert.equal(await page.locator('.showcase-status').getAttribute('role'), 'status');
+      assert.equal(await page.locator('.showcase-status').getAttribute('aria-live'), 'polite');
+      await assertShowcase(page, galleries, 'scholarship', 'es');
+      for (const [index, key] of SHOWCASE_KEYS.entries()) {
+        const button = page.locator(`[data-showcase="${key}"]`);
+        await button.click();
+        await assertShowcase(page, galleries, key, 'es');
+        assert.equal((await page.locator('.showcase-status').textContent()).trim(), `Proyecto seleccionado: ${galleries[key].title}`);
+        const spanishDescription = await page.locator('.showcase-description').textContent();
+        const spanishCategory = await page.locator('.showcase-category').textContent();
+        await chooseLanguage(page, 'en');
+        await assertShowcase(page, galleries, key, 'en');
+        assert.notEqual(await page.locator('.showcase-description').textContent(), spanishDescription);
+        assert.notEqual(await page.locator('.showcase-category').textContent(), spanishCategory);
+        await button.click();
+        assert.equal((await page.locator('.showcase-status').textContent()).trim(), `Selected project: ${galleries[key].titleEn}`);
+        const link = page.locator(index % 2 ? '.showcase-image-link' : '.showcase-case');
+        await link.click();
+        await page.waitForFunction(hash => location.hash === hash, `#${key}`);
+        await page.waitForFunction(id => {
+          const top = document.getElementById(id).getBoundingClientRect().top;
+          return top >= -1 && top < innerHeight / 2;
+        }, key);
+        await chooseLanguage(page, 'es');
+        await assertShowcase(page, galleries, key, 'es');
+        assert.equal(await page.locator('.showcase-description').textContent(), spanishDescription);
+        assert.equal(await page.locator('.showcase-category').textContent(), spanishCategory);
+      }
+    }));
+
+    for (const width of [1440, 390]) {
+      await check(`Showcase arrow, Home and End keyboard selection works at ${width}px`, () => withPage(
+        { viewport: { width, height: 1000 } }, async page => {
+          const galleries = await galleryData(page);
+          await page.locator('[data-showcase="scholarship"]').focus();
+          for (const [key, selected] of [
+            ['ArrowLeft', 'agromapa'], ['ArrowRight', 'scholarship'], ['ArrowRight', 'accounting'],
+            ['End', 'agromapa'], ['Home', 'scholarship'], ['ArrowRight', 'accounting'],
+          ]) {
+            await page.keyboard.press(key);
+            await assertShowcase(page, galleries, selected, 'es');
+            assert.equal(await page.locator(`[data-showcase="${selected}"]`).evaluate(button => button === document.activeElement), true,
+              `${key} moves focus to the selected project`);
+          }
+          await chooseLanguage(page, 'en');
+          await assertShowcase(page, galleries, 'accounting', 'en');
+          await assertNoOverflow(page, 'Showcase keyboard navigation');
+        },
+      ));
+    }
+
+    await check('Copy email writes the exact address and announces success in ES/EN without touching the system clipboard', () => withPage({}, async page => {
+      const status = page.locator('.copy-status');
+      const button = page.locator('[data-copy-email]');
+      assert.equal(await status.getAttribute('role'), 'status');
+      assert.equal(await status.getAttribute('aria-live'), 'polite');
+      assert.equal((await status.textContent()).trim(), '');
+      for (const [language, message, count] of [['es', 'Correo copiado.', 1], ['en', 'Email copied.', 2]]) {
+        await chooseLanguage(page, language);
+        assert.equal((await status.textContent()).trim(), '', 'Changing language clears any previous copy feedback');
+        await button.click();
+        await page.waitForFunction(text => document.querySelector('.copy-status').textContent === text, message);
+        assert.deepEqual(await page.evaluate(() => window.__portfolioClipboardWrites), Array(count).fill(EMAIL));
+        assert.equal(await page.locator('.email-link').getAttribute('href'), `mailto:${EMAIL}`);
+        assert.equal(await button.evaluate(element => element === document.activeElement), true, 'Copy keeps keyboard focus on the button');
+      }
+    }, page => mockClipboard(page, 'success')));
+
+    for (const mode of ['denied', 'unavailable']) {
+      await check(`Copy email safely selects the address when clipboard is ${mode}`, () => withPage({}, async page => {
+        for (const [language, message] of [
+          ['es', 'Correo seleccionado. Usá la opción Copiar de tu dispositivo.'],
+          ['en', 'Email selected. Use your device’s Copy command.'],
+        ]) {
+          await chooseLanguage(page, language);
+          assert.equal((await page.locator('.copy-status').textContent()).trim(), '');
+          const previousURL = page.url();
+          await page.locator('[data-copy-email]').click();
+          await page.waitForFunction(text => document.querySelector('.copy-status').textContent === text, message);
+          assert.equal(await page.evaluate(() => window.getSelection().toString()), EMAIL, 'Fallback selects only the complete email address');
+          assert.deepEqual(await page.evaluate(() => window.__portfolioClipboardWrites), [], 'Failed or missing clipboard never reports a write');
+          assert.equal(await page.locator('.email-link').getAttribute('href'), `mailto:${EMAIL}`);
+          assert.equal(page.url(), previousURL, 'Fallback stays on the portfolio and preserves the mail link');
+        }
+      }, page => mockClipboard(page, mode)));
+    }
 
     await check('Mobile navigation closes on Escape, links, and outside click; focus returns', () => withPage(
       { viewport: { width: 390, height: 844 } }, async page => {

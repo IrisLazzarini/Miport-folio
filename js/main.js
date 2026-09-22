@@ -1,5 +1,6 @@
 import { galleries } from './galleries.js';
 import { profile } from './profile.js';
+import { initializeShowcase, initializeEmailCopy } from './showcase.js';
 
 const root = document.documentElement;
 const menuButton = document.querySelector('.menu-toggle');
@@ -11,6 +12,8 @@ let language = 'es';
 let currentGallery = null;
 let currentImageIndex = 0;
 let galleryOpener = null;
+const showcase = initializeShowcase();
+const emailCopy = initializeEmailCopy();
 
 function localized(value) {
   return typeof value === 'string' ? value : value?.[language] || value?.es || '';
@@ -98,6 +101,8 @@ function applyLanguage(nextLanguage) {
   updateCvLinks();
   renderExperience();
   renderProjectContributions();
+  showcase.setLanguage(language);
+  emailCopy.clearStatus();
   if (currentGallery) updateGalleryText();
   try { localStorage.setItem('portfolio-language', language); } catch { /* Optional preference storage. */ }
 }

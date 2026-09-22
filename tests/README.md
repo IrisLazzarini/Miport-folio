@@ -2,7 +2,9 @@
 
 `portfolio.spec.cjs` comprueba el sitio estático en Chromium con Playwright y las aserciones incluidas en Node.js. Las pruebas no agregan dependencias de producción ni necesitan un framework de aplicación.
 
-Incluyen cinco anchos de pantalla (1440, 1024, 768, 390 y 320 px), navegación, traducción completa ES/EN y persistencia, menú móvil, carga real de las 52 capturas, teclado y foco de la galería, movimiento reducido, contenido sin JavaScript, almacenamiento bloqueado y destinos de contacto/CV. No envían correos ni abren los enlaces externos.
+Incluyen cinco anchos de pantalla (1440, 1024, 768, 390 y 320 px), navegación, traducción completa ES/EN y persistencia, menú móvil, carga real de las 52 capturas, teclado y foco de la galería, movimiento reducido, contenido sin JavaScript, almacenamiento bloqueado y destinos de contacto/CV. El selector de proyectos destacados se verifica con clics, flechas, Inicio y Fin, incluyendo sus enlaces, imágenes, textos alternativos y conservación de la selección al cambiar de idioma.
+
+La copia del correo se prueba con un portapapeles simulado: éxito, permiso rechazado y API no disponible. Se comprueban los mensajes en ES/EN y la selección del correo como alternativa. Las pruebas no modifican el portapapeles del sistema, no envían correos ni abren enlaces externos.
 
 ## Preparación independiente del sitio
 
