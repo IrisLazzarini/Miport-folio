@@ -1,0 +1,1286 @@
+{
+  "notes": [
+    "All 55 raster originals in Img/ were visually inventoried. Hidden .DS_Store files are not images.",
+    "Img/Agromapa/Portada.png depicts Comercio 45, so it belongs to the Comercio 45 gallery and is used as that project's cover.",
+    "Img/Sistemadistribuidoras/Crear nota de debito.png depicts the new credit-note form. Its alternative text follows the visible content.",
+    "The existing avatar is a portrait illustration on a black background, not a photograph. Its original aspect ratio is preserved.",
+    "The two decorative backgrounds Img/Fondo.png and Img/Sobremi.png are inventoried but excluded from project galleries.",
+    "Some existing screenshots contain contact details and names or identifiers in financial tables. They are preserved without visual edits; privacy review remains advisable before a new public deployment.",
+    "The AgroMapa climate screenshot includes an existing map load error. Its description reflects the climate indicators and its original content is preserved.",
+    "All generated images preserve aspect ratios, never upscale originals, and omit source EXIF metadata."
+  ],
+  "summary": {
+    "originalCount": 55,
+    "galleryImageCount": 52,
+    "coverCount": 6,
+    "outputCount": 59,
+    "originalBytes": 33583470,
+    "usedOriginalBytes": 30869359,
+    "outputBytesIncludingCovers": 2711300,
+    "sizeReductionPercentIncludingCovers": 91.2
+  },
+  "originals": [
+    {
+      "source": "Img/Agromapa/Portada.png",
+      "width": 1905,
+      "height": 953,
+      "bytes": 1484659,
+      "usage": {
+        "project": "comercio45",
+        "output": "assets/projects/comercio45-01.webp"
+      }
+    },
+    {
+      "source": "Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.26 (1).jpeg",
+      "width": 1600,
+      "height": 529,
+      "bytes": 99113,
+      "usage": {
+        "project": "agromapa",
+        "output": "assets/projects/agromapa-04.webp"
+      }
+    },
+    {
+      "source": "Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.26 (2).jpeg",
+      "width": 1600,
+      "height": 768,
+      "bytes": 115529,
+      "usage": {
+        "project": "agromapa",
+        "output": "assets/projects/agromapa-05.webp"
+      }
+    },
+    {
+      "source": "Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.26.jpeg",
+      "width": 672,
+      "height": 186,
+      "bytes": 23328,
+      "usage": {
+        "project": "agromapa",
+        "output": "assets/projects/agromapa-06.webp"
+      }
+    },
+    {
+      "source": "Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.27 (1).jpeg",
+      "width": 1600,
+      "height": 766,
+      "bytes": 131759,
+      "usage": {
+        "project": "agromapa",
+        "output": "assets/projects/agromapa-02.webp"
+      }
+    },
+    {
+      "source": "Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.27 (2).jpeg",
+      "width": 1600,
+      "height": 771,
+      "bytes": 315115,
+      "usage": {
+        "project": "agromapa",
+        "output": "assets/projects/agromapa-03.webp"
+      }
+    },
+    {
+      "source": "Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.27.jpeg",
+      "width": 1600,
+      "height": 766,
+      "bytes": 109989,
+      "usage": {
+        "project": "agromapa",
+        "output": "assets/projects/agromapa-01.webp"
+      }
+    },
+    {
+      "source": "Img/Avatar/AVATARMIO.jpeg",
+      "width": 768,
+      "height": 1240,
+      "bytes": 43352,
+      "usage": {
+        "project": null,
+        "output": "assets/portrait.webp"
+      }
+    },
+    {
+      "source": "Img/Comercio45/Campus.png",
+      "width": 1914,
+      "height": 1010,
+      "bytes": 155295,
+      "usage": {
+        "project": "comercio45",
+        "output": "assets/projects/comercio45-04.webp"
+      }
+    },
+    {
+      "source": "Img/Comercio45/Estudiantes.png",
+      "width": 1894,
+      "height": 924,
+      "bytes": 290741,
+      "usage": {
+        "project": "comercio45",
+        "output": "assets/projects/comercio45-03.webp"
+      }
+    },
+    {
+      "source": "Img/Comercio45/Ficha.png",
+      "width": 1910,
+      "height": 968,
+      "bytes": 193784,
+      "usage": {
+        "project": "comercio45",
+        "output": "assets/projects/comercio45-06.webp"
+      }
+    },
+    {
+      "source": "Img/Comercio45/Historia.png",
+      "width": 1898,
+      "height": 951,
+      "bytes": 105243,
+      "usage": {
+        "project": "comercio45",
+        "output": "assets/projects/comercio45-02.webp"
+      }
+    },
+    {
+      "source": "Img/Comercio45/Inscripcion.png",
+      "width": 364,
+      "height": 258,
+      "bytes": 51456,
+      "usage": {
+        "project": "comercio45",
+        "output": "assets/projects/comercio45-05.webp"
+      }
+    },
+    {
+      "source": "Img/Comercio45/Propedeutico.png",
+      "width": 1915,
+      "height": 948,
+      "bytes": 320828,
+      "usage": {
+        "project": "comercio45",
+        "output": "assets/projects/comercio45-07.webp"
+      }
+    },
+    {
+      "source": "Img/Fondo.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 1404429,
+      "usage": {
+        "project": null,
+        "output": null,
+        "reason": "Decorative background excluded from project galleries"
+      }
+    },
+    {
+      "source": "Img/Fondo_becario/Auditoria.png",
+      "width": 3414,
+      "height": 1340,
+      "bytes": 1027800,
+      "usage": {
+        "project": "scholarship",
+        "output": "assets/projects/scholarship-11.webp"
+      }
+    },
+    {
+      "source": "Img/Fondo_becario/Balance consolidado.png",
+      "width": 3396,
+      "height": 1898,
+      "bytes": 1437206,
+      "usage": {
+        "project": "scholarship",
+        "output": "assets/projects/scholarship-06.webp"
+      }
+    },
+    {
+      "source": "Img/Fondo_becario/Balance.png",
+      "width": 3380,
+      "height": 2060,
+      "bytes": 1605970,
+      "usage": {
+        "project": "scholarship",
+        "output": "assets/projects/scholarship-05.webp"
+      }
+    },
+    {
+      "source": "Img/Fondo_becario/Balances.png",
+      "width": 3396,
+      "height": 2044,
+      "bytes": 1675204,
+      "usage": {
+        "project": "scholarship",
+        "output": "assets/projects/scholarship-01.webp"
+      }
+    },
+    {
+      "source": "Img/Fondo_becario/Becas.png",
+      "width": 3382,
+      "height": 1822,
+      "bytes": 1314762,
+      "usage": {
+        "project": "scholarship",
+        "output": "assets/projects/scholarship-08.webp"
+      }
+    },
+    {
+      "source": "Img/Fondo_becario/Egresos.png",
+      "width": 3412,
+      "height": 1882,
+      "bytes": 1338424,
+      "usage": {
+        "project": "scholarship",
+        "output": "assets/projects/scholarship-07.webp"
+      }
+    },
+    {
+      "source": "Img/Fondo_becario/Eliminacion.png",
+      "width": 3410,
+      "height": 2052,
+      "bytes": 1723795,
+      "usage": {
+        "project": "scholarship",
+        "output": "assets/projects/scholarship-12.webp"
+      }
+    },
+    {
+      "source": "Img/Fondo_becario/Gestion de inscripciones.png",
+      "width": 3350,
+      "height": 1654,
+      "bytes": 1156141,
+      "usage": {
+        "project": "scholarship",
+        "output": "assets/projects/scholarship-09.webp"
+      }
+    },
+    {
+      "source": "Img/Fondo_becario/Inicio.png",
+      "width": 3398,
+      "height": 2042,
+      "bytes": 5314006,
+      "usage": {
+        "project": "scholarship",
+        "output": "assets/projects/scholarship-03.webp"
+      }
+    },
+    {
+      "source": "Img/Fondo_becario/Normalizar excel.png",
+      "width": 2400,
+      "height": 1466,
+      "bytes": 1017742,
+      "usage": {
+        "project": "scholarship",
+        "output": "assets/projects/scholarship-10.webp"
+      }
+    },
+    {
+      "source": "Img/Fondo_becario/pagos de fondos.png",
+      "width": 3392,
+      "height": 2052,
+      "bytes": 1739485,
+      "usage": {
+        "project": "scholarship",
+        "output": "assets/projects/scholarship-04.webp"
+      }
+    },
+    {
+      "source": "Img/Fondo_becario/Vista de inicio.png",
+      "width": 3098,
+      "height": 1482,
+      "bytes": 1021762,
+      "usage": {
+        "project": "scholarship",
+        "output": "assets/projects/scholarship-02.webp"
+      }
+    },
+    {
+      "source": "Img/HojalateriaCH/Contacto.png",
+      "width": 1667,
+      "height": 958,
+      "bytes": 647753,
+      "usage": {
+        "project": "chartier",
+        "output": "assets/projects/chartier-05.webp"
+      }
+    },
+    {
+      "source": "Img/HojalateriaCH/Inicio.png",
+      "width": 1759,
+      "height": 964,
+      "bytes": 1764096,
+      "usage": {
+        "project": "chartier",
+        "output": "assets/projects/chartier-01.webp"
+      }
+    },
+    {
+      "source": "Img/HojalateriaCH/Productos.png",
+      "width": 1696,
+      "height": 897,
+      "bytes": 882445,
+      "usage": {
+        "project": "chartier",
+        "output": "assets/projects/chartier-03.webp"
+      }
+    },
+    {
+      "source": "Img/HojalateriaCH/Servicios.png",
+      "width": 1700,
+      "height": 952,
+      "bytes": 793260,
+      "usage": {
+        "project": "chartier",
+        "output": "assets/projects/chartier-02.webp"
+      }
+    },
+    {
+      "source": "Img/HojalateriaCH/Sobre Nosotros.png",
+      "width": 1727,
+      "height": 969,
+      "bytes": 209070,
+      "usage": {
+        "project": "chartier",
+        "output": "assets/projects/chartier-04.webp"
+      }
+    },
+    {
+      "source": "Img/Polo/Comunidad .png",
+      "width": 1350,
+      "height": 678,
+      "bytes": 71140,
+      "usage": {
+        "project": "polo",
+        "output": "assets/projects/polo-02.webp"
+      }
+    },
+    {
+      "source": "Img/Polo/Comunidad2.png",
+      "width": 1343,
+      "height": 680,
+      "bytes": 79324,
+      "usage": {
+        "project": "polo",
+        "output": "assets/projects/polo-03.webp"
+      }
+    },
+    {
+      "source": "Img/Polo/CV.png",
+      "width": 967,
+      "height": 605,
+      "bytes": 68183,
+      "usage": {
+        "project": "polo",
+        "output": "assets/projects/polo-04.webp"
+      }
+    },
+    {
+      "source": "Img/Polo/Inicio.png",
+      "width": 1914,
+      "height": 954,
+      "bytes": 1030589,
+      "usage": {
+        "project": "polo",
+        "output": "assets/projects/polo-01.webp"
+      }
+    },
+    {
+      "source": "Img/Polo/Sobre nosotros.png",
+      "width": 1347,
+      "height": 685,
+      "bytes": 76771,
+      "usage": {
+        "project": "polo",
+        "output": "assets/projects/polo-05.webp"
+      }
+    },
+    {
+      "source": "Img/Sistemadistribuidoras/Analisis financiero .png",
+      "width": 1342,
+      "height": 683,
+      "bytes": 79321,
+      "usage": {
+        "project": "accounting",
+        "output": "assets/projects/accounting-01.webp"
+      }
+    },
+    {
+      "source": "Img/Sistemadistribuidoras/Analisis financiero2.png",
+      "width": 1098,
+      "height": 628,
+      "bytes": 57125,
+      "usage": {
+        "project": "accounting",
+        "output": "assets/projects/accounting-03.webp"
+      }
+    },
+    {
+      "source": "Img/Sistemadistribuidoras/analisis financiero3.png",
+      "width": 1102,
+      "height": 710,
+      "bytes": 53709,
+      "usage": {
+        "project": "accounting",
+        "output": "assets/projects/accounting-04.webp"
+      }
+    },
+    {
+      "source": "Img/Sistemadistribuidoras/Asientos COntables.png",
+      "width": 1348,
+      "height": 667,
+      "bytes": 191388,
+      "usage": {
+        "project": "accounting",
+        "output": "assets/projects/accounting-05.webp"
+      }
+    },
+    {
+      "source": "Img/Sistemadistribuidoras/Asientos2.png",
+      "width": 1077,
+      "height": 664,
+      "bytes": 46997,
+      "usage": {
+        "project": "accounting",
+        "output": "assets/projects/accounting-06.webp"
+      }
+    },
+    {
+      "source": "Img/Sistemadistribuidoras/Crear nota de debito.png",
+      "width": 1329,
+      "height": 693,
+      "bytes": 67438,
+      "usage": {
+        "project": "accounting",
+        "output": "assets/projects/accounting-16.webp"
+      }
+    },
+    {
+      "source": "Img/Sistemadistribuidoras/Detalle de asientos .png",
+      "width": 1353,
+      "height": 686,
+      "bytes": 94358,
+      "usage": {
+        "project": "accounting",
+        "output": "assets/projects/accounting-07.webp"
+      }
+    },
+    {
+      "source": "Img/Sistemadistribuidoras/Ejemplo de factura.png",
+      "width": 1322,
+      "height": 689,
+      "bytes": 62107,
+      "usage": {
+        "project": "accounting",
+        "output": "assets/projects/accounting-11.webp"
+      }
+    },
+    {
+      "source": "Img/Sistemadistribuidoras/Facturas.png",
+      "width": 1335,
+      "height": 681,
+      "bytes": 113392,
+      "usage": {
+        "project": "accounting",
+        "output": "assets/projects/accounting-10.webp"
+      }
+    },
+    {
+      "source": "Img/Sistemadistribuidoras/Formato de asiento.png",
+      "width": 926,
+      "height": 701,
+      "bytes": 41035,
+      "usage": {
+        "project": "accounting",
+        "output": "assets/projects/accounting-09.webp"
+      }
+    },
+    {
+      "source": "Img/Sistemadistribuidoras/Gestion de notas de debito.png",
+      "width": 1330,
+      "height": 683,
+      "bytes": 106074,
+      "usage": {
+        "project": "accounting",
+        "output": "assets/projects/accounting-13.webp"
+      }
+    },
+    {
+      "source": "Img/Sistemadistribuidoras/Inicio.png",
+      "width": 1339,
+      "height": 655,
+      "bytes": 155936,
+      "usage": {
+        "project": "accounting",
+        "output": "assets/projects/accounting-02.webp"
+      }
+    },
+    {
+      "source": "Img/Sistemadistribuidoras/Libro de iva.png",
+      "width": 1358,
+      "height": 668,
+      "bytes": 54446,
+      "usage": {
+        "project": "accounting",
+        "output": "assets/projects/accounting-17.webp"
+      }
+    },
+    {
+      "source": "Img/Sistemadistribuidoras/Los comprobantes .png",
+      "width": 1327,
+      "height": 690,
+      "bytes": 101507,
+      "usage": {
+        "project": "accounting",
+        "output": "assets/projects/accounting-12.webp"
+      }
+    },
+    {
+      "source": "Img/Sistemadistribuidoras/Movimientos de asientos.png",
+      "width": 1095,
+      "height": 426,
+      "bytes": 30592,
+      "usage": {
+        "project": "accounting",
+        "output": "assets/projects/accounting-08.webp"
+      }
+    },
+    {
+      "source": "Img/Sistemadistribuidoras/Nota de creditos .png",
+      "width": 1330,
+      "height": 681,
+      "bytes": 108756,
+      "usage": {
+        "project": "accounting",
+        "output": "assets/projects/accounting-15.webp"
+      }
+    },
+    {
+      "source": "Img/Sistemadistribuidoras/Nueva nota de debito.png",
+      "width": 1326,
+      "height": 675,
+      "bytes": 70059,
+      "usage": {
+        "project": "accounting",
+        "output": "assets/projects/accounting-14.webp"
+      }
+    },
+    {
+      "source": "Img/Sobremi.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 1309682,
+      "usage": {
+        "project": null,
+        "output": null,
+        "reason": "Decorative background excluded from project galleries"
+      }
+    }
+  ],
+  "generated": [
+    {
+      "src": "assets/projects/scholarship-01.webp",
+      "width": 1600,
+      "height": 963,
+      "bytes": 49492,
+      "sourceDimensions": [
+        3396,
+        2044
+      ],
+      "source": "Img/Fondo_becario/Balances.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/scholarship-02.webp",
+      "width": 1600,
+      "height": 765,
+      "bytes": 26654,
+      "sourceDimensions": [
+        3098,
+        1482
+      ],
+      "source": "Img/Fondo_becario/Vista de inicio.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/scholarship-03.webp",
+      "width": 1600,
+      "height": 962,
+      "bytes": 19722,
+      "sourceDimensions": [
+        3398,
+        2042
+      ],
+      "source": "Img/Fondo_becario/Inicio.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/scholarship-04.webp",
+      "width": 1600,
+      "height": 968,
+      "bytes": 57132,
+      "sourceDimensions": [
+        3392,
+        2052
+      ],
+      "source": "Img/Fondo_becario/pagos de fondos.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/scholarship-05.webp",
+      "width": 1600,
+      "height": 975,
+      "bytes": 43720,
+      "sourceDimensions": [
+        3380,
+        2060
+      ],
+      "source": "Img/Fondo_becario/Balance.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/scholarship-06.webp",
+      "width": 1600,
+      "height": 894,
+      "bytes": 37264,
+      "sourceDimensions": [
+        3396,
+        1898
+      ],
+      "source": "Img/Fondo_becario/Balance consolidado.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/scholarship-07.webp",
+      "width": 1600,
+      "height": 883,
+      "bytes": 29114,
+      "sourceDimensions": [
+        3412,
+        1882
+      ],
+      "source": "Img/Fondo_becario/Egresos.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/scholarship-08.webp",
+      "width": 1600,
+      "height": 862,
+      "bytes": 21902,
+      "sourceDimensions": [
+        3382,
+        1822
+      ],
+      "source": "Img/Fondo_becario/Becas.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/scholarship-09.webp",
+      "width": 1600,
+      "height": 790,
+      "bytes": 23294,
+      "sourceDimensions": [
+        3350,
+        1654
+      ],
+      "source": "Img/Fondo_becario/Gestion de inscripciones.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/scholarship-10.webp",
+      "width": 1600,
+      "height": 977,
+      "bytes": 60126,
+      "sourceDimensions": [
+        2400,
+        1466
+      ],
+      "source": "Img/Fondo_becario/Normalizar excel.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/scholarship-11.webp",
+      "width": 1600,
+      "height": 628,
+      "bytes": 25604,
+      "sourceDimensions": [
+        3414,
+        1340
+      ],
+      "source": "Img/Fondo_becario/Auditoria.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/scholarship-12.webp",
+      "width": 1600,
+      "height": 963,
+      "bytes": 51654,
+      "sourceDimensions": [
+        3410,
+        2052
+      ],
+      "source": "Img/Fondo_becario/Eliminacion.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/scholarship-cover.webp",
+      "width": 800,
+      "height": 482,
+      "bytes": 18320,
+      "sourceDimensions": [
+        3396,
+        2044
+      ],
+      "source": "Img/Fondo_becario/Balances.png",
+      "kind": "cover"
+    },
+    {
+      "src": "assets/projects/accounting-01.webp",
+      "width": 1342,
+      "height": 683,
+      "bytes": 47430,
+      "sourceDimensions": [
+        1342,
+        683
+      ],
+      "source": "Img/Sistemadistribuidoras/Analisis financiero .png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/accounting-02.webp",
+      "width": 1339,
+      "height": 655,
+      "bytes": 59888,
+      "sourceDimensions": [
+        1339,
+        655
+      ],
+      "source": "Img/Sistemadistribuidoras/Inicio.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/accounting-03.webp",
+      "width": 1098,
+      "height": 628,
+      "bytes": 27676,
+      "sourceDimensions": [
+        1098,
+        628
+      ],
+      "source": "Img/Sistemadistribuidoras/Analisis financiero2.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/accounting-04.webp",
+      "width": 1102,
+      "height": 710,
+      "bytes": 24610,
+      "sourceDimensions": [
+        1102,
+        710
+      ],
+      "source": "Img/Sistemadistribuidoras/analisis financiero3.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/accounting-05.webp",
+      "width": 1348,
+      "height": 667,
+      "bytes": 57146,
+      "sourceDimensions": [
+        1348,
+        667
+      ],
+      "source": "Img/Sistemadistribuidoras/Asientos COntables.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/accounting-06.webp",
+      "width": 1077,
+      "height": 664,
+      "bytes": 34818,
+      "sourceDimensions": [
+        1077,
+        664
+      ],
+      "source": "Img/Sistemadistribuidoras/Asientos2.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/accounting-07.webp",
+      "width": 1353,
+      "height": 686,
+      "bytes": 57988,
+      "sourceDimensions": [
+        1353,
+        686
+      ],
+      "source": "Img/Sistemadistribuidoras/Detalle de asientos .png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/accounting-08.webp",
+      "width": 1095,
+      "height": 426,
+      "bytes": 23900,
+      "sourceDimensions": [
+        1095,
+        426
+      ],
+      "source": "Img/Sistemadistribuidoras/Movimientos de asientos.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/accounting-09.webp",
+      "width": 926,
+      "height": 701,
+      "bytes": 40478,
+      "sourceDimensions": [
+        926,
+        701
+      ],
+      "source": "Img/Sistemadistribuidoras/Formato de asiento.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/accounting-10.webp",
+      "width": 1335,
+      "height": 681,
+      "bytes": 92348,
+      "sourceDimensions": [
+        1335,
+        681
+      ],
+      "source": "Img/Sistemadistribuidoras/Facturas.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/accounting-11.webp",
+      "width": 1322,
+      "height": 689,
+      "bytes": 42814,
+      "sourceDimensions": [
+        1322,
+        689
+      ],
+      "source": "Img/Sistemadistribuidoras/Ejemplo de factura.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/accounting-12.webp",
+      "width": 1327,
+      "height": 690,
+      "bytes": 75176,
+      "sourceDimensions": [
+        1327,
+        690
+      ],
+      "source": "Img/Sistemadistribuidoras/Los comprobantes .png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/accounting-13.webp",
+      "width": 1330,
+      "height": 683,
+      "bytes": 77176,
+      "sourceDimensions": [
+        1330,
+        683
+      ],
+      "source": "Img/Sistemadistribuidoras/Gestion de notas de debito.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/accounting-14.webp",
+      "width": 1326,
+      "height": 675,
+      "bytes": 40604,
+      "sourceDimensions": [
+        1326,
+        675
+      ],
+      "source": "Img/Sistemadistribuidoras/Nueva nota de debito.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/accounting-15.webp",
+      "width": 1330,
+      "height": 681,
+      "bytes": 77898,
+      "sourceDimensions": [
+        1330,
+        681
+      ],
+      "source": "Img/Sistemadistribuidoras/Nota de creditos .png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/accounting-16.webp",
+      "width": 1329,
+      "height": 693,
+      "bytes": 38110,
+      "sourceDimensions": [
+        1329,
+        693
+      ],
+      "source": "Img/Sistemadistribuidoras/Crear nota de debito.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/accounting-17.webp",
+      "width": 1358,
+      "height": 668,
+      "bytes": 56356,
+      "sourceDimensions": [
+        1358,
+        668
+      ],
+      "source": "Img/Sistemadistribuidoras/Libro de iva.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/accounting-cover.webp",
+      "width": 800,
+      "height": 407,
+      "bytes": 22902,
+      "sourceDimensions": [
+        1342,
+        683
+      ],
+      "source": "Img/Sistemadistribuidoras/Analisis financiero .png",
+      "kind": "cover"
+    },
+    {
+      "src": "assets/projects/agromapa-01.webp",
+      "width": 1600,
+      "height": 766,
+      "bytes": 33678,
+      "sourceDimensions": [
+        1600,
+        766
+      ],
+      "source": "Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.27.jpeg",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/agromapa-02.webp",
+      "width": 1600,
+      "height": 766,
+      "bytes": 54696,
+      "sourceDimensions": [
+        1600,
+        766
+      ],
+      "source": "Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.27 (1).jpeg",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/agromapa-03.webp",
+      "width": 1600,
+      "height": 771,
+      "bytes": 168222,
+      "sourceDimensions": [
+        1600,
+        771
+      ],
+      "source": "Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.27 (2).jpeg",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/agromapa-04.webp",
+      "width": 1600,
+      "height": 529,
+      "bytes": 38364,
+      "sourceDimensions": [
+        1600,
+        529
+      ],
+      "source": "Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.26 (1).jpeg",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/agromapa-05.webp",
+      "width": 1600,
+      "height": 768,
+      "bytes": 42826,
+      "sourceDimensions": [
+        1600,
+        768
+      ],
+      "source": "Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.26 (2).jpeg",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/agromapa-06.webp",
+      "width": 672,
+      "height": 186,
+      "bytes": 10408,
+      "sourceDimensions": [
+        672,
+        186
+      ],
+      "source": "Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.26.jpeg",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/agromapa-cover.webp",
+      "width": 800,
+      "height": 383,
+      "bytes": 14096,
+      "sourceDimensions": [
+        1600,
+        766
+      ],
+      "source": "Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.27.jpeg",
+      "kind": "cover"
+    },
+    {
+      "src": "assets/projects/chartier-01.webp",
+      "width": 1600,
+      "height": 877,
+      "bytes": 76622,
+      "sourceDimensions": [
+        1759,
+        964
+      ],
+      "source": "Img/HojalateriaCH/Inicio.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/chartier-02.webp",
+      "width": 1600,
+      "height": 896,
+      "bytes": 67612,
+      "sourceDimensions": [
+        1700,
+        952
+      ],
+      "source": "Img/HojalateriaCH/Servicios.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/chartier-03.webp",
+      "width": 1600,
+      "height": 846,
+      "bytes": 108232,
+      "sourceDimensions": [
+        1696,
+        897
+      ],
+      "source": "Img/HojalateriaCH/Productos.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/chartier-04.webp",
+      "width": 1600,
+      "height": 898,
+      "bytes": 69842,
+      "sourceDimensions": [
+        1727,
+        969
+      ],
+      "source": "Img/HojalateriaCH/Sobre Nosotros.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/chartier-05.webp",
+      "width": 1600,
+      "height": 919,
+      "bytes": 53806,
+      "sourceDimensions": [
+        1667,
+        958
+      ],
+      "source": "Img/HojalateriaCH/Contacto.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/chartier-cover.webp",
+      "width": 800,
+      "height": 438,
+      "bytes": 32086,
+      "sourceDimensions": [
+        1759,
+        964
+      ],
+      "source": "Img/HojalateriaCH/Inicio.png",
+      "kind": "cover"
+    },
+    {
+      "src": "assets/projects/polo-01.webp",
+      "width": 1600,
+      "height": 797,
+      "bytes": 30360,
+      "sourceDimensions": [
+        1914,
+        954
+      ],
+      "source": "Img/Polo/Inicio.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/polo-02.webp",
+      "width": 1350,
+      "height": 678,
+      "bytes": 54532,
+      "sourceDimensions": [
+        1350,
+        678
+      ],
+      "source": "Img/Polo/Comunidad .png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/polo-03.webp",
+      "width": 1343,
+      "height": 680,
+      "bytes": 32786,
+      "sourceDimensions": [
+        1343,
+        680
+      ],
+      "source": "Img/Polo/Comunidad2.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/polo-04.webp",
+      "width": 967,
+      "height": 605,
+      "bytes": 14222,
+      "sourceDimensions": [
+        967,
+        605
+      ],
+      "source": "Img/Polo/CV.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/polo-05.webp",
+      "width": 1347,
+      "height": 685,
+      "bytes": 36108,
+      "sourceDimensions": [
+        1347,
+        685
+      ],
+      "source": "Img/Polo/Sobre nosotros.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/polo-cover.webp",
+      "width": 800,
+      "height": 399,
+      "bytes": 14032,
+      "sourceDimensions": [
+        1914,
+        954
+      ],
+      "source": "Img/Polo/Inicio.png",
+      "kind": "cover"
+    },
+    {
+      "src": "assets/projects/comercio45-01.webp",
+      "width": 1600,
+      "height": 800,
+      "bytes": 72638,
+      "sourceDimensions": [
+        1905,
+        953
+      ],
+      "source": "Img/Agromapa/Portada.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/comercio45-02.webp",
+      "width": 1600,
+      "height": 802,
+      "bytes": 61220,
+      "sourceDimensions": [
+        1898,
+        951
+      ],
+      "source": "Img/Comercio45/Historia.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/comercio45-03.webp",
+      "width": 1600,
+      "height": 781,
+      "bytes": 32936,
+      "sourceDimensions": [
+        1894,
+        924
+      ],
+      "source": "Img/Comercio45/Estudiantes.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/comercio45-04.webp",
+      "width": 1600,
+      "height": 844,
+      "bytes": 25412,
+      "sourceDimensions": [
+        1914,
+        1010
+      ],
+      "source": "Img/Comercio45/Campus.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/comercio45-05.webp",
+      "width": 364,
+      "height": 258,
+      "bytes": 7324,
+      "sourceDimensions": [
+        364,
+        258
+      ],
+      "source": "Img/Comercio45/Inscripcion.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/comercio45-06.webp",
+      "width": 1600,
+      "height": 811,
+      "bytes": 63990,
+      "sourceDimensions": [
+        1910,
+        968
+      ],
+      "source": "Img/Comercio45/Ficha.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/comercio45-07.webp",
+      "width": 1600,
+      "height": 792,
+      "bytes": 70298,
+      "sourceDimensions": [
+        1915,
+        948
+      ],
+      "source": "Img/Comercio45/Propedeutico.png",
+      "kind": "gallery"
+    },
+    {
+      "src": "assets/projects/comercio45-cover.webp",
+      "width": 800,
+      "height": 400,
+      "bytes": 31730,
+      "sourceDimensions": [
+        1905,
+        953
+      ],
+      "source": "Img/Agromapa/Portada.png",
+      "kind": "cover"
+    },
+    {
+      "src": "assets/portrait.webp",
+      "width": 768,
+      "height": 1240,
+      "bytes": 31906,
+      "sourceDimensions": [
+        768,
+        1240
+      ],
+      "source": "Img/Avatar/AVATARMIO.jpeg",
+      "kind": "portrait"
+    }
+  ]
+}

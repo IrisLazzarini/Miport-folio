@@ -1,120 +1,82 @@
-# Portafolio Profesional - Iris Lazzarini
+# Iris Lazzarini — Portfolio profesional
 
-Este es un portafolio profesional moderno y responsive desarrollado con HTML, CSS y JavaScript.
+Portfolio bilingüe ES/EN orientado a análisis funcional y desarrollo de software. Conserva la base existente de HTML, CSS y JavaScript; no necesita compilación, frameworks ni dependencias de producción.
 
-## Características
+## Ejecutar localmente
 
-- Diseño moderno y limpio
-- Totalmente responsive
-- Animaciones suaves
-- Formulario de contacto
-- Integración con redes sociales
-- Botón flotante de WhatsApp
-- Secciones para proyectos y habilidades
+Desde la raíz del repositorio:
 
-## Estructura del Proyecto
-
-```
-miportafolio/
-│
-├── index.html
-├── css/
-│   └── styles.css
-├── js/
-│   └── main.js
-├── assets/
-│   ├── profile-placeholder.jpg
-│   ├── agromapa.jpg
-│   ├── sistema-contable.jpg
-│   └── polo-estudiantil.jpg
-└── README.md
+```sh
+python -m http.server 4173 --bind 127.0.0.1
 ```
 
-## Configuración
+Abrir `http://127.0.0.1:4173/`. Los módulos JavaScript requieren un servidor HTTP; no abrir el HTML con `file://`.
 
-1. Clona este repositorio:
-   ```bash
-   git clone https://github.com/tu-usuario/miportafolio.git
-   ```
+GitHub Pages puede servir directamente esta raíz. Todas las rutas de recursos y galerías son relativas para funcionar también bajo `/Miport-folio/`. El canonical y Open Graph conservan `https://irislazzarini.github.io/Miport-folio/`; actualizarlos si cambia el dominio.
 
-2. Personaliza el contenido:
-   - Modifica el texto en `index.html`
-   - Actualiza las imágenes en la carpeta `assets/`
-   - Ajusta los colores en `css/styles.css` (variables en la raíz)
-   - Configura los enlaces a tus redes sociales
+## Estructura
 
-3. Despliega en GitHub Pages:
-   - Sube los cambios a tu repositorio
-   - Activa GitHub Pages en la configuración del repositorio
-   - Selecciona la rama main como fuente
-
-## Personalización
-
-### Colores
-Los colores principales se pueden modificar en las variables CSS al inicio de `styles.css`:
-
-```css
-:root {
-    --primary-color: #0066cc;
-    --secondary-color: #ffffff;
-    --text-color: #333333;
-    --background-color: #f5f5f5;
-    --accent-color: #004d99;
-}
+```text
+index.html                   Contenido estático, metadatos y estructura semántica
+css/styles.css               Tokens, componentes y composiciones responsive
+js/main.js                   Idiomas, menú, galería y mejoras progresivas
+js/profile.js                CV, experiencia y participación pendiente de confirmar
+js/galleries.js              Inventario generado de las 52 capturas ES/EN
+assets/projects/             Capturas WebP y portadas optimizadas
+assets/fonts/                Manrope local y licencia SIL OFL
+assets/portrait.webp         Ilustración original optimizada
+assets/favicon.svg           Identidad del sitio
+assets/social-preview.png    Imagen para compartir enlaces
+Img/                         Imágenes originales conservadas
+scripts/                     Generación e inventario de imágenes
+tests/                       Pruebas de navegador sin dependencias de producción
+docs/content-audit.md        Fuentes del contenido y decisiones de conservación
 ```
 
-### Imágenes
-Reemplaza las imágenes en la carpeta `assets/` con tus propias imágenes:
-- `profile-placeholder.jpg`: Tu foto de perfil
-- `agromapa.jpg`: Captura del proyecto Agromapa
-- `sistema-contable.jpg`: Captura del sistema contable
-- `polo-estudiantil.jpg`: Captura del proyecto Polo Estudiantil
+## Editar contenido
 
-### Enlaces
-Actualiza los enlaces a tus redes sociales en el HTML:
-```html
-<div class="social-links">
-    <a href="https://linkedin.com/tu-perfil" target="_blank">
-        <i class="fab fa-linkedin"></i>
-    </a>
-    <a href="https://github.com/tu-usuario" target="_blank">
-        <i class="fab fa-github"></i>
-    </a>
-</div>
+El texto español está en el HTML. Cada atributo `data-en` contiene su traducción inglesa como texto plano; `data-alt-en` y `data-aria-en` traducen los nombres accesibles. JavaScript cambia el idioma, los metadatos y la preferencia local sin ocultar el contenido si falla el almacenamiento. El idioma inicial es español; una preferencia guardada previamente se respeta.
+
+`js/profile.js` mantiene información que debe ser confirmada antes de publicarse:
+
+- `cvUrl`: `null` mantiene **Solicitar CV** por correo. Un enlace real HTTPS o un PDF relativo activa **Ver CV**. No se crea un CV ficticio.
+- `experiences`: vacío muestra experiencia aplicada a través de proyectos. Al cargar roles, organizaciones, períodos, responsabilidades y resultados verificables, se renderizan en la misma composición vertical.
+- `projectContributions.agromapa`: vacío omite una participación individual no documentada. Acepta `{ es: '...', en: '...' }`.
+
+El correo profesional confirmado es **irislazzarini81@gmail.com**. No hay formulario ni mensajes de envío ficticios: los enlaces de correo abren el cliente que tenga configurado el visitante.
+
+## Proyectos y conservación
+
+Fondo Becario, Sistema contable y Agromapa son los casos destacados. Polo Universitario, Hojalatería Chartier, PulverAgro y Comercio 45 completan la selección. Las galerías cargan una sola captura a la vez, se controlan con flechas y Escape, conservan el foco y no avanzan automáticamente.
+
+Los repositorios privados o vacíos no se presentan como código público. Los sitios externos que no resolvieron o devolvieron 404 durante la revisión se conservan en `docs/content-audit.md` para volver a verificarlos, con capturas accesibles desde el portfolio.
+
+## Imágenes
+
+Las 55 imágenes originales permanecen en `Img/`. Hay 52 capturas, una ilustración y dos fondos decorativos. Los fondos se conservan como material original, pero la identidad azul utiliza CSS y SVG. La imagen `Img/Agromapa/Portada.png` muestra Comercio 45 y se clasifica correctamente en esa galería.
+
+Las capturas, portadas e ilustración optimizadas suman aproximadamente **2,71 MB**, un **91,2 % menos** que los originales utilizados, incluso contando las portadas adicionales. Esto es el peso total del catálogo, no la descarga inicial. El sitio solo descarga portadas cercanas al viewport y la captura activa cuando se abre una galería.
+
+Para regenerar imágenes, con Python y Pillow instalados:
+
+```sh
+python scripts/optimize-images.py
 ```
 
-### WhatsApp
-Actualiza el número de WhatsApp en el HTML:
-```html
-<a href="https://wa.me/tu-numero" class="whatsapp-btn" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-</a>
-```
+Editar `scripts/image-sources.json` para cambiar el orden o los textos alternativos. Los originales no se renombran ni sobrescriben. Ver `IMAGE-NORMALIZATION-GUIDE.md`.
 
-## Tecnologías Utilizadas
+## Verificación
 
-- HTML5
-- CSS3
-- JavaScript (ES6+)
-- Font Awesome (iconos)
-- Google Fonts (Poppins)
+Ver `tests/README.md` para ejecutar la batería de navegador: cinco anchos de pantalla, ES/EN, navegación, las 52 capturas, teclado, foco, movimiento reducido, ausencia de JavaScript y almacenamiento bloqueado. La instalación de Playwright se hace fuera del sitio.
 
-## Compatibilidad
+El rediseño también se revisa con Lighthouse y axe. Las mediciones locales sirven para detectar regresiones; el rendimiento de producción depende además del servidor y la red.
 
-El portafolio es compatible con los siguientes navegadores:
-- Google Chrome
-- Mozilla Firefox
-- Safari
-- Microsoft Edge
-- Opera
+## Accesibilidad y diseño
 
-## Licencia
+- Un único `h1`, regiones semánticas, enlace para saltar al contenido y foco visible.
+- Menú móvil accesible y navegación visible sin JavaScript.
+- Galería con `dialog` nativo, ciclo de foco explícito y retorno al enlace de apertura.
+- `prefers-reduced-motion` y contenido visible aunque no haya animaciones.
+- Fuente local, SVG decorativo oculto a lectores de pantalla y ninguna librería visual externa.
 
-Este proyecto está bajo la Licencia MIT. Siéntete libre de modificarlo y utilizarlo para tu propio portafolio.
-
-## Contacto
-
-Para cualquier consulta o sugerencia, no dudes en contactarme:
-- Email: [tu-email@ejemplo.com]
-- LinkedIn: [tu-perfil-linkedin]
-- GitHub: [tu-usuario-github]
+La licencia de la fuente se encuentra en `assets/fonts/OFL.txt`. Las imágenes y el contenido profesional pertenecen al portfolio original.

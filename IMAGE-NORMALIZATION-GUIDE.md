@@ -1,106 +1,23 @@
-# Guía de Normalización de Imágenes
+# Imágenes y rutas
 
-## 📋 Resumen de la Solución
+La fuente de verdad es `scripts/image-sources.json`. `scripts/optimize-images.py` lee los archivos originales de `Img/`, produce WebP y genera `js/galleries.js` e `scripts/image-inventory.json`.
 
-Se implementó un sistema robusto para manejar imágenes con nombres problemáticos (espacios, caracteres especiales, paréntesis) que causaban errores 404.
+No se deben sanitizar ni renombrar los originales al construir URLs. Cambiar espacios o mayúsculas solo en código produce rutas que no existen, especialmente en GitHub Pages. La implementación actual usa las rutas exactas de las versiones optimizadas, relativas al documento.
 
-## 🔧 Componentes Implementados
+## Regeneración
 
-### 1. `sanitizeFileName(filename)`
-Normaliza nombres de archivo:
-- ✅ Convierte a minúsculas
-- ✅ Reemplaza espacios por guiones
-- ✅ Elimina paréntesis y caracteres especiales
-- ✅ Elimina puntos duplicados
-- ✅ Remueve acentos
-
-### 2. `IMAGE_NAME_MAPPING`
-Mapping directo de nombres originales → normalizados:
-```javascript
-'Img/Fondo_becario/Captura de pantalla 2026-01-11 a la(s) 1.49.10 p. m..png'
-→ 'Img/Fondo_becario/fb_05_captura-01.png'
+```sh
+python -m pip install Pillow
+python scripts/optimize-images.py
 ```
 
-### 3. `normalizeImagePath(originalPath)`
-Normaliza rutas usando mapping o sanitización automática.
+Las capturas se reducen a un máximo de 1600 px de ancho, las portadas a 800 px, conservando relación de aspecto y contenido. El proceso no amplía originales ni copia EXIF. No realiza recortes ni altera datos visibles.
 
-### 4. `getAbsoluteImagePath(relativePath)`
-Convierte rutas relativas a absolutas basadas en `window.location`.
+## Cambios respecto del mecanismo anterior
 
-### 5. `createImagePlaceholder(altText)`
-Crea un placeholder SVG cuando una imagen falla (404).
+- No se utiliza `sanitizeFileName`, el antiguo mapping parcial ni URLs calculadas desde la raíz del dominio.
+- Los originales se conservan; no se ejecuta el antiguo script de renombrado.
+- Las galerías cargan una captura por vez y muestran un mensaje accesible si falla una imagen.
+- Las capturas se clasifican por su contenido, incluida la portada de Comercio 45 originalmente guardada en Agromapa.
 
-### 6. `normalizeImagePaths(imagePaths)`
-Valida y normaliza un array completo de imágenes.
-
-## 📊 Ejemplo de Array de Imágenes
-
-### Antes (problemático):
-```javascript
-[
-  'Img/Fondo_becario/Inicio.png',
-  'Img/Fondo_becario/Vista de inicio.png',
-  'Img/Fondo_becario/Captura de pantalla 2026-01-11 a la(s) 1.49.10 p. m..png',
-  // ... más imágenes con espacios y paréntesis
-]
-```
-
-### Después (normalizado):
-```javascript
-[
-  'http://localhost:8000/Img/Fondo_becario/fb_01_inicio.png',
-  'http://localhost:8000/Img/Fondo_becario/fb_02_vista-inicio.png',
-  'http://localhost:8000/Img/Fondo_becario/fb_05_captura-01.png',
-  // ... todas con rutas absolutas y nombres normalizados
-]
-```
-
-## 🚀 Pasos para Aplicar la Solución
-
-### Opción 1: Renombrar Archivos Físicos (Recomendado)
-1. Ejecutar el script de renombrado:
-```bash
-bash rename-images-example.sh
-```
-
-2. Actualizar el HTML con los nuevos nombres:
-```html
-<img src="Img/Fondo_becario/fb_01_inicio.png" alt="Fondo Becario - Inicio">
-<img src="Img/Fondo_becario/fb_02_vista-inicio.png" alt="Fondo Becario - Vista de Inicio">
-<!-- ... -->
-```
-
-### Opción 2: Usar Solo el Mapping (Sin Renombrar)
-El código JavaScript manejará automáticamente la conversión usando `IMAGE_NAME_MAPPING`.
-
-## 🔍 Logging y Debugging
-
-El sistema incluye logging detallado:
-- ✅ Imágenes cargadas correctamente
-- ❌ Errores 404 con detalles completos
-- 📋 Proceso de normalización paso a paso
-
-### Ejemplo de Log:
-```
-[1/12] Normalizando imagen: {
-  original: "Img/Fondo_becario/Captura de pantalla...",
-  normalized: "Img/Fondo_becario/fb_05_captura-01.png",
-  absolute: "http://localhost:8000/Img/Fondo_becario/fb_05_captura-01.png"
-}
-✅ [1/12] Imagen cargada correctamente
-```
-
-## 🛡️ Validación y Placeholders
-
-Si una imagen falla:
-1. Se muestra un placeholder SVG con mensaje
-2. Se registra el error en consola con detalles
-3. El carrusel continúa funcionando normalmente
-
-## 📝 Notas Importantes
-
-- Las rutas se convierten automáticamente a absolutas
-- El mapping tiene prioridad sobre la sanitización
-- Los placeholders son SVG inline (no requieren archivos externos)
-- Compatible con cualquier servidor (localhost, producción, etc.)
-
+El inventario incluye dimensiones, peso y correspondencia con cada original, además de observaciones sobre su contenido.
