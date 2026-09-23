@@ -1,182 +1,180 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Iris Lazzarini is a Functional Analyst & Full Stack Developer building reliable web applications, APIs and data-driven tools for businesses.">
-    <meta name="theme-color" content="#050706">
-    <title>Iris Lazzarini | Functional Analyst & Full Stack Developer</title>
-    <link rel="canonical" href="https://irislazzarini.github.io/Miport-folio/">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iris Lazzarini — Análisis Funcional &amp; Desarrollo de Software</title>
+  <meta name="description" content="Portfolio de Iris Lazzarini. Análisis funcional y desarrollo full stack: sistemas de gestión, aplicaciones web y soluciones basadas en datos.">
+  <meta name="theme-color" content="#070B14">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" content="Iris Lazzarini — Functional Analyst & Software Developer">
+  <meta property="og:description" content="Del proceso al producto. Análisis funcional y desarrollo de soluciones digitales.">
+  <meta property="og:url" content="https://irislazzarini.github.io/Miport-folio/">
+  <meta property="og:image" content="https://irislazzarini.github.io/Miport-folio/assets/social-preview.png">
+  <meta property="og:image:alt" content="Iris Lazzarini — Functional Analyst & Software Developer">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://irislazzarini.github.io/Miport-folio/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="module" src="js/main.js"></script>
 </head>
 <body>
-    <div id="start-overlay" class="start-overlay" aria-label="Welcome">
-        <div class="start-content">
-            <span class="terminal-label">IRIS_LAZZARINI / PORTFOLIO</span>
-            <img src="Img/Avatar/AVATARMIO.jpeg" alt="Iris Lazzarini" class="start-avatar">
-            <h1 class="start-title">Iris Lazzarini</h1>
-            <p class="start-subtitle">Functional Analyst & Full Stack Developer</p>
-            <div class="start-instruction"><span class="blink">[ click to enter ]</span></div>
-        </div>
+  <a class="skip-link" href="#contenido"><span data-en="Skip to content">Saltar al contenido</span></a>
+  <header class="site-header">
+    <div class="nav-container">
+      <a class="wordmark" href="#inicio" aria-label="il. — Iris Lazzarini — Inicio" data-aria-en="il. — Iris Lazzarini — Home">il<span>.</span></a>
+      <div class="header-socials"><a href="https://github.com/IrisLazzarini" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/iris-lazzarini-7600881a3" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div>
+      <nav class="navigation" id="navigation" aria-label="Navegación principal" data-aria-en="Main navigation">
+        <a href="#inicio"><span data-en="Home">Inicio</span></a><a href="#proyectos"><span data-en="Projects">Proyectos</span></a><a href="#experiencia"><span data-en="Experience">Experiencia</span></a><a href="#sobre-mi"><span data-en="About">Sobre mí</span></a><a href="#tecnologias"><span data-en="Technologies">Tecnologías</span></a><a href="#contacto"><span data-en="Contact">Contacto</span></a>
+        <div class="mobile-socials"><a class="text-link" href="https://github.com/IrisLazzarini" target="_blank" rel="noopener noreferrer">GitHub<span aria-hidden="true">↗</span></a><a class="text-link" href="https://www.linkedin.com/in/iris-lazzarini-7600881a3" target="_blank" rel="noopener noreferrer">LinkedIn<span aria-hidden="true">↗</span></a></div>
+      </nav>
+      <div class="nav-actions">
+        <div class="language-switcher" role="group" aria-label="Idioma" data-aria-en="Language"><button type="button" data-language="es" aria-pressed="true" aria-label="Español">ES</button><span aria-hidden="true">/</span><button type="button" data-language="en" aria-pressed="false" aria-label="English">EN</button></div>
+        <a class="cv-link" href="assets/docs/iris-lazzarini-cv.pdf" target="_blank" rel="noopener noreferrer" data-cv><span data-en="View CV">Ver CV</span><span aria-hidden="true">↗</span></a>
+        <button class="menu-toggle" aria-controls="navigation" aria-expanded="false" aria-label="Abrir menú" data-aria-en="Open menu" type="button"><span></span><span></span></button>
+      </div>
     </div>
-
-    <nav class="navbar" aria-label="Main navigation">
-        <div class="navbar-container">
-            <a href="#inicio" class="logo" aria-label="Iris Lazzarini home">IL<span>.</span></a>
-            <button class="menu-btn" type="button" aria-label="Open navigation menu" aria-expanded="false">
-                <i class="fas fa-bars" aria-hidden="true"></i>
-            </button>
-            <div class="nav-links">
-                <a href="#inicio" data-i18n="nav.home">Home</a>
-                <a href="#sobre-mi" data-i18n="nav.about">About</a>
-                <a href="#servicios" data-i18n="nav.services">Services</a>
-                <a href="#proyectos" data-i18n="nav.projects">Projects</a>
-                <a href="#tecnologias" data-i18n="nav.technologies">Technologies</a>
-                <a href="#contacto" data-i18n="nav.contact">Contact</a>
-            </div>
-            <div class="language-switcher" role="group" aria-label="Language selector">
-                <button type="button" data-language="en" class="active" aria-pressed="true">EN</button>
-                <span>/</span>
-                <button type="button" data-language="es" aria-pressed="false">ES</button>
-            </div>
+  </header>
+  <main id="contenido">
+    <section id="inicio" class="hero" aria-labelledby="hero-title">
+      <div class="container hero-layout">
+        <div class="hero-copy">
+          <p class="identity"><span class="identity-line" aria-hidden="true"></span>IRIS LAZZARINI <span class="identity-location">/ ARGENTINA</span></p>
+          <h1 id="hero-title"><span data-en="Clear thinking.">Análisis claro.</span><br><span class="hero-highlight" data-en="Real software.">Software real.</span></h1>
+          <p class="hero-role">Junior Functional Analyst <span>&amp;</span> Software Developer</p>
+          <p class="hero-description" data-en="I turn needs, processes and data into digital products that solve real problems.">Transformo necesidades, procesos y datos en productos digitales que resuelven problemas concretos.</p>
+          <div class="hero-actions"><a class="button primary" href="#proyectos"><span data-en="Explore my work">Explorar proyectos</span><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a><a class="button secondary" href="#contacto"><span data-en="Let’s talk">Hablemos</span><span aria-hidden="true">↗</span></a></div>
+          <div class="hero-socials"><a class="text-link" href="https://github.com/IrisLazzarini" target="_blank" rel="noopener noreferrer">GitHub<span aria-hidden="true">↗</span></a><a class="text-link" href="https://www.linkedin.com/in/iris-lazzarini-7600881a3" target="_blank" rel="noopener noreferrer">LinkedIn<span aria-hidden="true">↗</span></a><span class="location"><span class="location-dot" aria-hidden="true"></span><span data-en="Remote work">Trabajo remoto</span></span></div>
         </div>
-    </nav>
-
-    <main>
-        <section id="inicio" class="hero">
-            <i class="fas fa-code hero-icon hero-icon-one" aria-hidden="true"></i>
-            <i class="fas fa-database hero-icon hero-icon-two" aria-hidden="true"></i>
-            <i class="fas fa-terminal hero-icon hero-icon-three" aria-hidden="true"></i>
-            <div class="container hero-layout">
-                <div class="hero-copy" data-aos="fade-up">
-                    <p class="eyebrow"><span class="prompt">&gt;</span> <span data-i18n="hero.availability">available for freelance projects</span></p>
-                    <h1>Iris Lazzarini</h1>
-                    <h2 data-i18n="hero.role">Functional Analyst <span>&amp;</span> Full Stack Developer</h2>
-                    <p class="tagline" data-i18n="hero.tagline">I build modern web applications that help businesses turn complex processes into clear, reliable digital products.</p>
-                    <div class="hero-actions">
-                        <a href="#proyectos" class="button button-primary"><span data-i18n="hero.projects">View projects</span> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
-                        <a href="#contacto" class="button button-secondary"><span data-i18n="hero.contact">Start a conversation</span> <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                    </div>
-                    <div class="hero-note"><span class="status-dot"></span> <span data-i18n="hero.location">Based in Argentina · working remotely</span></div>
-                </div>
-                <div class="hero-aside" data-aos="fade-left" data-aos-delay="150">
-                    <div class="code-window" aria-label="How I approach projects">
-                        <div class="window-bar"><span></span><span></span><span></span><small>approach.js</small></div>
-                        <pre><code><span class="code-muted">01</span> <span class="code-keyword">const</span> <span class="code-name">project</span> = {
-<span class="code-muted">02</span>   <span class="code-key">clarity</span>: <span class="code-string">"first"</span>,
-<span class="code-muted">03</span>   <span class="code-key">solution</span>: <span class="code-string">"built to last"</span>,
-<span class="code-muted">04</span>   <span class="code-key">outcome</span>: <span class="code-string">"measurable"</span>
-<span class="code-muted">05</span> };</code></pre>
-                    </div>
-                    <div class="hero-aside-caption">From business need to working product.</div>
-                </div>
-            </div>
-        </section>
-
-        <section id="sobre-mi" class="about section-shell">
-            <div class="container about-grid">
-                <div class="section-heading" data-aos="fade-up">
-                    <span class="section-index" data-i18n="about.index">01 / about</span>
-                    <h2 data-i18n="about.title">Technical thinking.<br><span>Useful outcomes.</span></h2>
-                </div>
-                <div class="about-text" data-aos="fade-up" data-aos-delay="100">
-                    <p data-i18n="about.paragraph1">I help businesses and teams transform real operational needs into digital products that are easier to use, maintain and grow. My work combines functional analysis with full stack development, so decisions stay connected to the people and processes behind the software.</p>
-                    <p data-i18n="about.paragraph2">I work with JavaScript, PHP, Python, APIs and relational databases, choosing the simplest reliable solution for each project. You get clear communication, structured delivery and software built around your goals, not a generic template.</p>
-                    <a href="#servicios" class="text-link"><span data-i18n="about.link">See how I can help</span> <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
-                </div>
-            </div>
-        </section>
-
-        <section id="servicios" class="services section-shell section-dark">
-            <div class="container">
-                <div class="section-heading section-heading-wide" data-aos="fade-up">
-                    <span class="section-index" data-i18n="services.index">02 / services</span>
-                    <h2 data-i18n="services.title">What I can build<br><span>with you.</span></h2>
-                    <p data-i18n="services.intro">Focused support for launching, improving or maintaining digital products.</p>
-                </div>
-                <div class="services-grid">
-                    <article class="service-card" data-aos="fade-up"><span class="service-number">01</span><i class="fas fa-laptop-code service-icon" aria-hidden="true"></i><h3 data-i18n="service.web.title">Web Development</h3><p data-i18n="service.web.text">Responsive websites that make your offer clear and credible on every screen.</p></article>
-                    <article class="service-card" data-aos="fade-up" data-aos-delay="60"><span class="service-number">02</span><i class="fas fa-layer-group service-icon" aria-hidden="true"></i><h3 data-i18n="service.apps.title">Custom Web Applications</h3><p data-i18n="service.apps.text">Business tools tailored to your workflow, users and data instead of off-the-shelf compromises.</p></article>
-                    <article class="service-card" data-aos="fade-up" data-aos-delay="120"><span class="service-number">03</span><i class="fas fa-diagram-project service-icon" aria-hidden="true"></i><h3 data-i18n="service.analysis.title">Functional Analysis</h3><p data-i18n="service.analysis.text">Clear requirements, flows and priorities before development begins.</p></article>
-                    <article class="service-card" data-aos="fade-up" data-aos-delay="180"><span class="service-number">04</span><i class="fas fa-plug service-icon" aria-hidden="true"></i><h3 data-i18n="service.api.title">API Development</h3><p data-i18n="service.api.text">Well-structured integrations and endpoints that let systems exchange data safely.</p></article>
-                    <article class="service-card" data-aos="fade-up" data-aos-delay="240"><span class="service-number">05</span><i class="fas fa-database service-icon" aria-hidden="true"></i><h3 data-i18n="service.database.title">Database Design</h3><p data-i18n="service.database.text">Organized data models and queries that keep information consistent and useful.</p></article>
-                    <article class="service-card" data-aos="fade-up" data-aos-delay="300"><span class="service-number">06</span><i class="fas fa-screwdriver-wrench service-icon" aria-hidden="true"></i><h3 data-i18n="service.support.title">Maintenance &amp; Support</h3><p data-i18n="service.support.text">Practical improvements, fixes and ongoing care for software already in use.</p></article>
-                </div>
-            </div>
-        </section>
-
-        <section id="proyectos" class="projects section-shell">
-            <div class="container">
-                <div class="section-heading section-heading-wide" data-aos="fade-up">
-                    <span class="section-index" data-i18n="projects.index">03 / selected work</span>
-                    <h2 data-i18n="projects.title">Projects built around<br><span>real problems.</span></h2>
-                    <p data-i18n="projects.intro">A few examples of how analysis, design and development become useful products.</p>
-                </div>
-                <div class="projects-grid">
-                    <article class="project-card" data-aos="fade-up">
-                        <div class="project-image"><div class="project-gallery"><img src="Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.26.jpeg" alt="Agromapa crop analysis" loading="lazy"><img src="Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.26 (1).jpeg" alt="Agromapa data view" loading="lazy"><img src="Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.26 (2).jpeg" alt="Agromapa agricultural map" loading="lazy"></div><span class="project-type">Web application</span></div>
-                        <div class="project-info"><div class="project-title-row"><h3>Agromapa</h3><span class="project-year">01</span></div><p class="project-intro" data-i18n="project.agromapa.intro">A data-focused platform for agricultural analysis and better field decisions.</p><dl class="project-proof"><div><dt data-i18n="project.problem">Problem</dt><dd data-i18n="project.agromapa.problem">Field information was difficult to interpret and compare.</dd></div><div><dt data-i18n="project.solution">Solution</dt><dd data-i18n="project.agromapa.solution">A practical interface to organize crop and soil data.</dd></div><div><dt data-i18n="project.result">Result</dt><dd data-i18n="project.agromapa.result">Clearer information for faster operational decisions.</dd></div></dl><div class="project-tech"><span>Python</span><span>Flask</span><span>MySQL</span></div><div class="project-footer"><button class="project-link gallery-link" type="button"><span data-i18n="project.gallery">View gallery</span><i class="fas fa-images" aria-hidden="true"></i></button><a href="https://github.com/IrisLazzarini" target="_blank" rel="noopener noreferrer" class="project-action">GitHub <i class="fab fa-github" aria-hidden="true"></i></a></div><div class="project-gallery-nav"><button class="gallery-prev" aria-label="Previous Agromapa image"><i class="fas fa-chevron-left" aria-hidden="true"></i></button><button class="gallery-next" aria-label="Next Agromapa image"><i class="fas fa-chevron-right" aria-hidden="true"></i></button></div></div>
-                    </article>
-
-                    <article class="project-card" data-aos="fade-up" data-aos-delay="80">
-                        <div class="project-image"><div class="project-gallery"><img src="Img/Sistemadistribuidoras/Inicio.png" alt="Accounting system dashboard" loading="lazy"><img src="Img/Sistemadistribuidoras/Facturas.png" alt="Accounting system invoices" loading="lazy"><img src="Img/Sistemadistribuidoras/Analisis financiero .png" alt="Accounting system financial analysis" loading="lazy"><img src="Img/Sistemadistribuidoras/Asientos COntables.png" alt="Accounting system entries" loading="lazy"><img src="Img/Sistemadistribuidoras/Libro de iva.png" alt="Accounting system VAT book" loading="lazy"><img src="Img/Sistemadistribuidoras/Nota de creditos .png" alt="Accounting system credit notes" loading="lazy"></div><span class="project-type">Custom application</span></div>
-                        <div class="project-info"><div class="project-title-row"><h3>Accounting System</h3><span class="project-year">02</span></div><p class="project-intro" data-i18n="project.accounting.intro">A modular invoicing and accounting tool designed for resilient day-to-day operations.</p><dl class="project-proof"><div><dt data-i18n="project.problem">Problem</dt><dd data-i18n="project.accounting.problem">Invoicing needed to work across different server configurations.</dd></div><div><dt data-i18n="project.solution">Solution</dt><dd data-i18n="project.accounting.solution">Fallback data architecture with MySQL, SQLite and JSON options.</dd></div><div><dt data-i18n="project.result">Result</dt><dd data-i18n="project.accounting.result">A robust system that keeps working when infrastructure varies.</dd></div></dl><div class="project-tech"><span>PHP</span><span>MySQL</span><span>JavaScript</span><span>AFIP simulator</span></div><div class="project-footer"><button class="project-link gallery-link" type="button"><span data-i18n="project.gallery">View gallery</span><i class="fas fa-images" aria-hidden="true"></i></button><a href="https://github.com/IrisLazzarini" target="_blank" rel="noopener noreferrer" class="project-action">GitHub <i class="fab fa-github" aria-hidden="true"></i></a></div><div class="project-gallery-nav"><button class="gallery-prev" aria-label="Previous accounting system image"><i class="fas fa-chevron-left" aria-hidden="true"></i></button><button class="gallery-next" aria-label="Next accounting system image"><i class="fas fa-chevron-right" aria-hidden="true"></i></button></div></div>
-                    </article>
-
-                    <article class="project-card" data-aos="fade-up" data-aos-delay="160">
-                        <div class="project-image"><div class="project-gallery"><img src="Img/Fondo_becario/Inicio.png" alt="Scholarship fund dashboard" loading="lazy"><img src="Img/Fondo_becario/Vista de inicio.png" alt="Scholarship fund home" loading="lazy"><img src="Img/Fondo_becario/Balances.png" alt="Scholarship fund balances" loading="lazy"><img src="Img/Fondo_becario/Balance consolidado.png" alt="Consolidated balance" loading="lazy"><img src="Img/Fondo_becario/Balance.png" alt="Financial balance" loading="lazy"><img src="Img/Fondo_becario/Gestion de inscripciones.png" alt="Scholarship registrations" loading="lazy"><img src="Img/Fondo_becario/Becas.png" alt="Scholarship management" loading="lazy"><img src="Img/Fondo_becario/Auditoria.png" alt="Audit screen" loading="lazy"><img src="Img/Fondo_becario/Egresos.png" alt="Expenses screen" loading="lazy"><img src="Img/Fondo_becario/pagos de fondos.png" alt="Fund payments" loading="lazy"><img src="Img/Fondo_becario/Normalizar excel.png" alt="Excel normalization" loading="lazy"><img src="Img/Fondo_becario/Eliminacion.png" alt="Data deletion" loading="lazy"></div><span class="project-type">Data &amp; automation</span></div>
-                        <div class="project-info"><div class="project-title-row"><h3>Fondo Becario</h3><span class="project-year">03</span></div><p class="project-intro" data-i18n="project.scholarship.intro">A financial management system that turns messy spreadsheets into reliable information.</p><dl class="project-proof"><div><dt data-i18n="project.problem">Problem</dt><dd data-i18n="project.scholarship.problem">Multiple Excel formats, manual calculations and unreliable balances.</dd></div><div><dt data-i18n="project.solution">Solution</dt><dd data-i18n="project.scholarship.solution">Normalized imports, business rules and automated consolidated reports.</dd></div><div><dt data-i18n="project.result">Result</dt><dd data-i18n="project.scholarship.result">A dependable overview of income, expenses and scholarships.</dd></div></dl><div class="project-tech"><span>PHP 8</span><span>MySQL 8</span><span>PhpSpreadsheet</span><span>MVC</span></div><div class="project-footer"><button class="project-link gallery-link" type="button"><span data-i18n="project.gallery">View gallery</span><i class="fas fa-images" aria-hidden="true"></i></button><a href="https://github.com/IrisLazzarini" target="_blank" rel="noopener noreferrer" class="project-action">GitHub <i class="fab fa-github" aria-hidden="true"></i></a></div><div class="project-gallery-nav"><button class="gallery-prev" aria-label="Previous scholarship fund image"><i class="fas fa-chevron-left" aria-hidden="true"></i></button><button class="gallery-next" aria-label="Next scholarship fund image"><i class="fas fa-chevron-right" aria-hidden="true"></i></button></div></div>
-                    </article>
-
-                    <article class="project-card" data-aos="fade-up">
-                        <div class="project-image"><div class="project-gallery"><img src="Img/HojalateriaCH/Inicio.png" alt="Hojalatería Chartier website" loading="lazy"><img src="Img/HojalateriaCH/Servicios.png" alt="Hojalatería Chartier services" loading="lazy"><img src="Img/HojalateriaCH/Productos.png" alt="Hojalatería Chartier products" loading="lazy"><img src="Img/HojalateriaCH/Contacto.png" alt="Hojalatería Chartier contact" loading="lazy"></div><span class="project-type">Business website</span></div>
-                        <div class="project-info"><div class="project-title-row"><h3>Hojalatería Chartier</h3><span class="project-year">04</span></div><p class="project-intro" data-i18n="project.chartier.intro">A focused one-page presence that makes services, products and contact options easy to find.</p><dl class="project-proof"><div><dt data-i18n="project.problem">Problem</dt><dd data-i18n="project.chartier.problem">The business needed a credible digital front door.</dd></div><div><dt data-i18n="project.solution">Solution</dt><dd data-i18n="project.chartier.solution">A responsive, lightweight site with clear conversion paths.</dd></div><div><dt data-i18n="project.result">Result</dt><dd data-i18n="project.chartier.result">A professional online presence that works across devices.</dd></div></dl><div class="project-tech"><span>HTML5</span><span>CSS3</span><span>JavaScript</span></div><div class="project-footer"><a href="https://hojalateriachartier.com/" target="_blank" rel="noopener noreferrer" class="project-link"><span data-i18n="project.demo">Live demo</span> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a><a href="https://github.com/IrisLazzarini" target="_blank" rel="noopener noreferrer" class="project-action">GitHub <i class="fab fa-github" aria-hidden="true"></i></a></div><div class="project-gallery-nav"><button class="gallery-prev" aria-label="Previous Hojalatería Chartier image"><i class="fas fa-chevron-left" aria-hidden="true"></i></button><button class="gallery-next" aria-label="Next Hojalatería Chartier image"><i class="fas fa-chevron-right" aria-hidden="true"></i></button></div></div>
-                    </article>
-
-                    <article class="project-card" data-aos="fade-up" data-aos-delay="80">
-                        <div class="project-image"><div class="project-gallery"><img src="Img/Polo/Inicio.png" alt="Polo Universitario website" loading="lazy"><img src="Img/Polo/Comunidad .png" alt="Polo Universitario community" loading="lazy"><img src="Img/Polo/Comunidad2.png" alt="Polo Universitario resources" loading="lazy"><img src="Img/Polo/CV.png" alt="Polo Universitario CV builder" loading="lazy"></div><span class="project-type">Education platform</span></div>
-                        <div class="project-info"><div class="project-title-row"><h3>Polo Universitario</h3><span class="project-year">05</span></div><p class="project-intro" data-i18n="project.polo.intro">An educational platform connecting academic information, community and student resources.</p><dl class="project-proof"><div><dt data-i18n="project.problem">Problem</dt><dd data-i18n="project.polo.problem">Students and institutions needed one accessible information hub.</dd></div><div><dt data-i18n="project.solution">Solution</dt><dd data-i18n="project.polo.solution">Structured navigation, community tools and self-service resources.</dd></div><div><dt data-i18n="project.result">Result</dt><dd data-i18n="project.polo.result">A clearer path from discovering an offer to taking action.</dd></div></dl><div class="project-tech"><span>PHP</span><span>HTML</span><span>MySQL</span></div><div class="project-footer"><a href="https://polousanjusto.com.ar/" target="_blank" rel="noopener noreferrer" class="project-link"><span data-i18n="project.demo">Live demo</span> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a><a href="https://github.com/IrisLazzarini" target="_blank" rel="noopener noreferrer" class="project-action">GitHub <i class="fab fa-github" aria-hidden="true"></i></a></div><div class="project-gallery-nav"><button class="gallery-prev" aria-label="Previous Polo Universitario image"><i class="fas fa-chevron-left" aria-hidden="true"></i></button><button class="gallery-next" aria-label="Next Polo Universitario image"><i class="fas fa-chevron-right" aria-hidden="true"></i></button></div></div>
-                    </article>
-
-                    <article class="project-card" data-aos="fade-up" data-aos-delay="160">
-                        <div class="project-image"><div class="project-gallery"><iframe src="https://irislazzarini.github.io/Maquinaria/" class="project-iframe" loading="lazy" title="PulverAgro live preview"></iframe></div><span class="project-type">Corporate website</span></div>
-                        <div class="project-info"><div class="project-title-row"><h3>PulverAgro</h3><span class="project-year">06</span></div><p class="project-intro" data-i18n="project.pulveragro.intro">A clear corporate website for an agricultural spraying company.</p><dl class="project-proof"><div><dt data-i18n="project.problem">Problem</dt><dd data-i18n="project.pulveragro.problem">The company needed to explain its coverage and services quickly.</dd></div><div><dt data-i18n="project.solution">Solution</dt><dd data-i18n="project.pulveragro.solution">A clean responsive site with direct contact paths.</dd></div><div><dt data-i18n="project.result">Result</dt><dd data-i18n="project.pulveragro.result">A more professional first impression for agricultural clients.</dd></div></dl><div class="project-tech"><span>HTML</span><span>CSS</span><span data-i18n="tech.responsive">Responsive design</span></div><div class="project-footer"><a href="https://irislazzarini.github.io/Maquinaria/" target="_blank" rel="noopener noreferrer" class="project-link"><span data-i18n="project.demo">Live demo</span> <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a><a href="https://github.com/IrisLazzarini" target="_blank" rel="noopener noreferrer" class="project-action">GitHub <i class="fab fa-github" aria-hidden="true"></i></a></div></div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="tecnologias" class="technologies section-shell section-dark">
-            <div class="container">
-                <div class="section-heading section-heading-wide" data-aos="fade-up"><span class="section-index" data-i18n="tech.index">04 / toolkit</span><h2 data-i18n="tech.title">The tools stay<br><span>in the background.</span></h2><p data-i18n="tech.intro">You care about the result. These are the tools I use to make it reliable.</p></div>
-                <div class="tech-groups">
-                    <div class="tech-group" data-aos="fade-up"><h3><span>01</span> <span data-i18n="tech.frontend">Frontend</span></h3><div class="tech-logos"><span><i class="fab fa-js" aria-hidden="true"></i>JavaScript</span><span><i class="fab fa-html5" aria-hidden="true"></i>HTML5</span><span><i class="fab fa-css3-alt" aria-hidden="true"></i>CSS3</span></div></div>
-                    <div class="tech-group" data-aos="fade-up" data-aos-delay="80"><h3><span>02</span> <span data-i18n="tech.backend">Backend</span></h3><div class="tech-logos"><span><i class="fab fa-php" aria-hidden="true"></i>PHP</span><span><i class="fab fa-python" aria-hidden="true"></i>Python</span><span><i class="fas fa-plug" aria-hidden="true"></i>APIs</span></div></div>
-                    <div class="tech-group" data-aos="fade-up" data-aos-delay="160"><h3><span>03</span> <span data-i18n="tech.database">Database</span></h3><div class="tech-logos"><span><i class="fas fa-database" aria-hidden="true"></i>MySQL</span><span><i class="fas fa-database" aria-hidden="true"></i>SQLite</span><span><i class="fas fa-table" aria-hidden="true"></i>SQL</span></div></div>
-                    <div class="tech-group" data-aos="fade-up" data-aos-delay="240"><h3><span>04</span> <span data-i18n="tech.tools">Tools</span></h3><div class="tech-logos"><span><i class="fab fa-git-alt" aria-hidden="true"></i>Git</span><span><i class="fas fa-file-excel" aria-hidden="true"></i>Excel</span><span><i class="fas fa-diagram-project" aria-hidden="true"></i>UML</span></div></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contacto" class="contact section-shell">
-            <div class="container contact-grid">
-                <div class="contact-copy" data-aos="fade-up"><span class="section-index" data-i18n="contact.index">05 / contact</span><h2 data-i18n="contact.title">Let's build your<br><span>next project.</span></h2><p data-i18n="contact.intro">Tell me what you are trying to improve, build or simplify. I will get back to you with the next practical step.</p><div class="contact-links"><a href="mailto:irislazzarini@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i><span>irislazzarini@gmail.com</span></a><a href="https://github.com/IrisLazzarini" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i><span>GitHub</span></a><a href="https://www.linkedin.com/in/iris-lazzarini-7600881a3" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a><a href="https://wa.me/3498522611" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span></a></div></div>
-                <form id="contact-form" class="contact-form" data-aos="fade-up" data-aos-delay="120"><div class="form-intro"><span class="prompt">&gt;</span> <span data-i18n="contact.formIntro">send a brief</span></div><div class="form-group"><label for="name" data-i18n="form.name">Your name</label><input type="text" id="name" name="name" autocomplete="name" placeholder="How should I call you?" required></div><div class="form-group"><label for="email" data-i18n="form.email">Email address</label><input type="email" id="email" name="email" autocomplete="email" placeholder="you@company.com" required></div><div class="form-group"><label for="message" data-i18n="form.message">What are you working on?</label><textarea id="message" name="message" autocomplete="off" placeholder="A few lines about the challenge, timeline or desired outcome..." required></textarea></div><button type="submit" class="submit-btn"><span data-i18n="form.submit">Send inquiry</span> <i class="fas fa-arrow-right" aria-hidden="true"></i></button><p class="form-note" data-i18n="form.note">Your message opens in your email client. No data is stored here.</p></form>
-            </div>
-        </section>
-    </main>
-
-    <div id="project-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
-        <div class="modal-content"><button class="close-modal" type="button" aria-label="Close project gallery"><i class="fas fa-xmark" aria-hidden="true"></i></button><h2 id="modal-title" class="sr-only">Project gallery</h2><div class="modal-gallery-container"><div class="modal-gallery"></div><div class="modal-nav"><button class="modal-prev" type="button" aria-label="Previous image"><i class="fas fa-chevron-left" aria-hidden="true"></i></button><button class="modal-next" type="button" aria-label="Next image"><i class="fas fa-chevron-right" aria-hidden="true"></i></button></div><div class="modal-indicators" role="tablist" aria-label="Project images"></div></div></div>
-    </div>
-
-    <footer class="footer"><div class="container"><div class="footer-content"><p>© 2026 Iris Lazzarini <span>·</span> Built with clarity.</p><div class="social-links"><a href="https://github.com/IrisLazzarini" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a><a href="https://www.linkedin.com/in/iris-lazzarini-7600881a3" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a><a href="mailto:irislazzarini81@gmail.com" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a></div></div></div></footer>
-    <a href="https://wa.me/3498522611" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Contact via WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/main.js"></script>
+        <div class="hero-showcase">
+          <img class="showcase-motif" src="assets/architecture.svg" alt="" width="580" height="580" aria-hidden="true">
+          <div class="showcase-eyebrow"><span class="eyebrow" data-en="IDEAS, PUT INTO PRACTICE">IDEAS LLEVADAS A LA PRÁCTICA</span><span aria-hidden="true">↙</span></div>
+          <div class="showcase-panel" id="showcase-content">
+            <div class="showcase-meta"><span class="showcase-category">GESTIÓN FINANCIERA</span><span class="showcase-number">01 / 03</span></div>
+            <a class="showcase-image-link" href="#scholarship" aria-labelledby="showcase-title"><img class="showcase-image" src="assets/projects/scholarship-cover.webp" alt="Panel de balances y seguimiento financiero de Fondo Becario" width="800" height="482" fetchpriority="high" decoding="async"></a>
+            <div class="showcase-info"><div><p class="showcase-kicker" data-en="SELECTED PROJECT">PROYECTO DESTACADO</p><h2 id="showcase-title">Fondo Becario</h2><p class="showcase-description">De planillas dispersas a información confiable.</p></div><a class="showcase-case" href="#scholarship"><span data-en="View case">Ver caso</span><span aria-hidden="true">↗</span></a></div>
+          </div>
+          <div class="showcase-switcher" role="group" aria-label="Elegir proyecto destacado" data-aria-en="Choose featured project">
+            <button type="button" data-showcase="scholarship" aria-pressed="true" aria-controls="showcase-content"><span>01</span><span data-en="Management">Gestión</span></button>
+            <button type="button" data-showcase="accounting" aria-pressed="false" aria-controls="showcase-content"><span>02</span><span data-en="Backend">Backend</span></button>
+            <button type="button" data-showcase="agromapa" aria-pressed="false" aria-controls="showcase-content"><span>03</span><span data-en="Data">Datos</span></button>
+          </div>
+          <p class="sr-only showcase-status" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+      <div class="container hero-bottom"><p><span data-en="Functional analysis">Análisis funcional</span><span aria-hidden="true">→</span><span data-en="Full stack development">Desarrollo full stack</span><span aria-hidden="true">→</span><span data-en="Solutions that work">Soluciones que funcionan</span></p><a href="#proyectos"><span data-en="Discover the projects">Descubrí los proyectos</span><span aria-hidden="true">↓</span></a></div>
+    </section>
+    <section id="proyectos" class="section container" aria-labelledby="projects-title">
+      <div class="section-heading reveal"><div><p class="eyebrow">01 / <span data-en="SELECTED WORK">PROYECTOS SELECCIONADOS</span></p><h2 id="projects-title"><span data-en="Real challenges.">Desafíos reales.</span><br><span class="muted-heading" data-en="Concrete solutions.">Soluciones concretas.</span></h2></div><p class="section-intro" data-en="Systems, data and web experiences. A selection of problems turned into solutions.">Sistemas, datos y experiencias web. Una selección de problemas convertidos en soluciones.</p></div>
+      <nav class="project-index" aria-label="Acceso directo a casos destacados" data-aria-en="Featured case shortcuts"><a href="#scholarship"><span class="project-index-number">01</span><span><strong data-en="Fondo Becario">Fondo Becario</strong><small data-en="Financial management">Gestión financiera</small></span><span class="project-index-arrow" aria-hidden="true">↗</span></a><a href="#accounting"><span class="project-index-number">02</span><span><strong data-en="Accounting system">Sistema contable</strong><small data-en="Architecture &amp; backend">Arquitectura y backend</small></span><span class="project-index-arrow" aria-hidden="true">↗</span></a><a href="#agromapa"><span class="project-index-number">03</span><span><strong data-en="Agromapa">Agromapa</strong><small data-en="Data analysis">Análisis de datos</small></span><span class="project-index-arrow" aria-hidden="true">↗</span></a></nav>
+      <article class="case-study reveal" id="scholarship">
+      <div class="case-visual">
+        <div class="case-topline"><span>01 / Fondo Becario</span><span class="image-hint"><span data-en="PROJECT VIEW">VISTA DEL PROYECTO</span></span></div>
+        <a class="project-preview" href="assets/projects/scholarship-cover.webp" data-gallery="scholarship" aria-label="Ampliar capturas de Fondo Becario" data-aria-en="Enlarge Fondo Becario screenshots">
+          <img src="assets/projects/scholarship-cover.webp" alt="Panel de balances y seguimiento financiero de Fondo Becario" data-alt-en="Fondo Becario balances and financial tracking dashboard" loading="lazy" decoding="async" width="800" height="482">
+          <span class="preview-expand" aria-hidden="true"><span data-en="Enlarge">Ampliar</span> ↗</span>
+        </a>
+        <div class="case-bottomline"><span data-en="From scattered spreadsheets to reliable information.">De planillas dispersas a información confiable.</span><span aria-hidden="true">↗</span></div>
+      </div>
+      <div class="case-copy">
+        <p class="eyebrow" data-en="MANAGEMENT SYSTEMS / DATA">SISTEMAS DE GESTIÓN / DATOS</p>
+        <h3 data-en="Fondo Becario">Fondo Becario</h3>
+        <p class="case-context" data-en="A financial management system bringing income, expenses and scholarships into one view.">Un sistema de gestión financiera que reúne ingresos, egresos y becas en una misma visión.</p>
+        <dl class="case-details"><div><dt data-en="The challenge">El desafío</dt><dd data-en="Multiple Excel formats, manual calculations and unreliable balances.">Múltiples formatos de Excel, cálculos manuales y balances poco confiables.</dd></div><div><dt data-en="The solution">La solución</dt><dd data-en="Normalized imports, business rules and automated consolidated reports.">Importaciones normalizadas, reglas de negocio e informes consolidados automáticos.</dd></div><div><dt data-en="My contribution">Mi participación</dt><dd data-en="System design and implementation, data normalization, and automated balances and reports.">Diseño e implementación del sistema, normalización de datos y automatización de balances e informes.</dd></div></dl>
+        <div class="case-result"><span class="result-mark" aria-hidden="true">↗</span><div><span class="result-label" data-en="OUTCOME">RESULTADO</span><p data-en="A consolidated overview of income, expenses and scholarships.">Una visión consolidada de ingresos, egresos y becas.</p></div></div>
+        <ul class="tags" aria-label="Stack"><li>PHP 8</li><li>MySQL 8</li><li>PhpSpreadsheet</li><li>MVC</li></ul>
+        <div class="case-actions"><a class="text-link" href="assets/projects/scholarship-cover.webp" data-gallery="scholarship" data-aria-en="View 12 screenshots: Fondo Becario" aria-label="Ver 12 capturas: Fondo Becario"><span data-en="View 12 screenshots">Ver 12 capturas</span><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
+      </div>
+    </article><article class="case-study reveal" id="accounting">
+      <div class="case-visual">
+        <div class="case-topline"><span>02 / Sistema contable</span><span class="image-hint"><span data-en="PROJECT VIEW">VISTA DEL PROYECTO</span></span></div>
+        <a class="project-preview" href="assets/projects/accounting-cover.webp" data-gallery="accounting" aria-label="Ampliar capturas de Sistema contable" data-aria-en="Enlarge Sistema contable screenshots">
+          <img src="assets/projects/accounting-cover.webp" alt="Análisis financiero del sistema contable" data-alt-en="Accounting system financial analysis" loading="lazy" decoding="async" width="800" height="407">
+          <span class="preview-expand" aria-hidden="true"><span data-en="Enlarge">Ampliar</span> ↗</span>
+        </a>
+        <div class="case-bottomline"><span data-en="Continuity is a design decision.">La continuidad también se diseña.</span><span aria-hidden="true">↗</span></div>
+      </div>
+      <div class="case-copy">
+        <p class="eyebrow" data-en="ARCHITECTURE / BACKEND">ARQUITECTURA / BACKEND</p>
+        <h3 data-en="Accounting system">Sistema contable</h3>
+        <p class="case-context" data-en="Modular invoicing and accounting for day-to-day operations across different environments.">Facturación y contabilidad modular para operaciones diarias en distintos entornos.</p>
+        <dl class="case-details"><div><dt data-en="The challenge">El desafío</dt><dd data-en="Invoicing needed to work across different server configurations.">La facturación debía funcionar en distintas configuraciones de servidor.</dd></div><div><dt data-en="The solution">La solución</dt><dd data-en="Fallback persistence with MySQL, SQLite and JSON, plus an AFIP simulator.">Persistencia alternativa con MySQL, SQLite y JSON, y un simulador de AFIP.</dd></div><div><dt data-en="My contribution">Mi participación</dt><dd data-en="PHP development, persistence architecture and external-service simulation for testing.">Desarrollo en PHP, arquitectura de persistencia y simulación de servicios externos para pruebas.</dd></div></dl>
+        <div class="case-result"><span class="result-mark" aria-hidden="true">↗</span><div><span class="result-label" data-en="OUTCOME">RESULTADO</span><p data-en="A system that adapts to different infrastructure conditions.">Un sistema adaptable a distintas condiciones de infraestructura.</p></div></div>
+        <ul class="tags" aria-label="Stack"><li>PHP</li><li>MySQL</li><li>SQLite</li><li>JavaScript</li><li>JSON</li></ul>
+        <div class="case-actions"><a class="text-link" href="assets/projects/accounting-cover.webp" data-gallery="accounting" data-aria-en="View 17 screenshots: Sistema contable" aria-label="Ver 17 capturas: Sistema contable"><span data-en="View 17 screenshots">Ver 17 capturas</span><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
+      </div>
+    </article><article class="case-study reveal" id="agromapa">
+      <div class="case-visual">
+        <div class="case-topline"><span>03 / Agromapa</span><span class="image-hint"><span data-en="PROJECT VIEW">VISTA DEL PROYECTO</span></span></div>
+        <a class="project-preview" href="assets/projects/agromapa-cover.webp" data-gallery="agromapa" aria-label="Ampliar capturas de Agromapa" data-aria-en="Enlarge Agromapa screenshots">
+          <img src="assets/projects/agromapa-cover.webp" alt="Panel de Agromapa con información para el análisis agropecuario" data-alt-en="Agromapa dashboard with agricultural analysis information" loading="lazy" decoding="async" width="800" height="383">
+          <span class="preview-expand" aria-hidden="true"><span data-en="Enlarge">Ampliar</span> ↗</span>
+        </a>
+        <div class="case-bottomline"><span data-en="Field data. Decisions with context.">Datos del campo. Decisiones con contexto.</span><span aria-hidden="true">↗</span></div>
+      </div>
+      <div class="case-copy">
+        <p class="eyebrow" data-en="ANALYSIS / WEB APPLICATIONS">ANÁLISIS / APLICACIONES WEB</p>
+        <h3 data-en="Agromapa">Agromapa</h3>
+        <p class="case-context" data-en="A data-focused platform for agricultural analysis.">Una plataforma orientada a datos para el análisis agropecuario.</p>
+        <dl class="case-details"><div><dt data-en="The challenge">El desafío</dt><dd data-en="Field information was difficult to interpret and compare.">La información del campo era difícil de interpretar y comparar.</dd></div><div><dt data-en="The solution">La solución</dt><dd data-en="A practical interface for organizing crop and soil data.">Una interfaz práctica para organizar datos de cultivos y suelos.</dd></div></dl>
+        <div class="case-result"><span class="result-mark" aria-hidden="true">↗</span><div><span class="result-label" data-en="OUTCOME">RESULTADO</span><p data-en="Clearer information to support operational decisions.">Información más clara para acompañar decisiones operativas.</p></div></div>
+        <ul class="tags" aria-label="Stack"><li>Python</li><li>Flask</li><li>MySQL</li></ul>
+        <div class="case-actions"><a class="text-link" href="assets/projects/agromapa-cover.webp" data-gallery="agromapa" data-aria-en="View 6 screenshots: Agromapa" aria-label="Ver 6 capturas: Agromapa"><span data-en="View 6 screenshots">Ver 6 capturas</span><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div>
+      </div>
+    </article>
+      <div class="more-heading reveal"><h3><span data-en="More projects, different perspectives.">Más proyectos, otras perspectivas.</span></h3><span>04—07</span></div>
+      <div class="more-projects"><article class="project-small reveal"><a class="small-preview" href="assets/projects/polo-cover.webp" data-gallery="polo" aria-label="Ampliar capturas: Polo Universitario" data-aria-en="Enlarge screenshots: Polo Universitario"><img src="assets/projects/polo-cover.webp" width="800" height="450" loading="lazy" decoding="async" alt="Polo Universitario: vista del sitio web" data-alt-en="Polo Universitario: website preview"><span aria-hidden="true">↗</span></a><div class="small-top"><span data-en="EDUCATION / COMMUNITY">EDUCACIÓN / COMUNIDAD</span><span>04</span></div><h3>Polo Universitario</h3><p data-en="Academic information, community and self-service resources in an education platform.">Información académica, comunidad y recursos de autoservicio en una plataforma educativa.</p><ul class="tags" aria-label="Stack"><li>PHP</li><li>HTML</li><li>MySQL</li></ul><div class="small-actions"><a class="text-link" href="assets/projects/polo-cover.webp" data-gallery="polo" data-aria-en="Screenshots: Polo Universitario" aria-label="Capturas: Polo Universitario"><span data-en="Screenshots">Capturas</span><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></div></article><article class="project-small reveal"><a class="small-preview" href="assets/projects/chartier-cover.webp" data-gallery="chartier" aria-label="Ampliar capturas: Hojalatería Chartier" data-aria-en="Enlarge screenshots: Hojalatería Chartier"><img src="assets/projects/chartier-cover.webp" width="800" height="450" loading="lazy" decoding="async" alt="Hojalatería Chartier: vista del sitio web" data-alt-en="Hojalatería Chartier: website preview"><span aria-hidden="true">↗</span></a><div class="small-top"><span data-en="DIGITAL PRESENCE">PRESENCIA DIGITAL</span><span>05</span></div><h3>Hojalatería Chartier</h3><p data-en="A lightweight website connecting services, products and contact in a clear experience.">Un sitio liviano que conecta servicios, productos y contacto en una experiencia clara.</p><ul class="tags" aria-label="Stack"><li>HTML5</li><li>CSS3</li><li>JavaScript</li></ul><div class="small-actions"><a class="text-link" href="assets/projects/chartier-cover.webp" data-gallery="chartier" data-aria-en="Screenshots: Hojalatería Chartier" aria-label="Capturas: Hojalatería Chartier"><span data-en="Screenshots">Capturas</span><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a><a class="text-link" href="https://hojalateriachartier.com/" target="_blank" rel="noopener noreferrer"><span data-en="Visit website">Visitar sitio</span><span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/IrisLazzarini/Chartier" target="_blank" rel="noopener noreferrer">GitHub<span aria-hidden="true">↗</span></a></div></article><article class="project-small reveal"><a class="small-preview" href="https://irislazzarini.github.io/Maquinaria/" target="_blank" rel="noopener noreferrer" aria-label="Visitar sitio: PulverAgro" data-aria-en="Visit website: PulverAgro"><img src="assets/projects/pulveragro-cover.webp" width="800" height="450" loading="lazy" decoding="async" alt="PulverAgro: vista del sitio web" data-alt-en="PulverAgro: website preview"><span aria-hidden="true">↗</span></a><div class="small-top"><span data-en="CORPORATE WEBSITE">WEB CORPORATIVA</span><span>06</span></div><h3>PulverAgro</h3><p data-en="Agricultural spraying services and coverage, with direct access to contact.">Servicios y cobertura de pulverización agrícola, con acceso directo al contacto.</p><ul class="tags" aria-label="Stack"><li>HTML</li><li>CSS</li><li>Responsive</li></ul><div class="small-actions"><a class="text-link" href="https://irislazzarini.github.io/Maquinaria/" target="_blank" rel="noopener noreferrer"><span data-en="Visit website">Visitar sitio</span><span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/IrisLazzarini/Maquinaria" target="_blank" rel="noopener noreferrer">GitHub<span aria-hidden="true">↗</span></a></div></article><article class="project-small reveal"><a class="small-preview" href="assets/projects/comercio45-cover.webp" data-gallery="comercio45" aria-label="Ampliar capturas: Escuela de Comercio Nº 45" data-aria-en="Enlarge screenshots: Escuela de Comercio Nº 45"><img src="assets/projects/comercio45-cover.webp" width="800" height="450" loading="lazy" decoding="async" alt="Escuela de Comercio Nº 45: vista del sitio web" data-alt-en="Escuela de Comercio Nº 45: website preview"><span aria-hidden="true">↗</span></a><div class="small-top"><span data-en="INSTITUTIONAL WEBSITE">WEB INSTITUCIONAL</span><span>07</span></div><h3>Escuela de Comercio Nº 45</h3><p data-en="Institutional information, academic programs and resources for the education community.">Información institucional, oferta académica y recursos para la comunidad educativa.</p><ul class="tags" aria-label="Stack"><li>HTML5</li><li>CSS3</li><li>JavaScript</li></ul><div class="small-actions"><a class="text-link" href="assets/projects/comercio45-cover.webp" data-gallery="comercio45" data-aria-en="Screenshots: Escuela de Comercio Nº 45" aria-label="Capturas: Escuela de Comercio Nº 45"><span data-en="Screenshots">Capturas</span><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a><a class="text-link" href="https://github.com/IrisLazzarini/Comercio45" target="_blank" rel="noopener noreferrer">GitHub<span aria-hidden="true">↗</span></a></div></article></div>
+      <div class="projects-end"><p data-en="More code and projects on my profile.">Más código y proyectos en mi perfil.</p><a class="text-link" href="https://github.com/IrisLazzarini" target="_blank" rel="noopener noreferrer"><span data-en="Explore GitHub">Explorar GitHub</span><span aria-hidden="true">↗</span></a></div>
+    </section>
+    <section id="experiencia" class="section section-tinted" aria-labelledby="experience-title">
+      <div class="container experience-layout"><div class="section-heading reveal"><div><p class="eyebrow">02 / <span data-en="EXPERIENCE">EXPERIENCIA</span></p><h2 id="experience-title"><span data-en="Experience">Experiencia</span><br><span class="muted-heading" data-en="in practice.">aplicada.</span></h2></div><p class="section-intro" data-en="Functional analysis, user support and full stack development. My experience in institutional projects, freelance work and technical training.">Análisis funcional, soporte a usuarios y desarrollo full stack. Mi recorrido en proyectos institucionales, trabajo freelance y formación técnica.</p></div>
+      <div class="experience-list">
+        <article class="experience-item"><p class="eyebrow experience-period" data-en="June – August 2026">Junio – Agosto 2026</p><h3 data-en="Full Stack Developer Trainee">Desarrolladora Full Stack Trainee</h3><p class="experience-projects">AmplixMe</p><p class="experience-description" data-en="Talent acceleration program. Development of a blog platform with authentication, posts and comments: React and Vite, Node.js and Express APIs, PostgreSQL and Prisma. Work guided by acceptance criteria, functional testing and technical mentoring.">Programa de aceleración de talento. Desarrollo de una plataforma de blog con autenticación, publicaciones y comentarios: React y Vite, APIs con Node.js y Express, PostgreSQL y Prisma. Trabajo con criterios de aceptación, pruebas funcionales y mentoría técnica.</p><p class="experience-outcome" data-en="JavaScript / Full Stack certification with a Job-Ready profile upon completing the program.">Certificación JavaScript / Full Stack con perfil Job-Ready al finalizar el programa.</p></article>
+        <article class="experience-item"><p class="eyebrow experience-period" data-en="June – December 2025 · Internship">Junio – Diciembre 2025 · Pasantía</p><h3 data-en="Junior Functional Analyst">Analista Funcional Junior</h3><p class="experience-projects">Polo Universitario San Justo · Club de Emprendedores</p><p class="experience-description" data-en="Requirements gathering with internal users, functional documentation, support and issue tracking with the development team. SQL queries to validate information and collaboration on role and permission administration.">Relevamiento de necesidades con usuarios internos, documentación funcional, soporte y seguimiento de incidencias junto al equipo de desarrollo. Consultas SQL para validar información y colaboración en la administración de roles y permisos.</p><p class="experience-outcome" data-en="Improved organization and traceability of administrative processes. Internship completed and certified by the institution.">Mejora de la organización y trazabilidad de procesos administrativos. Pasantía finalizada y certificada por la institución.</p></article>
+        <article class="experience-item"><p class="eyebrow experience-period" data-en="August – November 2025">Agosto – Noviembre 2025</p><h3 data-en="Functional Analyst &amp; Web Developer">Analista Funcional y Desarrolladora Web</h3><p class="experience-projects" data-en="Freelance project">Proyecto freelance</p><p class="experience-description" data-en="Client requirements gathering and validation of navigation and functionality. Interface development with React and Tailwind CSS, functional testing, change documentation and support during implementation.">Relevamiento de requerimientos con el cliente y validación de la navegación y las funcionalidades. Desarrollo de la interfaz con React y Tailwind CSS, pruebas funcionales, documentación de cambios y soporte durante la implementación.</p><p class="experience-outcome" data-en="A clear, easy-to-use web solution with better organization of business information and access to products and services.">Una solución web clara y fácil de utilizar, con mejor organización de la información comercial y acceso a productos y servicios.</p></article>
+      </div></div>
+    </section>
+    <section id="sobre-mi" class="section container about-section" aria-labelledby="about-title">
+      <aside class="about-profile reveal"><p class="eyebrow" data-en="MY APPROACH">MI FORMA DE TRABAJAR</p><div class="approach-flow"><div><span>01</span><p data-en="Understand.">Entender.</p></div><div><span>02</span><p data-en="Connect.">Conectar.</p></div><div><span>03</span><p data-en="Build.">Construir.</p></div></div><div class="profile-signature"><img src="assets/portrait.webp" width="76" height="76" loading="lazy" decoding="async" alt="Ilustración de Iris Lazzarini" data-alt-en="Illustration of Iris Lazzarini"><div><strong>Iris Luján Lazzarini</strong><span>Junior Functional Analyst &amp; Developer</span></div></div></aside>
+      <div class="about-copy reveal"><p class="eyebrow">03 / <span data-en="ABOUT ME">SOBRE MÍ</span></p><h2 id="about-title"><span data-en="Understand first.">Entender antes</span><br><span class="muted-heading" data-en="Then build.">de construir.</span></h2><p class="about-lead" data-en="I am a Junior Functional Analyst with a higher technical qualification in Computer Systems Analysis. I connect user needs with technical teams to build clear, useful solutions.">Soy Analista Funcional Junior y Técnica Superior en Análisis de Sistemas Informáticos. Conecto las necesidades de los usuarios con los equipos técnicos para construir soluciones claras y útiles.</p><p data-en="My experience combines requirements gathering, functional documentation, SQL validation, testing and user support with web development. Based in San Justo, Santa Fe, I continue my studies in Software Development and Infrastructure Support.">Mi experiencia combina relevamiento de requerimientos, documentación funcional, validación con SQL, testing y soporte a usuarios con desarrollo web. Desde San Justo, Santa Fe, continúo mi formación en Desarrollo de Software y Soporte de Infraestructura.</p><div class="about-principles"><span><b>01</b><span data-en="Clear requirements">Claridad en los requerimientos</span></span><span><b>02</b><span data-en="Communication with people and teams">Comunicación con personas y equipos</span></span><span><b>03</b><span data-en="Problem solving">Resolución de problemas</span></span></div></div>
+    </section>
+    <section id="formacion" class="container education-section" aria-labelledby="education-title">
+      <div class="education-heading"><div><p class="eyebrow" data-en="EDUCATION &amp; CONTINUOUS LEARNING">FORMACIÓN Y APRENDIZAJE CONTINUO</p><h2 id="education-title" data-en="A foundation to keep building.">Una base para seguir construyendo.</h2></div><a class="button secondary" href="assets/docs/iris-lazzarini-cv.pdf" download="Iris-Lazzarini-CV.pdf" data-cv><span data-en="Download CV">Descargar CV</span><span aria-hidden="true">↓</span></a></div>
+      <div class="education-grid">
+        <div class="education-list">
+          <article class="education-item"><div class="education-meta"><span data-en="March 2023 – December 2025">Marzo 2023 – Diciembre 2025</span><span class="education-status" data-en="Graduated">Egresada</span></div><h3 data-en="Higher Technical Qualification in Computer Systems Analysis">Técnica Superior en Análisis de Sistemas Informáticos</h3><p>Escuela Superior de Comercio N.º 45 “Dr. José Roberto González”</p></article>
+          <article class="education-item"><div class="education-meta"><span data-en="March 2026 – Present">Marzo 2026 – Actualidad</span><span class="education-status" data-en="In progress">En curso</span></div><h3 data-en="Higher Technical Program in Software Development">Tecnicatura Superior en Desarrollo de Software</h3><p>Instituto Superior de Profesorado N.º 20 “Senador Néstor J. Zamaro”</p></article>
+          <article class="education-item"><div class="education-meta"><span data-en="March 2026 – Present">Marzo 2026 – Actualidad</span><span class="education-status" data-en="In progress">En curso</span></div><h3 data-en="Higher Technical Program in Infrastructure Support">Tecnicatura Superior en Soporte de Infraestructura</h3><p>Instituto Superior de Profesorado N.º 20 “Senador Néstor J. Zamaro”</p></article>
+        </div>
+        <aside class="certifications" aria-labelledby="certifications-title"><h3 id="certifications-title" data-en="Additional training">Formación complementaria</h3><ul class="certification-list">
+          <li><strong>JavaScript / Full Stack</strong><span data-en="AmplixMe · Job-Ready certification">AmplixMe · Certificación Job-Ready</span></li>
+          <li><strong>Full Stack Developer</strong><span data-en="CILSA · Completed">CILSA · Finalizado</span></li>
+          <li><strong>Yo Puedo Programar</strong><span>Junior Achievement Santa Fe · HTML, CSS &amp; JavaScript</span></li>
+          <li><strong data-en="English · Levels I &amp; II">Inglés · Niveles I y II</strong><span>Centro Universitario de Idiomas</span></li>
+        </ul></aside>
+      </div>
+    </section>
+    <section id="tecnologias" class="section section-tinted" aria-labelledby="tech-title"><div class="container">
+      <div class="section-heading reveal"><div><p class="eyebrow">04 / <span data-en="TECHNOLOGIES">TECNOLOGÍAS</span></p><h2 id="tech-title"><span data-en="The tools.">Las herramientas.</span><br><span class="muted-heading" data-en="The judgment to choose.">El criterio para elegirlas.</span></h2></div><p class="section-intro" data-en="A set of technologies serving the problem, the information and the people who will use the product.">Un conjunto de tecnologías al servicio del problema, la información y las personas que van a usar el producto.</p></div>
+      <div class="stack-list">
+        <div class="stack-row reveal"><span class="stack-number">01</span><h3 data-en="Functional analysis">Análisis funcional</h3><ul class="tags"><li data-en="Requirements">Requerimientos</li><li data-en="Functional documentation">Documentación funcional</li><li data-en="Functional testing">Testing funcional</li><li data-en="User support">Soporte a usuarios</li><li>SQL</li></ul></div>
+        <div class="stack-row reveal"><span class="stack-number">02</span><h3>Frontend</h3><ul class="tags"><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>React</li><li>Vite</li><li>Tailwind CSS</li></ul></div>
+        <div class="stack-row reveal"><span class="stack-number">03</span><h3>Backend</h3><ul class="tags"><li>Node.js</li><li>Express</li><li>PHP</li><li>Python</li><li>Flask</li><li>APIs</li><li>MVC</li></ul></div>
+        <div class="stack-row reveal"><span class="stack-number">04</span><h3 data-en="Databases">Bases de datos</h3><ul class="tags"><li>PostgreSQL</li><li>MySQL</li><li>SQLite</li><li>Prisma ORM</li></ul></div>
+        <div class="stack-row reveal"><span class="stack-number">05</span><h3 data-en="Tools">Herramientas</h3><ul class="tags"><li>Git</li><li>GitHub</li><li>Jira</li><li>Trello</li><li>Figma</li><li>Excel</li><li>PhpSpreadsheet</li><li>UML</li></ul></div>
+        <div class="stack-row reveal"><span class="stack-number">06</span><h3 data-en="Methods &amp; workflow">Metodologías y procesos</h3><ul class="tags"><li>Scrum</li><li data-en="Acceptance criteria">Criterios de aceptación</li><li data-en="Issue management">Gestión de incidencias</li></ul></div>
+      </div>
+    </div></section>
+    <section id="servicios" class="services-strip container reveal" aria-labelledby="services-title"><div><p class="eyebrow"><span data-en="ALSO AVAILABLE FOR PROJECTS">TAMBIÉN COLABORO EN PROYECTOS</span></p><h2 id="services-title"><span data-en="Tailored solutions.">Soluciones a medida.</span></h2></div><p data-en="Web development and systems · Functional analysis · APIs and databases · Maintenance and support">Desarrollo web y sistemas · Análisis funcional · APIs y bases de datos · Mantenimiento y soporte</p><a class="text-link" href="#contacto"><span data-en="Let’s talk">Conversemos</span><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a></section>
+    <section id="contacto" class="contact-section" aria-labelledby="contact-title"><div class="container"><div class="contact-top"><p class="eyebrow">05 / <span data-en="CONTACT">CONTACTO</span></p><span class="contact-star" aria-hidden="true">↗</span></div><h2 id="contact-title"><span data-en="Let’s build something">Construyamos algo</span><br><span class="muted-heading" data-en="that works.">que funcione.</span></h2><div class="contact-bottom"><div><p data-en="An opportunity on your team. A problem to solve. A project to bring to life.">Una oportunidad en tu equipo. Un problema por resolver. Un proyecto para hacer realidad.</p><a class="email-link" href="mailto:irislazzarini81@gmail.com"><span class="email-address">irislazzarini81@gmail.com</span><span aria-hidden="true">↗</span></a><div class="email-tools"><button type="button" class="copy-email" data-copy-email><span data-en="Copy email">Copiar correo</span><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V4H4v12h4"/></svg></button><p class="copy-status" role="status" aria-live="polite"></p></div></div><div class="contact-socials"><a class="text-link" href="https://www.linkedin.com/in/iris-lazzarini-7600881a3" target="_blank" rel="noopener noreferrer">LinkedIn<span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/IrisLazzarini" target="_blank" rel="noopener noreferrer">GitHub<span aria-hidden="true">↗</span></a><a class="text-link" href="assets/docs/iris-lazzarini-cv.pdf" target="_blank" rel="noopener noreferrer" data-cv><span data-en="View CV">Ver CV</span><span aria-hidden="true">↗</span></a><a class="text-link" href="https://wa.me/543498522611" target="_blank" rel="noopener noreferrer">WhatsApp<span aria-hidden="true">↗</span></a></div></div></div></section>
+  </main>
+  <footer class="site-footer container"><a href="#inicio" class="wordmark" aria-label="il. — Inicio" data-aria-en="il. — Home">il<span>.</span></a><p>© <span data-year>2026</span> Iris Lazzarini</p><div><a class="text-link" href="https://github.com/IrisLazzarini" target="_blank" rel="noopener noreferrer">GitHub<span aria-hidden="true">↗</span></a><a class="text-link" href="https://www.linkedin.com/in/iris-lazzarini-7600881a3" target="_blank" rel="noopener noreferrer">LinkedIn<span aria-hidden="true">↗</span></a><a class="text-link" href="#inicio"><span data-en="Back to top">Volver arriba</span><span aria-hidden="true">↑</span></a></div></footer>
+  <dialog class="gallery-dialog" aria-labelledby="gallery-title"><div class="gallery-header"><div><p class="eyebrow"><span data-en="PROJECT GALLERY">GALERÍA DEL PROYECTO</span></p><h2 id="gallery-title"></h2></div><button type="button" class="icon-button gallery-close" aria-label="Cerrar galería" data-aria-en="Close gallery">×</button></div><figure class="gallery-figure"><img class="gallery-image" alt=""><p class="gallery-error" hidden><span data-en="This screenshot could not be loaded. Try again or view the next one.">No se pudo cargar esta captura. Podés volver a intentarlo o ver la siguiente.</span></p><figcaption id="gallery-caption" aria-live="polite"></figcaption></figure><div class="gallery-controls"><button type="button" class="icon-button gallery-prev" aria-label="Captura anterior" data-aria-en="Previous screenshot">←</button><span class="gallery-count" aria-live="polite"></span><a class="gallery-original text-link" href="assets/projects/scholarship-01.webp" target="_blank" rel="noopener noreferrer"><span data-en="Open image">Abrir imagen</span><span aria-hidden="true">↗</span></a><button type="button" class="icon-button gallery-next" aria-label="Siguiente captura" data-aria-en="Next screenshot">→</button></div></dialog>
+  <template id="experience-entry"><article class="experience-item"><span class="timeline-dot" aria-hidden="true"></span><p class="eyebrow experience-period"></p><h3></h3><p class="experience-projects"></p><p class="experience-description"></p><p class="experience-outcome"></p></article></template>
 </body>
 </html>

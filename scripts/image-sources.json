@@ -1,0 +1,103 @@
+{
+  "notes": [
+    "All 55 raster originals in Img/ were visually inventoried. Hidden .DS_Store files are not images.",
+    "Img/Agromapa/Portada.png depicts Comercio 45, so it belongs to the Comercio 45 gallery and is used as that project's cover.",
+    "Img/Sistemadistribuidoras/Crear nota de debito.png depicts the new credit-note form. Its alternative text follows the visible content.",
+    "The existing avatar is a portrait illustration on a black background, not a photograph. Its original aspect ratio is preserved.",
+    "The two decorative backgrounds Img/Fondo.png and Img/Sobremi.png are inventoried but excluded from project galleries.",
+    "Some existing screenshots contain contact details and names or identifiers in financial tables. They are preserved without visual edits; privacy review remains advisable before a new public deployment.",
+    "The AgroMapa climate screenshot includes an existing map load error. Its description reflects the climate indicators and its original content is preserved.",
+    "All generated images preserve aspect ratios, never upscale originals, and omit source EXIF metadata."
+  ],
+  "portrait": "Img/Avatar/AVATARMIO.jpeg",
+  "projects": {
+    "scholarship": {
+      "title": "Fondo Becario",
+      "titleEn": "Scholarship Fund",
+      "images": [
+        {"source":"Img/Fondo_becario/Balances.png","es":"Fondo Becario: panel de pagos, balance general e importación de archivos.","en":"Scholarship Fund: payment dashboard, overall balance, and file imports."},
+        {"source":"Img/Fondo_becario/Vista de inicio.png","es":"Fondo Becario: inicio del panel de administración y navegación de módulos.","en":"Scholarship Fund: administration home and module navigation."},
+        {"source":"Img/Fondo_becario/Inicio.png","es":"Fondo Becario: pantalla de acceso con correo y contraseña.","en":"Scholarship Fund: sign-in screen with email and password."},
+        {"source":"Img/Fondo_becario/pagos de fondos.png","es":"Fondo Becario: gestión de pagos y listado de aportes registrados.","en":"Scholarship Fund: payment management and recorded contributions."},
+        {"source":"Img/Fondo_becario/Balance.png","es":"Fondo Becario: balance consolidado con filtro por año y resumen financiero.","en":"Scholarship Fund: consolidated balance with year filter and financial summary."},
+        {"source":"Img/Fondo_becario/Balance consolidado.png","es":"Fondo Becario: detalle del balance con ingresos mensuales y egresos por categoría.","en":"Scholarship Fund: balance details with monthly income and expenses by category."},
+        {"source":"Img/Fondo_becario/Egresos.png","es":"Fondo Becario: registro de egresos con filtros por año y categoría.","en":"Scholarship Fund: expense records with year and category filters."},
+        {"source":"Img/Fondo_becario/Becas.png","es":"Fondo Becario: formulario para crear una beca y definir sus requisitos.","en":"Scholarship Fund: form for creating a scholarship and defining its requirements."},
+        {"source":"Img/Fondo_becario/Gestion de inscripciones.png","es":"Fondo Becario: validación de inscripciones por estado de aprobación.","en":"Scholarship Fund: application review by approval status."},
+        {"source":"Img/Fondo_becario/Normalizar excel.png","es":"Fondo Becario: carga y normalización de datos desde archivos Excel.","en":"Scholarship Fund: uploading and normalizing data from Excel files."},
+        {"source":"Img/Fondo_becario/Auditoria.png","es":"Fondo Becario: registros de auditoría y filtros de actividad del sistema.","en":"Scholarship Fund: audit log and system activity filters."},
+        {"source":"Img/Fondo_becario/Eliminacion.png","es":"Fondo Becario: eliminación de pagos por fecha o intervalo de meses.","en":"Scholarship Fund: removing payments by date or month range."}
+      ]
+    },
+    "accounting": {
+      "title": "Sistema Contable",
+      "titleEn": "Accounting System",
+      "images": [
+        {"source":"Img/Sistemadistribuidoras/Analisis financiero .png","es":"Sistema Contable: análisis financiero con filtros, indicadores y evolución mensual.","en":"Accounting System: financial analysis with filters, indicators, and monthly trends."},
+        {"source":"Img/Sistemadistribuidoras/Inicio.png","es":"Sistema Contable: panel general con clientes, productos y comprobantes recientes.","en":"Accounting System: overview with customers, products, and recent documents."},
+        {"source":"Img/Sistemadistribuidoras/Analisis financiero2.png","es":"Sistema Contable: gráficos de evolución mensual y principales clientes.","en":"Accounting System: monthly trend charts and leading customers."},
+        {"source":"Img/Sistemadistribuidoras/analisis financiero3.png","es":"Sistema Contable: distribución de movimientos y accesos a informes financieros.","en":"Accounting System: transaction breakdown and financial report shortcuts."},
+        {"source":"Img/Sistemadistribuidoras/Asientos COntables.png","es":"Sistema Contable: listado de asientos, filtros y resumen de la actividad contable.","en":"Accounting System: journal entries, filters, and accounting activity summary."},
+        {"source":"Img/Sistemadistribuidoras/Asientos2.png","es":"Sistema Contable: verificación de balance y últimos asientos creados.","en":"Accounting System: balance verification and recently created journal entries."},
+        {"source":"Img/Sistemadistribuidoras/Detalle de asientos .png","es":"Sistema Contable: detalle de un asiento y comprobación de partida doble.","en":"Accounting System: journal entry details and double-entry balance verification."},
+        {"source":"Img/Sistemadistribuidoras/Movimientos de asientos.png","es":"Sistema Contable: movimientos de un asiento con columnas de debe y haber.","en":"Accounting System: journal entry lines with debit and credit columns."},
+        {"source":"Img/Sistemadistribuidoras/Formato de asiento.png","es":"Sistema Contable: formato imprimible de un asiento contable.","en":"Accounting System: printable journal entry document."},
+        {"source":"Img/Sistemadistribuidoras/Facturas.png","es":"Sistema Contable: gestión de facturas con importes, estados y acciones.","en":"Accounting System: invoice management with amounts, statuses, and actions."},
+        {"source":"Img/Sistemadistribuidoras/Ejemplo de factura.png","es":"Sistema Contable: vista de una factura con detalle de productos y totales.","en":"Accounting System: invoice view with product details and totals."},
+        {"source":"Img/Sistemadistribuidoras/Los comprobantes .png","es":"Sistema Contable: listado unificado de comprobantes y búsqueda por fecha.","en":"Accounting System: unified document list and date search."},
+        {"source":"Img/Sistemadistribuidoras/Gestion de notas de debito.png","es":"Sistema Contable: gestión de notas de débito con estados e importes.","en":"Accounting System: debit-note management with statuses and amounts."},
+        {"source":"Img/Sistemadistribuidoras/Nueva nota de debito.png","es":"Sistema Contable: formulario de nueva nota de débito y resumen de totales.","en":"Accounting System: new debit-note form and totals summary."},
+        {"source":"Img/Sistemadistribuidoras/Nota de creditos .png","es":"Sistema Contable: listado y gestión de notas de crédito.","en":"Accounting System: credit-note list and management."},
+        {"source":"Img/Sistemadistribuidoras/Crear nota de debito.png","es":"Sistema Contable: formulario para crear una nota de crédito.","en":"Accounting System: form for creating a credit note."},
+        {"source":"Img/Sistemadistribuidoras/Libro de iva.png","es":"Sistema Contable: informe del libro de IVA digital.","en":"Accounting System: digital VAT ledger report."}
+      ]
+    },
+    "agromapa": {
+      "title": "AgroMapa",
+      "titleEn": "AgroMapa",
+      "images": [
+        {"source":"Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.27.jpeg","es":"AgroMapa: panel agrícola con filtros, indicadores y exportación de datos.","en":"AgroMapa: agricultural dashboard with filters, indicators, and data exports."},
+        {"source":"Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.27 (1).jpeg","es":"AgroMapa: inicio del sistema con estadísticas generales y calendario agrícola.","en":"AgroMapa: system home with overall statistics and an agricultural calendar."},
+        {"source":"Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.27 (2).jpeg","es":"AgroMapa: mapa de localidades y departamentos de Santa Fe.","en":"AgroMapa: map of towns and departments in Santa Fe."},
+        {"source":"Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.26 (1).jpeg","es":"AgroMapa: indicadores de localidades, cultivo principal, temperatura y humedad.","en":"AgroMapa: indicators for towns, main crop, temperature, and humidity."},
+        {"source":"Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.26 (2).jpeg","es":"AgroMapa: indicadores climáticos y rendimiento por cultivo, con aviso de error en el mapa.","en":"AgroMapa: climate indicators and crop yields, with a map error message."},
+        {"source":"Img/Agromapa/WhatsApp Image 2025-11-03 at 11.22.26.jpeg","es":"AgroMapa: menú de reportes con exportación de datos e impresión del mapa.","en":"AgroMapa: reports menu with data export and map printing."}
+      ]
+    },
+    "chartier": {
+      "title": "Hojalatería Chartier",
+      "titleEn": "Hojalatería Chartier",
+      "images": [
+        {"source":"Img/HojalateriaCH/Inicio.png","es":"Hojalatería Chartier: portada del sitio con presentación y accesos a servicios.","en":"Hojalatería Chartier: website home with company introduction and service links."},
+        {"source":"Img/HojalateriaCH/Servicios.png","es":"Hojalatería Chartier: catálogo de servicios de corte y plegado.","en":"Hojalatería Chartier: cutting and bending services catalog."},
+        {"source":"Img/HojalateriaCH/Productos.png","es":"Hojalatería Chartier: ficha de productos con extractores eólicos.","en":"Hojalatería Chartier: product details for wind-driven roof ventilators."},
+        {"source":"Img/HojalateriaCH/Sobre Nosotros.png","es":"Hojalatería Chartier: historia, experiencia y presentación de la empresa.","en":"Hojalatería Chartier: company history, experience, and introduction."},
+        {"source":"Img/HojalateriaCH/Contacto.png","es":"Hojalatería Chartier: canales de contacto y formulario de consulta.","en":"Hojalatería Chartier: contact channels and inquiry form."}
+      ]
+    },
+    "polo": {
+      "title": "Polo Universitario",
+      "titleEn": "University Center",
+      "images": [
+        {"source":"Img/Polo/Inicio.png","es":"Polo Universitario: portada del sitio institucional de San Justo.","en":"University Center: home page of the San Justo institutional website."},
+        {"source":"Img/Polo/Comunidad .png","es":"Polo Universitario: comunidad educativa con perfiles, materiales y foros.","en":"University Center: learning community with profiles, materials, and forums."},
+        {"source":"Img/Polo/Comunidad2.png","es":"Polo Universitario: contenido de la comunidad y filtros de materiales educativos.","en":"University Center: community content and educational material filters."},
+        {"source":"Img/Polo/CV.png","es":"Polo Universitario: perfil académico con acceso al currículum.","en":"University Center: academic profile with a résumé link."},
+        {"source":"Img/Polo/Sobre nosotros.png","es":"Polo Universitario: presentación institucional, objetivos y ubicación.","en":"University Center: institutional overview, goals, and location."}
+      ]
+    },
+    "comercio45": {
+      "title": "Comercio 45",
+      "titleEn": "Comercio 45",
+      "images": [
+        {"source":"Img/Agromapa/Portada.png","es":"Comercio 45: portada de la Escuela Superior de Comercio N.º 45.","en":"Comercio 45: home page of the Escuela Superior de Comercio No. 45."},
+        {"source":"Img/Comercio45/Historia.png","es":"Comercio 45: historia, misión e información institucional.","en":"Comercio 45: history, mission, and institutional information."},
+        {"source":"Img/Comercio45/Estudiantes.png","es":"Comercio 45: sección de estudiantes y navegación por año de cursado.","en":"Comercio 45: student section and navigation by academic year."},
+        {"source":"Img/Comercio45/Campus.png","es":"Comercio 45: acceso al campus virtual para estudiantes y docentes.","en":"Comercio 45: virtual campus access for students and teachers."},
+        {"source":"Img/Comercio45/Inscripcion.png","es":"Comercio 45: menú de inscripción y materiales propedéuticos.","en":"Comercio 45: enrollment menu and introductory course materials."},
+        {"source":"Img/Comercio45/Ficha.png","es":"Comercio 45: visualización de la ficha de inscripción en PDF.","en":"Comercio 45: PDF enrollment form viewer."},
+        {"source":"Img/Comercio45/Propedeutico.png","es":"Comercio 45: información sobre el curso propedéutico de ingreso.","en":"Comercio 45: information about the introductory entrance course."}
+      ]
+    }
+  }
+}
