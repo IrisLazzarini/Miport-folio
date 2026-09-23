@@ -4,6 +4,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const { createHash } = require('node:crypto');
 let chromium;
 try {
   ({ chromium } = require(process.env.PORTFOLIO_PLAYWRIGHT_MODULE || 'playwright'));
@@ -15,6 +16,10 @@ try {
 const BASE_URL = process.env.PORTFOLIO_BASE_URL || 'http://127.0.0.1:4173/Miport-folio/';
 const OUTPUT = process.env.PORTFOLIO_TEST_OUTPUT;
 const EMAIL = 'irislazzarini81@gmail.com';
+const CV_PATH = 'assets/docs/iris-lazzarini-cv.pdf';
+const CV_DOWNLOAD_NAME = 'Iris-Lazzarini-CV.pdf';
+// SHA-256 of the unmodified CV supplied by Iris. No private source path is required to run the tests.
+const CV_SHA256 = '7f02b67671524e68676be0bd39a8546981ba0cc48dcab61a044b6790d9e6c4f6';
 const PROJECT_COUNTS = { scholarship: 12, accounting: 17, agromapa: 6, chartier: 5, polo: 5, comercio45: 7 };
 const SHOWCASE_KEYS = ['scholarship', 'accounting', 'agromapa'];
 const results = [];
@@ -136,6 +141,106 @@ async function mockClipboard(page, mode) {
       },
     });
   }, mode);
+}
+
+function normalized(value) {
+  return (value || '').replace(/\s+/g, ' ').trim();
+}
+
+function assertOriginalCv(bytes) {
+  assert.equal(bytes.subarray(0, 5).toString('ascii'), '%PDF-', 'CV response contains PDF bytes rather than an HTML fallback');
+  assert.match(bytes.subarray(-1024).toString('ascii'), /%%EOF/, 'The served PDF is complete');
+  assert.equal(createHash('sha256').update(bytes).digest('hex'), CV_SHA256, 'CV matches the unmodified document supplied by Iris');
+}
+
+async function assertCvLinks(page, language) {
+  const expectedURL = new URL(CV_PATH, BASE_URL).href;
+  const links = page.locator('[data-cv]');
+  assert.equal(await links.count(), 3, 'CV has two viewing links and one download link');
+  for (const link of await links.all()) {
+    assert.equal(new URL(await link.getAttribute('href'), page.url()).href, expectedURL,
+      'CV resolves inside the served portfolio prefix');
+  }
+  const viewLinks = page.locator('[data-cv]:not([download])');
+  assert.equal(await viewLinks.count(), 2);
+  for (const link of await viewLinks.all()) {
+    assert.equal(await link.getAttribute('target'), '_blank');
+    assert.ok((await link.getAttribute('rel')).split(/\s+/).includes('noopener'));
+    assert.ok(normalized(await link.innerText()).includes(language === 'es' ? 'Ver CV' : 'View CV'));
+  }
+  const download = page.locator('[data-cv][download]');
+  assert.equal(await download.count(), 1);
+  assert.equal(await download.getAttribute('download'), CV_DOWNLOAD_NAME);
+  assert.ok(normalized(await download.innerText()).includes(language === 'es' ? 'Descargar CV' : 'Download CV'));
+}
+
+async function assertCvDelivery(page) {
+  const response = await page.request.get(new URL(CV_PATH, BASE_URL).href);
+  assert.equal(response.status(), 200, 'CV resource is available under the deployment prefix');
+  assertOriginalCv(await response.body());
+  assertOriginalCv(fs.readFileSync(path.resolve(__dirname, '..', CV_PATH)));
+  const [download] = await Promise.all([
+    page.waitForEvent('download'),
+    page.locator('[data-cv][download]').click(),
+  ]);
+  assert.equal(download.suggestedFilename(), CV_DOWNLOAD_NAME);
+  assert.equal(await download.failure(), null);
+  assertOriginalCv(fs.readFileSync(await download.path()));
+}
+
+async function professionalSnapshot(page) {
+  return page.evaluate(() => {
+    const text = element => (element?.innerText || '').replace(/\s+/g, ' ').trim();
+    return {
+      heroRole: text(document.querySelector('.hero-role')),
+      experiences: [...document.querySelectorAll('.experience-list .experience-item')].map(entry => ({
+        role: text(entry.querySelector('h3')),
+        organization: text(entry.querySelector('.experience-projects')),
+        period: text(entry.querySelector('.experience-period')),
+        responsibilities: text(entry.querySelector('.experience-description')),
+        outcome: text(entry.querySelector('.experience-outcome')),
+      })),
+      education: [...document.querySelectorAll('#formacion .education-item')].map(text),
+      certifications: [...document.querySelectorAll('.certification-list > li')].map(text),
+    };
+  });
+}
+
+function assertCvFacts(snapshot) {
+  assert.match(snapshot.heroRole, /Junior/i, 'Visible professional level matches the CV');
+  assert.equal(snapshot.experiences.length, 3, 'All three documented roles are represented exactly once');
+  const [amplix, institutional, freelance] = snapshot.experiences;
+  assert.match(amplix.organization, /AmplixMe/i);
+  assert.match(amplix.role, /Trainee/i);
+  assert.match(JSON.stringify(amplix), /programa|programme|program|accelerat/i, 'AmplixMe is identified as a talent program');
+  assert.match(amplix.period, /jun(?:e|io)?\.?[^]*?(?:aug(?:ust)?|ago(?:sto)?)\.?[^]*?2026/i);
+  assert.match(institutional.organization, /Polo Universitario San Justo/i);
+  assert.match(institutional.organization, /Club de Emprendedores/i);
+  assert.match(institutional.role, /Junior/i);
+  assert.match(JSON.stringify(institutional), /pasantía|internship/i, 'Institutional role is identified as an internship');
+  assert.match(institutional.period, /jun(?:e|io)?\.?[^]*?(?:dec(?:ember)?|dic(?:iembre)?)\.?[^]*?2025/i);
+  assert.match(freelance.organization, /freelance/i);
+  assert.match(freelance.period, /(?:aug(?:ust)?|ago(?:sto)?)\.?[^]*?nov(?:ember|iembre)?\.?[^]*?2025/i);
+  assert.doesNotMatch(JSON.stringify(freelance), /Chartier|PulverAgro|Fondo Becario|Agromapa|Comercio\s*45/i,
+    'The unnamed freelance client is not assigned to an existing project');
+  for (const experience of snapshot.experiences) {
+    assert.ok(experience.responsibilities && experience.outcome, 'Roles include responsibilities and an outcome supported by the CV');
+  }
+  assert.equal(snapshot.education.length, 3);
+  assert.match(snapshot.education[0], /Comercio[^]*45/i);
+  assert.match(snapshot.education[0], /egresada|graduat|completed/i);
+  assert.match(snapshot.education[0], /2025/);
+  assert.match(snapshot.education[1], /Software/i);
+  assert.match(snapshot.education[2], /Infraestructura|Infrastructure/i);
+  for (const education of snapshot.education.slice(1)) {
+    assert.match(education, /2026/);
+    assert.match(education, /en curso|in progress|ongoing/i, 'Current programs are not represented as completed degrees');
+  }
+  assert.equal(snapshot.certifications.length, 4);
+  const certificationText = snapshot.certifications.join(' ');
+  for (const provider of [/AmplixMe/i, /CILSA/i, /Junior Achievement/i, /Centro Universitario de Idiomas/i]) {
+    assert.match(certificationText, provider);
+  }
 }
 
 async function main() {
@@ -409,7 +514,7 @@ async function main() {
     await check('Without JavaScript, content and mobile navigation remain readable and image links work', () => withPage(
       { javaScriptEnabled: false, viewport: { width: 390, height: 844 } }, async page => {
         assert.ok(await page.locator('h1').isVisible());
-        for (const selector of ['#proyectos', '#experiencia', '#sobre-mi', '#tecnologias', '#contacto']) {
+        for (const selector of ['#proyectos', '#experiencia', '#sobre-mi', '#formacion', '#tecnologias', '#contacto']) {
           assert.ok(await page.locator(`${selector} h2`).isVisible(), `${selector} remains readable without JavaScript`);
         }
         const concealed = await page.locator('.reveal').evaluateAll(elements => elements.filter(element => {
@@ -451,25 +556,53 @@ async function main() {
       },
     ));
 
-    await check('Contact and CV links point to real existing channels and external tabs are protected', () => withPage({}, async page => {
+    await check('CV-derived experience and education match the static fallback and translate without losing facts', async () => {
+      let staticSnapshot;
+      await withPage({ javaScriptEnabled: false }, async page => {
+        staticSnapshot = await professionalSnapshot(page);
+        assertCvFacts(staticSnapshot);
+        await assertCvLinks(page, 'es');
+      });
+      await withPage({}, async page => {
+        const spanish = await professionalSnapshot(page);
+        assertCvFacts(spanish);
+        assert.deepEqual(spanish, staticSnapshot, 'JavaScript rendering must not diverge from the readable HTML fallback');
+        const profile = await page.evaluate(async () => (await import(new URL('js/profile.js', location.href).href)).profile);
+        assert.equal(profile.experiences.length, 3);
+        for (const language of ['en', 'es']) {
+          await chooseLanguage(page, language);
+          const snapshot = await professionalSnapshot(page);
+          assertCvFacts(snapshot);
+          const localize = value => normalized(typeof value === 'string' ? value : value?.[language] || value?.es);
+          assert.deepEqual(snapshot.experiences, profile.experiences.map(entry => Object.fromEntries(
+            ['role', 'organization', 'period', 'responsibilities', 'outcome'].map(key => [key, localize(entry[key])]),
+          )), 'Visible experience reflects the configured CV facts in the selected language');
+          if (language === 'en') {
+            assert.notDeepEqual(snapshot.education, spanish.education, 'Education status and content translate to English');
+            assert.notDeepEqual(snapshot.certifications, spanish.certifications, 'Certification content translates to English');
+          } else assert.deepEqual(snapshot, spanish, 'Switching back restores the complete Spanish professional content');
+        }
+      });
+    });
+
+    await check('CV viewing and download links work without JavaScript and deliver the original PDF', () => withPage(
+      { javaScriptEnabled: false, viewport: { width: 390, height: 844 } }, async page => {
+        await assertCvLinks(page, 'es');
+        await assertCvDelivery(page);
+      },
+    ));
+
+    await check('Contact channels and CV viewing/download links remain correct in ES/EN', () => withPage({}, async page => {
       assert.equal(await page.locator('.email-link').getAttribute('href'), `mailto:${EMAIL}`);
-      const cvLinks = await page.locator('[data-cv]').all();
-      assert.ok(cvLinks.length >= 2);
-      for (const cv of cvLinks) {
-        const url = new URL(await cv.getAttribute('href'), page.url());
-        assert.equal(url.protocol, 'mailto:', 'The default CV action requests the actual CV by email');
-        assert.equal(url.pathname, EMAIL);
-        assert.ok(url.searchParams.get('subject'), 'CV request has an email subject');
-      }
+      await assertCvLinks(page, 'es');
+      await assertCvDelivery(page);
       assert.ok(await page.locator('#contacto a[href="https://github.com/IrisLazzarini"]').count());
       assert.ok(await page.locator('#contacto a[href="https://www.linkedin.com/in/iris-lazzarini-7600881a3"]').count());
+      assert.equal(await page.locator('#contacto a[href^="https://wa.me/"]').getAttribute('href'), 'https://wa.me/543498522611');
       const unsafe = await page.locator('a[target="_blank"]').evaluateAll(links => links.filter(link => !link.relList.contains('noopener')).map(link => link.href));
       assert.deepEqual(unsafe, []);
       await chooseLanguage(page, 'en');
-      for (const cv of cvLinks) {
-        assert.ok((await cv.textContent()).includes('Request CV'));
-        assert.equal(new URL(await cv.getAttribute('href'), page.url()).pathname, EMAIL);
-      }
+      await assertCvLinks(page, 'en');
     }));
   } finally {
     await browser.close();

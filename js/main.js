@@ -113,10 +113,15 @@ function updateCvLinks() {
   if (!['https:', 'http:'].includes(url.protocol)) return;
   document.querySelectorAll('[data-cv]').forEach(link => {
     link.href = url.href;
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
+    const download = link.hasAttribute('download');
+    if (!download) {
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+    }
     const label = link.querySelector('[data-en]');
-    label.textContent = language === 'es' ? 'Ver CV' : 'View CV';
+    label.textContent = language === 'es'
+      ? download ? 'Descargar CV' : 'Ver CV'
+      : download ? 'Download CV' : 'View CV';
   });
 }
 

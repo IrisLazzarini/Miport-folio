@@ -2,7 +2,7 @@
 
 ## Fuentes y límites
 
-Se revisaron el HTML, CSS, JavaScript, documentación, enlaces y las 55 imágenes existentes. El rediseño parte del commit `caf5b93`, conservando su arquitectura estática y los seis proyectos visibles. No se agregaron empleadores, títulos académicos, fechas laborales ni métricas.
+Se revisaron el HTML, CSS, JavaScript, documentación, enlaces y las 55 imágenes existentes. El rediseño parte del commit `caf5b93`, conservando su arquitectura estática y los seis proyectos visibles. La primera versión no incorporó datos de trayectoria laboral o formación sin fuente. Posteriormente Iris aportó su CV para añadirlos; esa integración se documenta abajo.
 
 El HTML del commit previo `af71b2b` aporta evidencia explícita para dos participaciones individuales y para un proyecto que había desaparecido de la presentación:
 
@@ -12,7 +12,22 @@ El HTML del commit previo `af71b2b` aporta evidencia explícita para dos partici
 
 Agromapa no documenta una participación individual específica. Se conserva su caso sin atribuir responsabilidades nuevas; `profile.projectContributions.agromapa` queda preparado para completarlo con datos confirmados.
 
-La sección Experiencia muestra trabajo aplicado en los proyectos, sin presentarlos como puestos laborales ni adjudicar períodos. `profile.experiences` queda preparado para cargar la trayectoria profesional real.
+La sección Experiencia muestra ahora la trayectoria aportada en el CV, con fechas, tipo de participación y organizaciones. Los casos de proyectos conservan sus descripciones y fuentes originales.
+
+## Integración del CV aportado por Iris
+
+Fuente: `Iris Luján Lazzarini _Analista Junior_ Curriculum vitae.pdf`, facilitado por la titular para agregarlo y extraer información. Sus dos páginas se revisaron visualmente. El documento se conserva sin cambios en `assets/docs/iris-lazzarini-cv.pdf` (203.654 bytes; SHA-256 `7f02b67671524e68676be0bd39a8546981ba0cc48dcab61a044b6790d9e6c4f6`).
+
+- AmplixMe, junio–agosto de 2026: Desarrolladora Full Stack Trainee dentro de un programa de aceleración. Se mencionan React/Vite, Node.js/Express, PostgreSQL/Prisma, criterios de aceptación y pruebas funcionales.
+- Polo Universitario San Justo / Club de Emprendedores, junio–diciembre de 2025: Analista Funcional Junior. Se identifica expresamente como pasantía; se resumen requerimientos, documentación, soporte, incidencias y SQL.
+- Proyecto freelance, agosto–noviembre de 2025: análisis funcional y desarrollo web con React y Tailwind CSS. El documento no identifica al cliente; no se asocia este trabajo a Chartier, PulverAgro ni otro caso del portfolio.
+- Egresada de Técnica Superior en Análisis de Sistemas Informáticos, Escuela Superior de Comercio N.º 45 “Dr. José Roberto González”, marzo de 2023–diciembre de 2025.
+- Tecnicaturas en Desarrollo de Software y en Soporte de Infraestructura, ISP N.º 20 “Senador Néstor J. Zamaro”, ambas desde marzo de 2026 y en curso según el CV.
+- Formación complementaria: JavaScript / Full Stack Job-Ready de AmplixMe, Full Stack Developer de CILSA, Yo Puedo Programar de Junior Achievement Santa Fe e Inglés niveles I y II del Centro Universitario de Idiomas.
+
+El sitio resume estas declaraciones de la titular; no implica una verificación independiente de certificados. Las métricas aproximadas de la pasantía permanecen en el PDF, mientras la síntesis web describe los resultados de forma cualitativa. No se infiere nivel B1/B2 de inglés, equivalencia universitaria de las tecnicaturas ni nuevas responsabilidades en Agromapa.
+
+Los períodos superpuestos de pasantía y freelance se conservan como figuran en el documento. El HTML estático de experiencia coincide con `profile.experiences`, para que la misma información esté disponible sin JavaScript. Las traducciones mantienen nivel Junior/Trainee, condición de pasantía y estudios en curso.
 
 ## Enlaces revisados
 
@@ -32,9 +47,9 @@ Los estados de servicios externos pueden cambiar. Ningún enlace antiguo fue ree
 
 ## Contacto
 
-El portfolio tenía dos correos diferentes. Iris confirmó `irislazzarini81@gmail.com` en esta revisión; se usa de manera consistente. Se mantienen GitHub y LinkedIn originales. WhatsApp conserva el destino existente `https://wa.me/3498522611`; no se inventó un prefijo internacional.
+El portfolio tenía dos correos diferentes. Iris confirmó `irislazzarini81@gmail.com` en esta revisión y el CV coincide; se usa de manera consistente. El CV confirma el teléfono `+54 (3498) 522611`; WhatsApp ahora usa `https://wa.me/543498522611`, sin inferir dígitos adicionales. Se mantienen GitHub y el LinkedIn existente. El texto del CV indica otra variante de LinkedIn (`/iris-lazzarini`) y no contiene un enlace incrustado verificable; no se sustituye automáticamente el destino del portfolio.
 
-No hay CV personal en el repositorio. La captura `Img/Polo/CV.png` corresponde a una función de aquel proyecto, no a un CV de Iris. El enlace visible permite solicitarlo por correo hasta disponer del documento real.
+El CV personal real se puede abrir y descargar desde el portfolio. La captura `Img/Polo/CV.png` sigue correspondiendo a una función de aquel proyecto y no se usa como CV de Iris.
 
 ## Assets
 

@@ -188,6 +188,7 @@ img, svg { display: block; max-width: 100%; }
 .experience-item .experience-projects { font-size: 12px; color: #c6d8ed; margin-block: 12px; }
 .experience-item > p:not([class]), .experience-description, .experience-outcome { color: var(--muted); font-size: 14px; line-height: 1.9; }
 .experience-item .text-link { font-size: 12px; margin-top: 13px; }
+.experience-outcome { margin-top: 14px; padding-left: 15px; border-left: 2px solid #477dbd; }
 
 /* Human identity and working approach */
 .about-section { display: grid; grid-template-columns: .85fr 1.15fr; gap: 100px; align-items: center; }
@@ -207,6 +208,26 @@ img, svg { display: block; max-width: 100%; }
 .about-principles { display: grid; gap: 12px; border-top: 1px solid var(--line); margin-top: 27px; padding-top: 25px; }
 .about-principles > span { font-size: 13px; color: #c4d2e7; }
 .about-principles b { color: var(--cyan); font-size: 10px; font-weight: 500; margin-right: 18px; }
+
+/* Verified education, kept compact alongside the complete CV. */
+.education-section { padding-bottom: 104px; }
+.education-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 36px; padding-top: 36px; border-top: 1px solid var(--line); margin-bottom: 38px; }
+.education-heading h2 { font-size: clamp(30px,3vw,42px); max-width: 590px; margin-top: 17px; line-height: 1.15; }
+.education-heading .button { flex-shrink: 0; }
+.education-grid { display: grid; grid-template-columns: 1.45fr 1fr; gap: 70px; }
+.education-item { padding-block: 24px; border-top: 1px solid var(--line); }
+.education-item:last-child { padding-bottom: 0; }
+.education-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; font-size: 11px; color: var(--muted); }
+.education-status { color: #a8d2ff; font-size: 10px; border: 1px solid #345884; background: #11233b; border-radius: 4px; padding: 2px 8px; }
+.education-item h3 { font-size: 22px; line-height: 1.35; margin-top: 15px; }
+.education-item > p { font-size: 13px; line-height: 1.7; color: var(--muted); margin-top: 10px; }
+.certifications { border-left: 1px solid var(--line); padding-left: 34px; padding-top: 24px; }
+.certifications > h3 { font-size: 21px; line-height: 1.35; }
+.certification-list { list-style: none; margin: 10px 0 0; padding: 0; }
+.certification-list li { padding-block: 18px; border-bottom: 1px solid var(--line); }
+.certification-list li:last-child { border-bottom: 0; }
+.certification-list strong { display: block; font-size: 14px; font-weight: 600; }
+.certification-list span { display: block; font-size: 12px; line-height: 1.7; margin-top: 5px; color: var(--muted); }
 .stack-list { border-top: 1px solid #2a4260; }
 .stack-row { display: grid; grid-template-columns: 42px 260px 1fr; gap: 22px; align-items: center; padding-block: 27px; border-bottom: 1px solid #2a4260; }
 .stack-number { color: var(--cyan); font-size: 11px; }
@@ -349,6 +370,9 @@ img, svg { display: block; max-width: 100%; }
   .experience-layout { grid-template-columns: 1fr; gap: 38px; }
   .experience-layout .section-intro { max-width: 560px; }
   .experience-item { padding-left: 52px; }
+  .education-section { padding-bottom: 80px; }
+  .education-grid { gap: 30px; }
+  .certifications { padding-left: 25px; }
   .about-section { grid-template-columns: .9fr 1.1fr; gap: 32px; }
   .about-profile { padding: 25px; }
   .approach-flow p { font-size: 34px; }
@@ -457,6 +481,12 @@ img, svg { display: block; max-width: 100%; }
   .about-copy > p.about-lead { font-size: 16px; }
   .about-copy > p:not(.eyebrow) { font-size: 14px; }
   .about-principles > span { font-size: 12px; }
+  .education-section { padding-bottom: 64px; }
+  .education-heading { align-items: flex-start; flex-direction: column; gap: 24px; margin-bottom: 28px; }
+  .education-heading h2 { font-size: 32px; }
+  .education-grid { grid-template-columns: 1fr; gap: 32px; }
+  .education-item h3 { font-size: 21px; }
+  .certifications { border-left: 0; border-top: 1px solid var(--line); padding: 27px 0 0; }
   .stack-row { grid-template-columns: 25px 1fr; gap: 10px; padding-block: 23px; }
   .stack-row h3 { font-size: 20px; }
   .stack-row .tags { grid-column: 2; margin-top: 9px; gap: 7px; }

@@ -21,13 +21,14 @@ index.html                   Contenido estático, metadatos y estructura semánt
 css/styles.css               Tokens, componentes y composiciones responsive
 js/main.js                   Idiomas, menú, galería y mejoras progresivas
 js/showcase.js               Selector de proyectos en portada y copia del correo
-js/profile.js                CV, experiencia y participación pendiente de confirmar
+js/profile.js                CV y experiencia aportados por Iris; participación de Agromapa pendiente
 js/galleries.js              Inventario generado de las 52 capturas ES/EN
 assets/projects/             Capturas WebP y portadas optimizadas
 assets/fonts/                Manrope local y licencia SIL OFL
 assets/portrait.webp         Ilustración original optimizada
 assets/favicon.svg           Identidad del sitio
 assets/social-preview.png    Imagen para compartir enlaces
+assets/docs/                 CV original de Iris en PDF
 Img/                         Imágenes originales conservadas
 scripts/                     Generación e inventario de imágenes
 tests/                       Pruebas de navegador sin dependencias de producción
@@ -38,13 +39,15 @@ docs/content-audit.md        Fuentes del contenido y decisiones de conservación
 
 El texto español está en el HTML. Cada atributo `data-en` contiene su traducción inglesa como texto plano; `data-alt-en` y `data-aria-en` traducen los nombres accesibles. JavaScript cambia el idioma, los metadatos y la preferencia local sin ocultar el contenido si falla el almacenamiento. El idioma inicial es español; una preferencia guardada previamente se respeta.
 
-`js/profile.js` mantiene información que debe ser confirmada antes de publicarse:
+`js/profile.js` contiene la información profesional del CV facilitado por Iris:
 
-- `cvUrl`: `null` mantiene **Solicitar CV** por correo. Un enlace real HTTPS o un PDF relativo activa **Ver CV**. No se crea un CV ficticio.
-- `experiences`: vacío muestra experiencia aplicada a través de proyectos. Al cargar roles, organizaciones, períodos, responsabilidades y resultados verificables, se renderizan en la misma composición vertical.
+- `cvUrl`: apunta al PDF original en `assets/docs/iris-lazzarini-cv.pdf`. Los enlaces **Ver CV** lo abren y **Descargar CV** ofrece una descarga con nombre legible. Los tres enlaces también funcionan sin JavaScript.
+- `experiences`: resume el programa trainee en AmplixMe, la pasantía en el Polo Universitario San Justo / Club de Emprendedores y un proyecto freelance, con los períodos y responsabilidades del CV. Mantener sincronizado el contenido español de `.experience-list` en `index.html` para lectura sin JavaScript; las pruebas verifican esa equivalencia.
 - `projectContributions.agromapa`: vacío omite una participación individual no documentada. Acepta `{ es: '...', en: '...' }`.
 
 El correo profesional confirmado es **irislazzarini81@gmail.com**. Los enlaces de correo abren el cliente que tenga configurado el visitante. El botón **Copiar correo** utiliza el portapapeles del navegador; si no está disponible o el permiso se rechaza, selecciona el texto y explica cómo copiarlo manualmente.
+
+La sección `#formacion` distingue la titulación finalizada en Análisis de Sistemas de los estudios en curso de Desarrollo de Software y Soporte de Infraestructura. Formación complementaria y competencias se extraen del mismo CV. El PDF conserva exactamente los bytes del archivo aportado; no se modifica ni se traduce. El contenido del sitio sí se presenta en ES/EN. Si se reemplaza el PDF por una nueva versión, actualizar su hash esperado en las pruebas.
 
 ## Proyectos y conservación
 

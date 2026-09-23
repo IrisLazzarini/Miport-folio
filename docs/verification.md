@@ -4,7 +4,7 @@ Pruebas realizadas sobre un servidor local bajo el prefijo `/Miport-folio/`, par
 
 ## Navegador
 
-La batería `tests/portfolio.spec.cjs` completó **20 de 20 comprobaciones** en Chromium:
+La batería `tests/portfolio.spec.cjs` completó **22 de 22 comprobaciones** en Chromium, tras integrar el CV el 23 de septiembre de 2026:
 
 - Sin desbordamiento horizontal en 1440, 1024, 768, 390 y 320 px, en ambos idiomas.
 - Navegación a las seis secciones y enlace para saltar al contenido.
@@ -17,11 +17,15 @@ La batería `tests/portfolio.spec.cjs` completó **20 de 20 comprobaciones** en 
 - Preferencia de movimiento reducido.
 - Lectura y navegación sin JavaScript; apertura de capturas mediante enlaces normales.
 - Almacenamiento local bloqueado e `IntersectionObserver` ausente.
-- Destinos de contacto y solicitud de CV; protección de pestañas externas.
+- Experiencia y formación del CV coherentes entre el HTML estático y la versión con JavaScript; traducción ES/EN sin perder fechas, niveles ni estados de estudios.
+- Apertura y descarga del PDF original, con y sin JavaScript, bajo el prefijo del sitio. Verificación de integridad mediante SHA-256.
+- Destinos de contacto, incluido WhatsApp según el CV; protección de pestañas externas.
 
-Se inspeccionaron capturas de escritorio y móvil, los tres casos destacados, el contacto y el catálogo de imágenes original. Una revisión adicional no detectó desbordamiento horizontal en diez anchos, desde 320 hasta 1920 px, en ES y EN.
+Se inspeccionaron capturas de escritorio y móvil, incluyendo la experiencia y formación aportadas por Iris. Durante el rediseño anterior también se revisaron los tres casos destacados, el contacto, el catálogo de imágenes original y diez anchos desde 320 hasta 1920 px en ES y EN.
 
 ## Lighthouse móvil
+
+Medición del rediseño del 22 de septiembre, anterior a la integración del CV:
 
 | Categoría | Puntuación local |
 | --- | ---: |
@@ -34,6 +38,6 @@ LCP: 1,9 s. CLS: 0. Tiempo total de bloqueo: 0 ms.
 
 Lighthouse generó el informe completo; su proceso terminó con un error de permisos al limpiar una carpeta temporal de Windows después de guardar los resultados.
 
-axe no detectó infracciones automáticas con las etiquetas WCAG 2 A/AA, 2.1 AA y 2.2 AA utilizadas. La navegación por teclado se comprobó por separado. Estos resultados no equivalen a una certificación de accesibilidad.
+axe volvió a ejecutarse tras integrar el CV y no detectó infracciones automáticas con las etiquetas WCAG 2 A/AA, 2.1 AA y 2.2 AA utilizadas. La navegación por teclado se comprobó por separado. Estos resultados no equivalen a una certificación de accesibilidad.
 
 Las puntuaciones corresponden al servidor local y a la simulación móvil de Lighthouse. Deben volver a medirse en el sitio publicado, ya que el alojamiento y la red influyen en el resultado.
