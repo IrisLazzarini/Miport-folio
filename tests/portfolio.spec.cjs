@@ -20,6 +20,8 @@ const CV_PATH = 'assets/docs/iris-lazzarini-cv.pdf';
 const CV_DOWNLOAD_NAME = 'Iris-Lazzarini-CV.pdf';
 // SHA-256 of the unmodified CV supplied by Iris. No private source path is required to run the tests.
 const CV_SHA256 = '7f02b67671524e68676be0bd39a8546981ba0cc48dcab61a044b6790d9e6c4f6';
+const PUBLIC_URL = 'https://irislazzarini.github.io/Miport-folio/';
+const SPRITE_PATH = 'assets/icons/sprite.svg';
 const PROJECT_COUNTS = { scholarship: 12, accounting: 17, agromapa: 6, chartier: 5, polo: 5, comercio45: 7 };
 const SHOWCASE_KEYS = ['scholarship', 'accounting', 'agromapa'];
 const results = [];
@@ -141,6 +143,50 @@ async function mockClipboard(page, mode) {
       },
     });
   }, mode);
+}
+
+async function iconReferences(page) {
+  return page.locator('svg use').evaluateAll(uses => uses.map(use => ({
+    href: use.getAttribute('href'),
+    destination: use.closest('a')?.href || null,
+  })));
+}
+
+async function assertRenderedIcons(page, selector = 'svg use') {
+  // An SVG viewport can be present while an unresolved external <use> paints nothing.
+  // Nonempty <use> geometry verifies that Chromium instantiated the referenced drawing.
+  const icons = await page.locator(selector).evaluateAll(uses => uses.filter(use =>
+    use.closest('svg').checkVisibility({ checkOpacity: true, checkVisibilityCSS: true }),
+  ).map(use => {
+    const svg = use.closest('svg');
+    const drawing = use.getBBox();
+    const viewport = svg.getBoundingClientRect();
+    return {
+      href: use.getAttribute('href'), width: drawing.width, height: drawing.height,
+      viewportWidth: viewport.width, viewportHeight: viewport.height,
+      color: getComputedStyle(svg).color,
+      hidden: svg.getAttribute('aria-hidden'), focusable: svg.getAttribute('focusable'),
+    };
+  }));
+  assert.ok(icons.length > 0, 'The exercised surface contains visible SVG icons');
+  for (const icon of icons) {
+    assert.ok(icon.width > 0 && icon.height > 0 && icon.viewportWidth > 0 && icon.viewportHeight > 0,
+      `Referenced icon has a rendered drawing: ${JSON.stringify(icon)}`);
+    assert.notEqual(icon.color, 'rgba(0, 0, 0, 0)', `${icon.href} is not transparent`);
+    assert.equal(icon.hidden, 'true', 'Decorative icons do not duplicate the control’s accessible name');
+    assert.equal(icon.focusable, 'false', 'Decorative icons are excluded from keyboard focus');
+  }
+}
+
+async function assertIconButton(page, selector, label) {
+  const button = page.locator(selector);
+  assert.equal(normalized(await button.innerText()), '', 'The control is exercised without visible text');
+  assert.equal(await button.getAttribute('aria-label'), label);
+  assert.equal(await button.getAttribute('title'), label, 'Hover title agrees with the accessible name');
+  assert.equal(await page.getByRole('button', { name: label, exact: true }).count(), 1,
+    'The icon-only control can be located by its accessible name');
+  const bounds = await button.boundingBox();
+  assert.ok(bounds && bounds.width >= 44 && bounds.height >= 44, 'Icon-only control retains a usable touch target');
 }
 
 function normalized(value) {
@@ -304,6 +350,7 @@ async function main() {
           ['[data-en]', 'textContent', 'data-en'],
           ['[data-alt-en]', 'alt', 'data-alt-en'],
           ['[data-aria-en]', 'ariaLabel', 'data-aria-en'],
+          ['[data-title-en]', 'title', 'data-title-en'],
         ]) {
           for (const element of document.querySelectorAll(selector)) {
             if (element[property] !== element.getAttribute(attribute)) {
@@ -322,6 +369,102 @@ async function main() {
         'Switching back restores the original Spanish text');
       await page.reload({ waitUntil: 'networkidle' });
       await page.waitForFunction(() => document.documentElement.lang === 'es');
+    }));
+
+    await check('Local SVG references resolve under the site prefix, render, and survive ES/EN changes', () => withPage({}, async page => {
+      const original = await iconReferences(page);
+      assert.ok(original.length > 0, 'SVG sprite is used in the page');
+      const expectedURL = new URL(SPRITE_PATH, BASE_URL).href;
+      const ids = new Set();
+      for (const { href } of original) {
+        const reference = new URL(href, page.url());
+        assert.ok(reference.hash.length > 1, 'Each use names a sprite symbol');
+        ids.add(decodeURIComponent(reference.hash.slice(1)));
+        reference.hash = '';
+        assert.equal(reference.href, expectedURL, 'Icons load locally within the deployment prefix');
+      }
+      const resource = await page.request.get(expectedURL);
+      assert.equal(resource.status(), 200);
+      assert.match(resource.headers()['content-type'], /image\/svg\+xml/i);
+      const invalid = await page.evaluate(({ source, referencedIds }) => {
+        const sprite = new DOMParser().parseFromString(source, 'image/svg+xml');
+        if (sprite.querySelector('parsererror')) return ['Invalid SVG XML'];
+        return referencedIds.filter(id => {
+          const matches = [...sprite.querySelectorAll('symbol')].filter(symbol => symbol.id === id);
+          return matches.length !== 1 || !matches[0].querySelector('path, circle, rect, line, polyline, polygon, ellipse');
+        });
+      }, { source: await resource.text(), referencedIds: [...ids] });
+      assert.deepEqual(invalid, [], 'Every referenced symbol exists once and contains a drawing');
+      for (const section of await page.locator('main > section').all()) await section.scrollIntoViewIfNeeded();
+      for (const language of ['es', 'en', 'es']) {
+        await chooseLanguage(page, language);
+        assert.deepEqual(await iconReferences(page), original, 'Translation preserves icons and their link destinations');
+        await assertRenderedIcons(page);
+        await assertCvLinks(page, language);
+      }
+    }));
+
+    await check('Icon-only menu and gallery controls retain accessible names, translated titles and touch targets', () => withPage(
+      { viewport: { width: 390, height: 844 } }, async page => {
+        for (const language of ['es', 'en', 'es']) {
+          await chooseLanguage(page, language);
+          const english = language === 'en';
+          await assertIconButton(page, '.menu-toggle', english ? 'Open menu' : 'Abrir menú');
+          await page.locator('.menu-toggle').click();
+          await assertIconButton(page, '.menu-toggle', english ? 'Close menu' : 'Cerrar menú');
+          await assertRenderedIcons(page, '#navigation svg use');
+          await page.keyboard.press('Escape');
+          await assertIconButton(page, '.menu-toggle', english ? 'Open menu' : 'Abrir menú');
+          await page.locator('[data-gallery="scholarship"]').first().click();
+          for (const [selector, es, en] of [
+            ['.gallery-close', 'Cerrar galería', 'Close gallery'],
+            ['.gallery-prev', 'Captura anterior', 'Previous screenshot'],
+            ['.gallery-next', 'Siguiente captura', 'Next screenshot'],
+          ]) await assertIconButton(page, selector, english ? en : es);
+          await assertRenderedIcons(page, '.gallery-dialog svg use');
+          await page.keyboard.press('Escape');
+        }
+      },
+    ));
+
+    await check('Visual enhancements preserve published destinations and localized SEO metadata', () => withPage({}, async page => {
+      const links = () => page.locator('a[href]').evaluateAll(elements => elements.map(element => element.href).sort());
+      const original = await links();
+      const expectedExternal = [
+        'https://github.com/IrisLazzarini', 'https://github.com/IrisLazzarini/Chartier',
+        'https://github.com/IrisLazzarini/Comercio45', 'https://github.com/IrisLazzarini/Maquinaria',
+        'https://hojalateriachartier.com/', 'https://irislazzarini.github.io/Maquinaria/',
+        'https://wa.me/543498522611', 'https://www.linkedin.com/in/iris-lazzarini-7600881a3',
+      ];
+      assert.deepEqual([...new Set(original.filter(href => /^https?:/.test(href) && new URL(href).origin !== new URL(BASE_URL).origin))].sort(), expectedExternal.sort());
+      assert.ok(original.includes(`mailto:${EMAIL}`));
+      let spanishDescription;
+      for (const language of ['es', 'en', 'es']) {
+        await chooseLanguage(page, language);
+        assert.deepEqual(await links(), original, 'Language changes preserve every existing navigation, project and contact destination');
+        assert.equal(await page.locator('link[rel="canonical"]').getAttribute('href'), PUBLIC_URL);
+        assert.equal(await page.locator('meta[property="og:url"]').getAttribute('content'), PUBLIC_URL);
+        assert.equal(await page.locator('meta[property="og:image"]').getAttribute('content'), new URL('assets/social-preview.png', PUBLIC_URL).href);
+        assert.equal(await page.locator('meta[name="twitter:card"]').getAttribute('content'), 'summary_large_image');
+        const title = await page.title();
+        assert.equal(title, language === 'es'
+          ? 'Iris Lazzarini — Análisis Funcional & Desarrollo de Software'
+          : 'Iris Lazzarini — Functional Analyst & Software Developer');
+        assert.equal(await page.locator('meta[property="og:title"]').getAttribute('content'), title);
+        const description = await page.locator('meta[name="description"]').getAttribute('content');
+        assert.ok(description.length > 80);
+        assert.equal(await page.locator('meta[property="og:description"]').getAttribute('content'), description);
+        assert.equal(await page.locator('meta[property="og:locale"]').getAttribute('content'), language === 'es' ? 'es_AR' : 'en_US');
+        if (language === 'es') {
+          if (spanishDescription) assert.equal(description, spanishDescription);
+          spanishDescription = description;
+        } else assert.notEqual(description, spanishDescription);
+      }
+      for (const resource of ['assets/social-preview.png', 'assets/favicon.svg']) {
+        const response = await page.request.get(new URL(resource, BASE_URL).href);
+        assert.equal(response.status(), 200, `${resource} remains available`);
+        assert.match(response.headers()['content-type'], /^image\//);
+      }
     }));
 
     await check('Featured showcase selects all three cases, links correctly, and retains selection across ES/EN changes', () => withPage({}, async page => {

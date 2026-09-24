@@ -67,6 +67,7 @@ const translatable = [...document.querySelectorAll('[data-en]')].map(element => 
 const attributes = [
   ['data-aria-en', 'aria-label'],
   ['data-alt-en', 'alt'],
+  ['data-title-en', 'title'],
 ].flatMap(([key, attribute]) => [...document.querySelectorAll(`[${key}]`)].map(element => ({
   element, attribute, es: element.getAttribute(attribute), en: element.getAttribute(key),
 })));
@@ -76,6 +77,7 @@ function updateMenuLabel() {
   const en = open ? 'Close menu' : 'Open menu';
   menuButton.dataset.ariaEn = en;
   menuButton.setAttribute('aria-label', language === 'en' ? en : open ? 'Cerrar menú' : 'Abrir menú');
+  menuButton.title = menuButton.getAttribute('aria-label');
 }
 
 function applyLanguage(nextLanguage) {

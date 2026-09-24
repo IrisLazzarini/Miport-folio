@@ -8,6 +8,8 @@ La copia del correo se prueba con un portapapeles simulado: éxito, permiso rech
 
 La integración del CV verifica que los enlaces de visualización y descarga resuelvan bajo el prefijo del sitio, que el recurso responda correctamente y que el archivo servido y descargado conserve los bytes del PDF original. Se usa SHA-256 con `node:crypto`, sin bibliotecas de PDF ni acceso a la carpeta privada donde se recibió el documento. También se comparan los tres roles, la formación y las certificaciones entre el HTML sin JavaScript, la configuración del perfil y las versiones ES/EN.
 
+Los iconos SVG se comprueban como recursos locales: respuesta SVG válida, símbolos existentes y geometría renderizada de cada referencia visible, incluidos el menú móvil y la galería. Se verifica que las traducciones no eliminen iconos ni alteren sus enlaces, y que los controles sin texto mantengan nombres accesibles, títulos ES/EN y áreas de interacción de al menos 44 × 44 px. También se preservan los destinos públicos, el correo, la URL canónica y los metadatos sociales, con títulos y descripciones localizados y recursos de vista previa disponibles. Estas comprobaciones complementan la revisión visual; no comparan píxeles ni preferencias estéticas.
+
 ## Preparación independiente del sitio
 
 Con Node.js y Python instalados, ejecutar desde la raíz del repositorio:

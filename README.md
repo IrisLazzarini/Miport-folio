@@ -25,6 +25,7 @@ js/profile.js                CV y experiencia aportados por Iris; participación
 js/galleries.js              Inventario generado de las 52 capturas ES/EN
 assets/projects/             Capturas WebP y portadas optimizadas
 assets/fonts/                Manrope local y licencia SIL OFL
+assets/icons/                Sprite SVG local, procedencia y licencias
 assets/portrait.webp         Ilustración original optimizada
 assets/favicon.svg           Identidad del sitio
 assets/social-preview.png    Imagen para compartir enlaces
@@ -86,3 +87,11 @@ El rediseño también se revisa con Lighthouse y axe. Las mediciones locales sir
 - Fuente local, SVG decorativo oculto a lectores de pantalla y ninguna librería visual externa.
 
 La licencia de la fuente se encuentra en `assets/fonts/OFL.txt`. Las imágenes y el contenido profesional pertenecen al portfolio original.
+
+## Identidad visual developer
+
+El sistema visual combina fondos `#0D1117`, `#010409` y `#161B22`, azul principal y acentos discretos inspirados en syntax highlighting. Manrope se mantiene para la lectura y una pila monospace del sistema se reserva para metadatos, tecnologías y detalles de editor, sin descargar otra fuente.
+
+La portada conserva la presentación profesional y los proyectos reales; un pequeño fragmento de perfil funciona como complemento decorativo. Proyectos y stack incorporan barras de editor, categorías legibles e iconos locales; la experiencia se presenta como una línea de historial. El selector sigue siendo manual y las animaciones respetan movimiento reducido.
+
+Los iconos SVG y sus licencias se documentan en `assets/icons/README.md`. Los textos y nombres accesibles permanecen separados de los SVG para conservar los iconos al cambiar ES/EN. `data-title-en` traduce las ayudas de los botones de galería; el título del menú refleja su estado abierto o cerrado.
