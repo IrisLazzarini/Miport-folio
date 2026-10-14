@@ -1,8 +1,26 @@
-// Professional history supplied by Iris in her CV. See docs/content-audit.md.
-// Keep the static Spanish experience in index.html in sync for visitors without JavaScript.
+// Sources: existing CV and facts confirmed by Iris. See docs/redesign-2026.md.
 export const profile = {
   "cvUrl": "assets/docs/iris-lazzarini-cv.pdf",
   "experiences": [
+    {
+      "role": {
+        "es": "Voluntariado Administrativo | Digitalización y Gestión de Datos",
+        "en": "Administrative Volunteer | Digitization and Data Management"
+      },
+      "organization": "Fondo Becario de San Justo",
+      "period": {
+        "es": "18 de marzo de 2025 – Actualidad · Voluntariado",
+        "en": "18 March 2025 – Present · Volunteer work"
+      },
+      "responsibilities": {
+        "es": "Digitalización de documentación física y carga de datos en Microsoft Excel. Clasificación de registros de socios, padrinos y madrinas por fechas, nombres y categorías. Revisión de inconsistencias y consulta con responsables para confirmar datos manuscritos. Preparación de planillas y documentación para el control administrativo anual y la posterior revisión del contador.",
+        "en": "Digitization of paper documents and data entry in Microsoft Excel. Classification of member and sponsor records by date, name and category. Review of inconsistencies and consultation with institution staff to confirm handwritten information. Preparation of spreadsheets and documents for annual administrative checks and subsequent accountant review."
+      },
+      "outcome": {
+        "es": "Herramientas: Microsoft Excel y documentación física. Próximo paso: integración con Power BI, en preparación.",
+        "en": "Tools: Microsoft Excel and paper documents. Next step: Power BI integration, in preparation."
+      }
+    },
     {
       "role": {
         "es": "Desarrolladora Full Stack Trainee",
@@ -10,8 +28,8 @@ export const profile = {
       },
       "organization": "AmplixMe",
       "period": {
-        "es": "Junio – Agosto 2026",
-        "en": "June – August 2026"
+        "es": "Junio – Agosto 2026 · Programa de aceleración",
+        "en": "June – August 2026 · Talent acceleration program"
       },
       "responsibilities": {
         "es": "Programa de aceleración de talento. Desarrollo de una plataforma de blog con autenticación, publicaciones y comentarios: React y Vite, APIs con Node.js y Express, PostgreSQL y Prisma. Trabajo con criterios de aceptación, pruebas funcionales y mentoría técnica.",

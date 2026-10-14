@@ -1,97 +1,37 @@
-# Iris Lazzarini — Portfolio profesional
+# Portafolio de Iris Luján Lazzarini
 
-Portfolio bilingüe ES/EN orientado a análisis funcional y desarrollo de software. Conserva la base existente de HTML, CSS y JavaScript; no necesita compilación, frameworks ni dependencias de producción.
+Dos áreas complementarias: Tecnología (Análisis Funcional, Desarrollo de Software y Soporte IT) y Administración y Gestión de Datos. HTML, CSS y JavaScript estáticos, compatibles con GitHub Pages y sin dependencias de producción.
 
-## Ejecutar localmente
+## Ejecutar
 
-Desde la raíz del repositorio:
+Desde la raíz del repositorio: `python -m http.server 4173 --bind 127.0.0.1`. Abrir `http://127.0.0.1:4173/`. Usar un servidor; los módulos JavaScript requieren HTTP, no `file://`.
 
-```sh
-python -m http.server 4173 --bind 127.0.0.1
-```
+## Editar y aprender
 
-Abrir `http://127.0.0.1:4173/`. Los módulos JavaScript requieren un servidor HTTP; no abrir el HTML con `file://`.
+- `index.html`: secciones, contenido estático en español, traducciones `data-en`, enlaces y metadatos. Contenido esencial disponible sin JavaScript.
+- `css/styles.css`: base, iconos, navegación y galería accesible.
+- `css/professional.css`: colores y layouts del rediseño; se carga después de la base para conservar comportamientos existentes.
+- `js/profile.js`: experiencias y fechas ES/EN. Mantener sincronizada su copia estática en HTML para buscadores y visitas sin JS.
+- `js/main.js`: traducción, menú, filtros y galería. `data-category="tech"` o `"admin"` asigna categoría; `data-filter` selecciona el filtro.
+- `js/showcase.js`: copia del correo, con selección de texto como alternativa al portapapeles.
+- `js/galleries.js`: capturas públicas seleccionadas, sin registros financieros ni perfiles personales.
+- `assets/docs/iris-lazzarini-cv.pdf`: único CV, suministrado por Iris y conservado sin modificaciones.
+- `tests/portfolio.spec.cjs`: pruebas de navegador; instrucciones en `tests/README.md`.
 
-GitHub Pages puede servir directamente esta raíz. Todas las rutas de recursos y galerías son relativas para funcionar también bajo `/Miport-folio/`. El canonical y Open Graph conservan `https://irislazzarini.github.io/Miport-folio/`; actualizarlos si cambia el dominio.
+Las imágenes, fuentes e iconos son locales. El contacto abre un cliente de correo con `mailto:`; no envía mensajes automáticamente. CSS Grid adapta columnas; `details/summary` permite consultar información de proyectos sin ocupar toda la pantalla.
 
-## Estructura
+## Publicar en GitHub Pages
 
-```text
-index.html                   Contenido estático, metadatos y estructura semántica
-css/styles.css               Tokens, componentes y composiciones responsive
-js/main.js                   Idiomas, menú, galería y mejoras progresivas
-js/showcase.js               Selector de proyectos en portada y copia del correo
-js/profile.js                CV y experiencia aportados por Iris; participación de Agromapa pendiente
-js/galleries.js              Inventario generado de las 52 capturas ES/EN
-assets/projects/             Capturas WebP y portadas optimizadas
-assets/fonts/                Manrope local y licencia SIL OFL
-assets/icons/                Sprite SVG local, procedencia y licencias
-assets/portrait.webp         Ilustración original optimizada
-assets/favicon.svg           Identidad del sitio
-assets/social-preview.png    Imagen para compartir enlaces
-assets/docs/                 CV original de Iris en PDF
-Img/                         Imágenes originales conservadas
-scripts/                     Generación e inventario de imágenes
-tests/                       Pruebas de navegador sin dependencias de producción
-docs/content-audit.md        Fuentes del contenido y decisiones de conservación
-```
+Integrar la propuesta en `main` y conservar la configuración existente de Settings → Pages. Para publicación desde rama: `main`, `/ (root)`. No necesita compilación. URL: `https://irislazzarini.github.io/Miport-folio/`.
 
-## Editar contenido
+Los recursos usan rutas relativas; también se probaron bajo `/Miport-folio/`. Después de publicar, comprobar móvil, navegación y descarga manual del CV.
 
-El texto español está en el HTML. Cada atributo `data-en` contiene su traducción inglesa como texto plano; `data-alt-en` y `data-aria-en` traducen los nombres accesibles. JavaScript cambia el idioma, los metadatos y la preferencia local sin ocultar el contenido si falla el almacenamiento. El idioma inicial es español; una preferencia guardada previamente se respeta.
+## Fuentes y límites
 
-`js/profile.js` contiene la información profesional del CV facilitado por Iris:
+Ver `docs/redesign-2026.md` para auditoría, decisiones, validación y pendientes. Las auditorías previas se conservan como registro histórico.
 
-- `cvUrl`: apunta al PDF original en `assets/docs/iris-lazzarini-cv.pdf`. Los enlaces **Ver CV** lo abren y **Descargar CV** ofrece una descarga con nombre legible. Los tres enlaces también funcionan sin JavaScript.
-- `experiences`: resume el programa trainee en AmplixMe, la pasantía en el Polo Universitario San Justo / Club de Emprendedores y un proyecto freelance, con los períodos y responsabilidades del CV. Mantener sincronizado el contenido español de `.experience-list` en `index.html` para lectura sin JavaScript; las pruebas verifican esa equivalencia.
-- `projectContributions.agromapa`: vacío omite una participación individual no documentada. Acepta `{ es: '...', en: '...' }`.
+Los originales que la interfaz ya no utiliza permanecen en el repositorio y en su historial. Algunos contienen datos personales visibles; ocultarlos en la interfaz no los elimina del repositorio. Revisar y preparar una versión apta para publicación antes de reutilizar una captura.
 
-El correo profesional confirmado es **irislazzarini81@gmail.com**. Los enlaces de correo abren el cliente que tenga configurado el visitante. El botón **Copiar correo** utiliza el portapapeles del navegador; si no está disponible o el permiso se rechaza, selecciona el texto y explica cómo copiarlo manualmente.
+## Corrección solicitada por Iris
 
-La sección `#formacion` distingue la titulación finalizada en Análisis de Sistemas de los estudios en curso de Desarrollo de Software y Soporte de Infraestructura. Formación complementaria y competencias se extraen del mismo CV. El PDF conserva exactamente los bytes del archivo aportado; no se modifica ni se traduce. El contenido del sitio sí se presenta en ES/EN. Si se reemplaza el PDF por una nueva versión, actualizar su hash esperado en las pruebas.
-
-## Proyectos y conservación
-
-Fondo Becario, Sistema contable y Agromapa son los casos destacados. Polo Universitario, Hojalatería Chartier, PulverAgro y Comercio 45 completan la selección. Las galerías cargan una sola captura a la vez, se controlan con flechas y Escape, conservan el foco y no avanzan automáticamente.
-
-La portada permite elegir entre los tres casos destacados con botones, flechas, Inicio y Fin. Cada selección muestra una captura real y enlaza al caso correspondiente. No avanza automáticamente y conserva la selección al cambiar de idioma. Los accesos directos de la sección Proyectos y las miniaturas del resto de trabajos facilitan explorar el portfolio.
-
-Los repositorios privados o vacíos no se presentan como código público. Los sitios externos que no resolvieron o devolvieron 404 durante la revisión se conservan en `docs/content-audit.md` para volver a verificarlos, con capturas accesibles desde el portfolio.
-
-## Imágenes
-
-Las 55 imágenes originales permanecen en `Img/`. Hay 52 capturas, una ilustración y dos fondos decorativos. Los fondos se conservan como material original, pero la identidad azul utiliza CSS y SVG. La imagen `Img/Agromapa/Portada.png` muestra Comercio 45 y se clasifica correctamente en esa galería.
-
-Las capturas, portadas e ilustración generadas desde los originales suman aproximadamente **2,71 MB**, un **91,2 % menos** que los originales utilizados, incluso contando las portadas adicionales. Se agrega una portada de PulverAgro de aproximadamente 39 KB, capturada de su sitio real; su procedencia se documenta en `docs/pulveragro-image-source.md`. Estos son pesos del catálogo, no la descarga inicial. El sitio solo descarga portadas cercanas al viewport y la captura activa cuando se abre una galería.
-
-Para regenerar imágenes, con Python y Pillow instalados:
-
-```sh
-python scripts/optimize-images.py
-```
-
-Editar `scripts/image-sources.json` para cambiar el orden o los textos alternativos. Los originales no se renombran ni sobrescriben. Ver `IMAGE-NORMALIZATION-GUIDE.md`.
-
-## Verificación
-
-Ver `tests/README.md` para ejecutar la batería de navegador: cinco anchos de pantalla, ES/EN, navegación, las 52 capturas, teclado, foco, movimiento reducido, ausencia de JavaScript y almacenamiento bloqueado. La instalación de Playwright se hace fuera del sitio.
-
-El rediseño también se revisa con Lighthouse y axe. Las mediciones locales sirven para detectar regresiones; el rendimiento de producción depende además del servidor y la red.
-
-## Accesibilidad y diseño
-
-- Un único `h1`, regiones semánticas, enlace para saltar al contenido y foco visible.
-- Menú móvil accesible y navegación visible sin JavaScript.
-- Galería con `dialog` nativo, ciclo de foco explícito y retorno al enlace de apertura.
-- `prefers-reduced-motion` y contenido visible aunque no haya animaciones.
-- Fuente local, SVG decorativo oculto a lectores de pantalla y ninguna librería visual externa.
-
-La licencia de la fuente se encuentra en `assets/fonts/OFL.txt`. Las imágenes y el contenido profesional pertenecen al portfolio original.
-
-## Identidad visual developer
-
-El sistema visual combina fondos `#0D1117`, `#010409` y `#161B22`, azul principal y acentos discretos inspirados en syntax highlighting. Manrope se mantiene para la lectura y una pila monospace del sistema se reserva para metadatos, tecnologías y detalles de editor, sin descargar otra fuente.
-
-La portada conserva la presentación profesional y los proyectos reales; un pequeño fragmento de perfil funciona como complemento decorativo. Proyectos y stack incorporan barras de editor, categorías legibles e iconos locales; la experiencia se presenta como una línea de historial. El selector sigue siendo manual y las animaciones respetan movimiento reducido.
-
-Los iconos SVG y sus licencias se documentan en `assets/icons/README.md`. Los textos y nombres accesibles permanecen separados de los SVG para conservar los iconos al cambiar ES/EN. `data-title-en` traduce las ayudas de los botones de galería; el título del menú refleja su estado abierto o cerrado.
+Se usa exclusivamente el archivo «Iris Luján Lazzarini _Analista Junior_ Curriculum vitaee.pdf» como CV para todo el portafolio, sin editar sus bytes. Se retiró la tarjeta de CV administrativo, los PDF generados y su generador. Las áreas profesionales del sitio se mantienen; la corrección afecta únicamente al CV.
