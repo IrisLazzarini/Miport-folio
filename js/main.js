@@ -1,6 +1,6 @@
 import { galleries } from './galleries.js';
 import { profile } from './profile.js';
-import { initializeShowcase, initializeEmailCopy } from './showcase.js';
+import { initializeEmailCopy } from './showcase.js';
 
 const root = document.documentElement;
 const menuButton = document.querySelector('.menu-toggle');
@@ -12,7 +12,7 @@ let language = 'es';
 let currentGallery = null;
 let currentImageIndex = 0;
 let galleryOpener = null;
-const showcase = initializeShowcase();
+
 const emailCopy = initializeEmailCopy();
 
 function localized(value) {
@@ -89,11 +89,11 @@ function applyLanguage(nextLanguage) {
     button.setAttribute('aria-pressed', String(button.dataset.language === language));
   });
   const description = language === 'es'
-    ? 'Portfolio de Iris Lazzarini. Análisis funcional y desarrollo full stack: sistemas de gestión, aplicaciones web y soluciones basadas en datos.'
-    : 'Iris Lazzarini’s portfolio. Functional analysis and full stack development: management systems, web applications and data-driven solutions.';
+    ? 'Iris Luján Lazzarini: análisis funcional, desarrollo, soporte IT y administración. Experiencia con Excel, SQL y gestión de datos. San Justo, Santa Fe.'
+    : 'Iris Luján Lazzarini: functional analysis, development, IT support and administration. Experience with Excel, SQL and data management. San Justo, Santa Fe.';
   document.title = language === 'es'
-    ? 'Iris Lazzarini — Análisis Funcional & Desarrollo de Software'
-    : 'Iris Lazzarini — Functional Analyst & Software Developer';
+    ? 'Iris Lazzarini — Tecnología, Administración y Datos'
+    : 'Iris Lazzarini — Technology, Administration and Data';
   document.querySelector('meta[name="description"]').content = description;
   document.querySelector('meta[property="og:description"]').content = description;
   document.querySelector('meta[property="og:title"]').content = document.title;
@@ -103,7 +103,7 @@ function applyLanguage(nextLanguage) {
   updateCvLinks();
   renderExperience();
   renderProjectContributions();
-  showcase.setLanguage(language);
+  updateFilterStatus();
   emailCopy.clearStatus();
   if (currentGallery) updateGalleryText();
   try { localStorage.setItem('portfolio-language', language); } catch { /* Optional preference storage. */ }
@@ -122,8 +122,8 @@ function updateCvLinks() {
     }
     const label = link.querySelector('[data-en]');
     label.textContent = language === 'es'
-      ? download ? 'Descargar CV' : 'Ver CV'
-      : download ? 'Download CV' : 'View CV';
+      ? download ? 'Descargar CV IT' : 'Ver CV IT'
+      : download ? 'Download IT CV' : 'View IT CV';
   });
 }
 
@@ -257,6 +257,21 @@ function initializeObservers() {
   });
 }
 
+let selectedFilter = 'all';
+function updateFilterStatus() {
+  const cards = [...document.querySelectorAll('[data-category]')];
+  const count = cards.filter(card => !card.hidden).length;
+  document.querySelector('.filter-status').textContent = language === 'es' ? `${count} proyectos visibles.` : `${count} projects shown.`;
+}
+document.querySelectorAll('[data-filter]').forEach(button => {
+  button.addEventListener('click', () => {
+    selectedFilter = button.dataset.filter;
+    document.querySelectorAll('[data-filter]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+    document.querySelectorAll('[data-category]').forEach(card => { card.hidden = selectedFilter !== 'all' && card.dataset.category !== selectedFilter; });
+    document.querySelector('[data-tech-heading]').hidden = selectedFilter === 'admin';
+    updateFilterStatus();
+  });
+});
 let savedLanguage = 'es';
 try { savedLanguage = localStorage.getItem('portfolio-language') || 'es'; } catch { /* Use Spanish without storage. */ }
 document.querySelectorAll('[data-language]').forEach(button => {
