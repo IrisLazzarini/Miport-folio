@@ -122,8 +122,8 @@ function updateCvLinks() {
     }
     const label = link.querySelector('[data-en]');
     label.textContent = language === 'es'
-      ? download ? 'Descargar CV IT' : 'Ver CV IT'
-      : download ? 'Download IT CV' : 'View IT CV';
+      ? download ? 'Descargar CV' : 'Ver CV'
+      : download ? 'Download CV' : 'View CV';
   });
 }
 

@@ -1,6 +1,6 @@
 // Sources: existing CV and facts confirmed by Iris. See docs/redesign-2026.md.
 export const profile = {
-  "cvUrl": "assets/docs/iris-lazzarini-cv-it.pdf",
+  "cvUrl": "assets/docs/iris-lazzarini-cv.pdf",
   "experiences": [
     {
       "role": {

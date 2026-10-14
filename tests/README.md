@@ -1,6 +1,6 @@
 # Validación del portafolio
 
-Pruebas: cinco anchos (1440, 1024, 768, 390, 320 px), imágenes, enlaces, perfiles, fechas, filtros, traducción, teclado, menú móvil, galerías, dos CV, contenido sin JS, almacenamiento bloqueado, movimiento reducido y SEO. Sin dependencias de producción.
+Pruebas: cinco anchos (1440, 1024, 768, 390, 320 px), imágenes, enlaces, perfiles, fechas, filtros, traducción, teclado, menú móvil, galerías, un único CV, contenido sin JS, almacenamiento bloqueado, movimiento reducido y SEO. Sin dependencias de producción.
 
 Desde la raíz del repositorio:
 
@@ -28,4 +28,8 @@ $env:PORTFOLIO_REQUIRE_DISK_DOWNLOAD = '1'
 node tests/portfolio.spec.cjs
 ```
 
-El 14/10/2026 se completaron 13 comprobaciones funcionales. El navegador recibió los dos PDF pero canceló ambos guardados locales. Queda pendiente la descarga manual en un navegador sin esa restricción. Cada CV tiene una página, con texto extraíble y contenido diferente; ambos se renderizaron y revisaron visualmente.
+El 14/10/2026 se completaron 13 comprobaciones funcionales. La descarga real del CV único funcionó y sus bytes coincidieron con el PDF original enviado por Iris. No se registraron límites de guardado local.
+
+## Corrección solicitada por Iris
+
+Se usa exclusivamente el archivo «Iris Luján Lazzarini _Analista Junior_ Curriculum vitaee.pdf» como CV para todo el portafolio, sin editar sus bytes. Se retiró la tarjeta de CV administrativo, los PDF generados y su generador. Las áreas profesionales del sitio se mantienen; la corrección afecta únicamente al CV.

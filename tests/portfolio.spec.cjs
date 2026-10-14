@@ -53,9 +53,9 @@ const hash=x=>createHash('sha256').update(x).digest('hex');
    await p.keyboard.press('Escape');assert.equal(await p.locator('.gallery-dialog').evaluate(x=>x.open),false);assert.equal(await opener.evaluate(x=>x===document.activeElement),true);
   }
  }));
- await test('CV IT y administrativo: rutas, respuestas y activación de descarga correctas',()=>pageWith({},async p=>{
+ await test('CV único: ruta, respuesta y activación de descarga correctas',()=>pageWith({},async p=>{
   const hashes=[];
-  for(const [file,download] of [['iris-lazzarini-cv-it.pdf','Iris-Lazzarini-CV-IT.pdf'],['iris-lazzarini-cv-administrativo.pdf','Iris-Lazzarini-CV-Administrativo.pdf']]){
+  for(const [file,download] of [['iris-lazzarini-cv.pdf','Iris-Lazzarini-CV.pdf']]){
    const link=p.locator('#cv a[download="'+download+'"]');assert.ok((await link.getAttribute('href')).endsWith(file));
    const response=await p.request.get(new URL('assets/docs/'+file,base).href);assert.equal(response.status(),200);
    const bytes=await response.body();assert.equal(bytes.subarray(0,5).toString(),'%PDF-');assert.equal(hash(bytes),hash(fs.readFileSync(path.join(__dirname,'../assets/docs',file))));hashes.push(hash(bytes));
@@ -63,12 +63,12 @@ const hash=x=>createHash('sha256').update(x).digest('hex');
    const failure=await got.failure();
    if(failure){results.push({name:'Guardado local de '+download,status:'limited',reason:failure});console.warn('LIMIT '+download+': '+failure);if(process.env.PORTFOLIO_REQUIRE_DISK_DOWNLOAD==='1')throw new Error('El navegador canceló el guardado: '+failure)}
    else assert.equal(hash(fs.readFileSync(await got.path())),hash(bytes));
-  }assert.notEqual(hashes[0],hashes[1]);
+  }assert.equal(hashes.length,1);
  }));
  await test('Sin JavaScript: contenido completo, CV y contacto',()=>pageWith({javaScriptEnabled:false},async p=>{
   assert.equal(await p.locator('.experience-item').count(),4);assert.equal(await p.locator('[data-category]:visible').count(),8);
   assert.ok((await p.locator('.experience-item').first().innerText()).includes('Voluntariado'));
-  assert.equal(await p.locator('#cv a[download]').count(),2);
+  assert.equal(await p.locator('#cv a[download]').count(),1);assert.equal(await p.locator('a[href*="cv-administrativo"]').count(),0);
   assert.ok((await p.locator('a[href="mailto:irislazzarini81@gmail.com"]').count())>=2);
  }));
  await test('Almacenamiento bloqueado y movimiento reducido',()=>pageWith({reducedMotion:'reduce'},async p=>{

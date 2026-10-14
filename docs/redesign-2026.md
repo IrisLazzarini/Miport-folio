@@ -17,7 +17,7 @@ Orden: Inicio → Sobre mí → Experiencia → Proyectos → Habilidades → Fo
 - El sistema financiero se presenta como desarrollo de software separado del voluntariado; sus funciones no se atribuyen a experiencia contable de Iris. Los detalles se consultan con `details/summary`.
 - Filtros Tecnología y Administración y Datos, con botones nativos, `aria-pressed` y anuncio `aria-live`. Sin JS se muestran todos los proyectos y se oculta el filtro.
 - Habilidades administrativas dedicadas, además del stack documentado. C# no se incorporó porque no se encontró evidencia en las fuentes revisadas. Power BI figura como integración en preparación.
-- CV IT y Administrativo de una página, sin métricas de impacto. El documento anterior se conserva como histórico, sin botones en la nueva interfaz.
+- Un único CV: el PDF enviado por Iris. Se retiró la tarjeta administrativa y las dos versiones generadas. Todos los enlaces apuntan al mismo archivo, sin modificar su contenido.
 - SEO y vista previa social actualizados. Canonical, recursos locales y rutas relativas conservados.
 - Selecciones financieras y una captura de perfil personal retiradas de la galería pública. Los originales permanecen en el repositorio y su historial; no se realizó una eliminación histórica de datos.
 
@@ -34,9 +34,9 @@ En Fondo Becario se consignan digitalización, carga y clasificación en Excel, 
 - Vistas 1440, 1024, 768, 390 y 320 px: imágenes cargadas y sin desbordamiento horizontal. Revisión visual de escritorio y móvil.
 - Filtros: ocho casos, uno administrativo y siete tecnológicos. Teclado, ES/EN, persistencia, almacenamiento bloqueado y movimiento reducido.
 - Menú móvil, Escape y restitución de foco. Cuatro galerías con capturas reales seleccionadas.
-- Sin JS: cuatro experiencias, ocho casos, formación, contacto y dos CV. Recursos y navegación bajo `/Miport-folio/`.
-- Cada PDF tiene una página, texto extraíble y contenido diferente. Renderizados y revisados; sin los porcentajes del CV previo.
-- Trece comprobaciones funcionales completas. Los dos PDF se recibieron y dispararon descargas con nombres correctos, pero el navegador canceló el guardado local. El informe registra dos límites; no afirma guardado exitoso. Pendiente: descarga manual fuera de esa restricción.
+- Sin JS: cuatro experiencias, ocho casos, formación, contacto y un único CV. Recursos y navegación bajo `/Miport-folio/`.
+- El PDF único es el documento proporcionado por Iris, conservado byte por byte. No se reescribió su contenido.
+- Trece comprobaciones funcionales completas. Descarga real del CV único verificada; bytes idénticos al original enviado por Iris. Sin límites de guardado local.
 - Chartier, PulverAgro y repositorios públicos Chartier/Maquinaria/Comercio45: HTTP 200 el 14/10/2026. LinkedIn bloquea la comprobación automática (999); se usa la dirección confirmada. Demos institucionales previamente caídas no se ofrecen como destinos activos.
 - La entrega se prepara en una rama con propuesta de cambios. Esto no confirma una actualización del sitio en GitHub Pages.
 
@@ -48,6 +48,10 @@ Participación individual específica en Agromapa; ejemplos de C# si se desea in
 
 Modificados: `index.html`, `js/main.js`, `js/profile.js`, `js/showcase.js`, `js/galleries.js`, `assets/social-preview.png`, `README.md`, `tests/portfolio.spec.cjs`, `tests/README.md`.
 
-Nuevos: `css/professional.css`, dos PDF en `assets/docs/`, `scripts/build-cvs.py`, `docs/redesign-2026.md`.
+Nuevos: `css/professional.css`, el PDF único actualizado en `assets/docs/`, `docs/redesign-2026.md`.
 
-El HTML estructura contenido; `data-en` habilita traducciones; `profile.js` alimenta experiencias; `data-category` conecta tarjetas y filtros; CSS Grid adapta columnas; `details` reduce longitud visible sin perder información; las rutas relativas sostienen GitHub Pages. El README explica cómo ejecutar, editar, regenerar los CV y publicar.
+El HTML estructura contenido; `data-en` habilita traducciones; `profile.js` alimenta experiencias; `data-category` conecta tarjetas y filtros; CSS Grid adapta columnas; `details` reduce longitud visible sin perder información; las rutas relativas sostienen GitHub Pages. El README explica cómo ejecutar, editar, reemplazar el CV y publicar.
+
+## Corrección solicitada por Iris
+
+Se usa exclusivamente el archivo «Iris Luján Lazzarini _Analista Junior_ Curriculum vitaee.pdf» como CV para todo el portafolio, sin editar sus bytes. Se retiró la tarjeta de CV administrativo, los PDF generados y su generador. Las áreas profesionales del sitio se mantienen; la corrección afecta únicamente al CV.

@@ -15,8 +15,7 @@ Desde la raíz del repositorio: `python -m http.server 4173 --bind 127.0.0.1`. A
 - `js/main.js`: traducción, menú, filtros y galería. `data-category="tech"` o `"admin"` asigna categoría; `data-filter` selecciona el filtro.
 - `js/showcase.js`: copia del correo, con selección de texto como alternativa al portapapeles.
 - `js/galleries.js`: capturas públicas seleccionadas, sin registros financieros ni perfiles personales.
-- `assets/docs/iris-lazzarini-cv-it.pdf` y `iris-lazzarini-cv-administrativo.pdf`: dos CV con destinos independientes.
-- `scripts/build-cvs.py`: fuente de los CV. Requiere Python y ReportLab solo para regenerar documentos: `python scripts/build-cvs.py`. Revisar visualmente los PDF después de cambiar contenido o fuentes.
+- `assets/docs/iris-lazzarini-cv.pdf`: único CV, suministrado por Iris y conservado sin modificaciones.
 - `tests/portfolio.spec.cjs`: pruebas de navegador; instrucciones en `tests/README.md`.
 
 Las imágenes, fuentes e iconos son locales. El contacto abre un cliente de correo con `mailto:`; no envía mensajes automáticamente. CSS Grid adapta columnas; `details/summary` permite consultar información de proyectos sin ocupar toda la pantalla.
@@ -25,10 +24,14 @@ Las imágenes, fuentes e iconos son locales. El contacto abre un cliente de corr
 
 Integrar la propuesta en `main` y conservar la configuración existente de Settings → Pages. Para publicación desde rama: `main`, `/ (root)`. No necesita compilación. URL: `https://irislazzarini.github.io/Miport-folio/`.
 
-Los recursos usan rutas relativas; también se probaron bajo `/Miport-folio/`. Después de publicar, comprobar móvil, navegación y descarga manual de ambos CV.
+Los recursos usan rutas relativas; también se probaron bajo `/Miport-folio/`. Después de publicar, comprobar móvil, navegación y descarga manual del CV.
 
 ## Fuentes y límites
 
 Ver `docs/redesign-2026.md` para auditoría, decisiones, validación y pendientes. Las auditorías previas se conservan como registro histórico.
 
 Los originales que la interfaz ya no utiliza permanecen en el repositorio y en su historial. Algunos contienen datos personales visibles; ocultarlos en la interfaz no los elimina del repositorio. Revisar y preparar una versión apta para publicación antes de reutilizar una captura.
+
+## Corrección solicitada por Iris
+
+Se usa exclusivamente el archivo «Iris Luján Lazzarini _Analista Junior_ Curriculum vitaee.pdf» como CV para todo el portafolio, sin editar sus bytes. Se retiró la tarjeta de CV administrativo, los PDF generados y su generador. Las áreas profesionales del sitio se mantienen; la corrección afecta únicamente al CV.
