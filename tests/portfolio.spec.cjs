@@ -23,7 +23,7 @@ const CV_SHA256 = '7f02b67671524e68676be0bd39a8546981ba0cc48dcab61a044b6790d9e6c
 const PUBLIC_URL = 'https://irislazzarini.github.io/Miport-folio/';
 const SPRITE_PATH = 'assets/icons/sprite.svg';
 const PROJECT_COUNTS = { scholarship: 12, accounting: 17, agromapa: 6, chartier: 5, polo: 5, comercio45: 7 };
-const SHOWCASE_KEYS = ['scholarship', 'accounting', 'agromapa'];
+const SHOWCASE_KEYS = ['scholarship', 'accounting', 'polo', 'chartier'];
 const results = [];
 let browser;
 
@@ -122,7 +122,7 @@ async function assertShowcase(page, galleries, key, language) {
   assert.equal((await page.locator('#showcase-title').textContent()).trim(), title);
   assert.deepEqual(await page.locator('[data-showcase][aria-pressed="true"]').evaluateAll(buttons => buttons.map(button => button.dataset.showcase)), [key],
     'Exactly the selected project is announced as pressed');
-  assert.equal((await page.locator('.showcase-number').textContent()).trim(), `0${SHOWCASE_KEYS.indexOf(key) + 1} / 03`);
+  assert.equal((await page.locator('.showcase-number').textContent()).trim(), `0${SHOWCASE_KEYS.indexOf(key) + 1} / 04`);
   for (const selector of ['.showcase-image-link', '.showcase-case']) {
     assert.equal(await page.locator(selector).getAttribute('href'), `#${key}`);
     assert.equal(await page.locator(`#${key}`).count(), 1, 'Showcase links target an existing case study');
@@ -467,7 +467,7 @@ async function main() {
       }
     }));
 
-    await check('Featured showcase selects all three cases, links correctly, and retains selection across ES/EN changes', () => withPage({}, async page => {
+    await check('Featured showcase selects all four approved cases, links correctly, and retains selection across ES/EN changes', () => withPage({}, async page => {
       const galleries = await galleryData(page);
       assert.deepEqual(await page.locator('[data-showcase]').evaluateAll(buttons => buttons.map(button => button.dataset.showcase)), SHOWCASE_KEYS);
       assert.equal(await page.locator('.showcase-switcher').getAttribute('role'), 'group');
@@ -507,8 +507,8 @@ async function main() {
           const galleries = await galleryData(page);
           await page.locator('[data-showcase="scholarship"]').focus();
           for (const [key, selected] of [
-            ['ArrowLeft', 'agromapa'], ['ArrowRight', 'scholarship'], ['ArrowRight', 'accounting'],
-            ['End', 'agromapa'], ['Home', 'scholarship'], ['ArrowRight', 'accounting'],
+            ['ArrowLeft', 'chartier'], ['ArrowRight', 'scholarship'], ['ArrowRight', 'accounting'],
+            ['End', 'chartier'], ['Home', 'scholarship'], ['ArrowRight', 'accounting'],
           ]) {
             await page.keyboard.press(key);
             await assertShowcase(page, galleries, selected, 'es');

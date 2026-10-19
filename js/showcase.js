@@ -3,7 +3,8 @@ import { galleries } from './galleries.js';
 const cases = {
   scholarship: { es: 'GESTIÓN FINANCIERA', en: 'FINANCIAL MANAGEMENT', description: { es: 'De planillas dispersas a información confiable.', en: 'From scattered spreadsheets to reliable information.' } },
   accounting: { es: 'ARQUITECTURA Y BACKEND', en: 'ARCHITECTURE & BACKEND', description: { es: 'Facturación que se adapta a la infraestructura.', en: 'Invoicing that adapts to the infrastructure.' } },
-  agromapa: { es: 'ANÁLISIS DE DATOS', en: 'DATA ANALYSIS', description: { es: 'Datos del campo para decidir con contexto.', en: 'Field data for decisions with context.' } },
+  polo: { es: 'DESARROLLO INSTITUCIONAL', en: 'INSTITUTIONAL DEVELOPMENT', description: { es: 'Información y recursos para la comunidad educativa.', en: 'Information and resources for an education community.' } },
+  chartier: { es: 'FRONTEND RESPONSIVE', en: 'RESPONSIVE FRONTEND', description: { es: 'Servicios y productos con navegación clara.', en: 'Services and products with clear navigation.' } },
 };
 
 export function initializeShowcase() {
@@ -21,7 +22,7 @@ export function initializeShowcase() {
     image.src = gallery.cover;
     image.alt = gallery.images[0][language];
     showcase.querySelector('.showcase-category').textContent = item[language];
-    showcase.querySelector('.showcase-number').textContent = `0${number} / 03`;
+    showcase.querySelector('.showcase-number').textContent = `0${number} / 0${buttons.length}`;
     showcase.querySelector('#showcase-title').textContent = title;
     showcase.querySelector('.showcase-description').textContent = item.description[language];
     showcase.querySelectorAll('.showcase-case, .showcase-image-link').forEach(link => { link.href = `#${selected}`; });
