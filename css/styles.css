@@ -622,6 +622,7 @@ img, svg { display: block; max-width: 100%; }
 }
 
 /* Editorial refinement: quieter surfaces and a clearer reading rhythm. */
+.showcase-switcher button { padding-inline: 8px; }
 .site-header { background: #10141ef2; backdrop-filter: blur(18px); }
 .hero { background: radial-gradient(ellipse at 85% 10%,#5969ab25,transparent 58%),var(--background); }
 .hero-layout { padding-block: 88px 72px; }
