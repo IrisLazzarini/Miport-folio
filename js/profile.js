@@ -1,5 +1,5 @@
-// Professional history supplied by Iris in her CV. See docs/content-audit.md.
-// Keep the static Spanish experience in index.html in sync for visitors without JavaScript.
+// Professional history: CV and confirmed LinkedIn content. See docs/content-audit.md.
+// Keep the static Spanish experience in index.html in sync.
 export const profile = {
   "cvUrl": "assets/docs/iris-lazzarini-cv.pdf",
   "experiences": [
@@ -24,8 +24,8 @@ export const profile = {
     },
     {
       "role": {
-        "es": "Analista Funcional Junior",
-        "en": "Junior Functional Analyst"
+        "es": "Analista Funcional Junior | Desarrollo web (Pasantía)",
+        "en": "Junior Functional Analyst | Web Development (Internship)"
       },
       "organization": "Polo Universitario San Justo · Club de Emprendedores",
       "period": {
@@ -33,8 +33,8 @@ export const profile = {
         "en": "June – December 2025 · Internship"
       },
       "responsibilities": {
-        "es": "Relevamiento de necesidades con usuarios internos, documentación funcional, soporte y seguimiento de incidencias junto al equipo de desarrollo. Consultas SQL para validar información y colaboración en la administración de roles y permisos.",
-        "en": "Requirements gathering with internal users, functional documentation, support and issue tracking with the development team. SQL queries to validate information and collaboration on role and permission administration."
+        "es": "Documentación funcional y participación en desarrollo web con PHP y SQL. Relevamiento de requerimientos con usuarios internos, soporte y seguimiento de incidencias junto al equipo de desarrollo. Consultas SQL para validar información y colaboración en la administración de roles y permisos.",
+        "en": "Functional documentation and participation in web development with PHP and SQL. Requirements gathering with internal users, support and issue tracking with the development team. SQL queries to validate information and collaboration on role and permission administration."
       },
       "outcome": {
         "es": "Mejora de la organización y trazabilidad de procesos administrativos. Pasantía finalizada y certificada por la institución.",
@@ -61,6 +61,25 @@ export const profile = {
       "outcome": {
         "es": "Una solución web clara y fácil de utilizar, con mejor organización de la información comercial y acceso a productos y servicios.",
         "en": "A clear, easy-to-use web solution with better organization of business information and access to products and services."
+      }
+    },
+    {
+      "role": {
+        "es": "Gestión documental y control de datos | Voluntariado",
+        "en": "Document Management & Data Checks | Volunteer"
+      },
+      "organization": "Fondo Becario · San Justo",
+      "period": {
+        "es": "Marzo 2025 – Actualidad · Voluntariado",
+        "en": "March 2025 – Present · Volunteer"
+      },
+      "responsibilities": {
+        "es": "Digitalización y carga de documentación en Microsoft Excel. Clasificación de registros de socios, padrinos y madrinas; revisión de inconsistencias y preparación de planillas para el control administrativo anual y su posterior revisión contable.",
+        "en": "Digitizing and entering documentation in Microsoft Excel. Organizing member and sponsor records, checking inconsistencies and preparing spreadsheets for annual administrative checks and subsequent accounting review."
+      },
+      "outcome": {
+        "es": "Práctica en organización de información, gestión documental y atención al detalle.",
+        "en": "Practical experience in information organization, document management and attention to detail."
       }
     }
   ],

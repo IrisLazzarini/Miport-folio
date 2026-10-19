@@ -254,7 +254,7 @@ async function professionalSnapshot(page) {
 
 function assertCvFacts(snapshot) {
   assert.match(snapshot.heroRole, /Junior/i, 'Visible professional level matches the CV');
-  assert.equal(snapshot.experiences.length, 3, 'All three documented roles are represented exactly once');
+  assert.equal(snapshot.experiences.length, 4, 'CV roles and confirmed volunteering are represented exactly once');
   const [amplix, institutional, freelance] = snapshot.experiences;
   assert.match(amplix.organization, /AmplixMe/i);
   assert.match(amplix.role, /Trainee/i);
@@ -363,7 +363,7 @@ async function main() {
       assert.deepEqual(errors, [], 'English copy and accessible attributes are fully translated');
       await page.reload({ waitUntil: 'networkidle' });
       await page.waitForFunction(() => document.documentElement.lang === 'en');
-      assert.equal((await page.locator('.hero-description').textContent()).trim(), 'I turn needs, processes and data into digital products that solve real problems.');
+      assert.equal((await page.locator('.hero-description').textContent()).trim(), 'I combine AI-assisted development, functional analysis and testing to build and improve web solutions.');
       await chooseLanguage(page, 'es');
       assert.deepEqual(await page.locator('[data-en]').evaluateAll(elements => elements.map(element => element.textContent)), spanish,
         'Switching back restores the original Spanish text');
@@ -434,7 +434,7 @@ async function main() {
         'https://github.com/IrisLazzarini', 'https://github.com/IrisLazzarini/Chartier',
         'https://github.com/IrisLazzarini/Comercio45', 'https://github.com/IrisLazzarini/Maquinaria',
         'https://hojalateriachartier.com/', 'https://irislazzarini.github.io/Maquinaria/',
-        'https://wa.me/543498522611', 'https://www.linkedin.com/in/iris-lazzarini-7600881a3',
+        'https://wa.me/543498522611', 'https://www.linkedin.com/in/iris-lazzarini/',
       ];
       assert.deepEqual([...new Set(original.filter(href => /^https?:/.test(href) && new URL(href).origin !== new URL(BASE_URL).origin))].sort(), expectedExternal.sort());
       assert.ok(original.includes(`mailto:${EMAIL}`));
@@ -448,8 +448,8 @@ async function main() {
         assert.equal(await page.locator('meta[name="twitter:card"]').getAttribute('content'), 'summary_large_image');
         const title = await page.title();
         assert.equal(title, language === 'es'
-          ? 'Iris Lazzarini — Análisis Funcional & Desarrollo de Software'
-          : 'Iris Lazzarini — Functional Analyst & Software Developer');
+          ? 'Iris Lazzarini — Desarrolladora de Software Junior'
+          : 'Iris Lazzarini — Junior Software Developer');
         assert.equal(await page.locator('meta[property="og:title"]').getAttribute('content'), title);
         const description = await page.locator('meta[name="description"]').getAttribute('content');
         assert.ok(description.length > 80);
@@ -711,7 +711,7 @@ async function main() {
         assertCvFacts(spanish);
         assert.deepEqual(spanish, staticSnapshot, 'JavaScript rendering must not diverge from the readable HTML fallback');
         const profile = await page.evaluate(async () => (await import(new URL('js/profile.js', location.href).href)).profile);
-        assert.equal(profile.experiences.length, 3);
+        assert.equal(profile.experiences.length, 4);
         for (const language of ['en', 'es']) {
           await chooseLanguage(page, language);
           const snapshot = await professionalSnapshot(page);
@@ -740,7 +740,7 @@ async function main() {
       await assertCvLinks(page, 'es');
       await assertCvDelivery(page);
       assert.ok(await page.locator('#contacto a[href="https://github.com/IrisLazzarini"]').count());
-      assert.ok(await page.locator('#contacto a[href="https://www.linkedin.com/in/iris-lazzarini-7600881a3"]').count());
+      assert.ok(await page.locator('#contacto a[href="https://www.linkedin.com/in/iris-lazzarini/"]').count());
       assert.equal(await page.locator('#contacto a[href^="https://wa.me/"]').getAttribute('href'), 'https://wa.me/543498522611');
       const unsafe = await page.locator('a[target="_blank"]').evaluateAll(links => links.filter(link => !link.relList.contains('noopener')).map(link => link.href));
       assert.deepEqual(unsafe, []);

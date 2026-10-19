@@ -89,11 +89,11 @@ function applyLanguage(nextLanguage) {
     button.setAttribute('aria-pressed', String(button.dataset.language === language));
   });
   const description = language === 'es'
-    ? 'Portfolio de Iris Lazzarini. Análisis funcional y desarrollo full stack: sistemas de gestión, aplicaciones web y soluciones basadas en datos.'
-    : 'Iris Lazzarini’s portfolio. Functional analysis and full stack development: management systems, web applications and data-driven solutions.';
+    ? 'Portfolio de Iris Lazzarini. Desarrollo de software junior, desarrollo asistido por IA, análisis funcional y pruebas de software.'
+    : 'Iris Lazzarini’s portfolio. Junior software development, AI-assisted development, functional analysis and software testing.';
   document.title = language === 'es'
-    ? 'Iris Lazzarini — Análisis Funcional & Desarrollo de Software'
-    : 'Iris Lazzarini — Functional Analyst & Software Developer';
+    ? 'Iris Lazzarini — Desarrolladora de Software Junior'
+    : 'Iris Lazzarini — Junior Software Developer';
   document.querySelector('meta[name="description"]').content = description;
   document.querySelector('meta[property="og:description"]').content = description;
   document.querySelector('meta[property="og:title"]').content = document.title;
