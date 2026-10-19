@@ -321,7 +321,7 @@ async function main() {
         .map(link => link.getAttribute('href')));
       assert.deepEqual(broken, [], 'Every in-page anchor has a real target');
       const links = page.locator('#navigation > a[href^="#"]');
-      assert.equal(await links.count(), 6);
+      assert.equal(await links.count(), 7);
       for (const link of await links.all()) {
         const hash = await link.getAttribute('href');
         await link.click();
