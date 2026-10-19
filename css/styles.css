@@ -593,6 +593,10 @@ img, svg { display: block; max-width: 100%; }
 .featured-project-grid .case-visual, .featured-project-grid .case-study:nth-of-type(even) .case-visual { order: 0; border: 0; border-radius: 0; padding: 20px 20px 0; background: transparent; }
 .featured-project-grid .project-preview img { width: 100%; aspect-ratio: 16/9; object-fit: contain; background: #091321; }
 .featured-project-grid .case-copy { padding: 24px; }
+.featured-project-grid .case-topline, .featured-project-grid .case-bottomline { display: none; }
+.featured-project-grid .small-top { margin-bottom: 14px; }
+.featured-project-grid .case-copy > p { color: var(--muted); font-size: 14px; line-height: 1.8; }
+.featured-project-grid .small-actions { display: flex; flex-wrap: wrap; gap: 10px; }
 .featured-project-grid .case-copy h3 { font-size: 28px; line-height: 1.2; margin-top: 14px; }
 .featured-project-grid .case-context { font-size: 15px; }
 .project-subtitle { font-size: 12px; margin: 22px 0 10px; color: #e6f2ff; }

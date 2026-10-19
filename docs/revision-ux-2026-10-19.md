@@ -24,4 +24,10 @@ La medición de la primera etapa obtuvo 98/100 en rendimiento y 100/100 en acces
 
 ## Banner
 
+## Aclaraciones posteriores de Iris
+
+Iris confirmó que Chartier fue un desarrollo web freelance encargado por un cliente; que Sistema contable fue un trabajo institucional para una distribuidora, relacionado con libros contables, facturas y ARCA; y que Agroconta es un proyecto distinto de contabilidad agropecuaria. Se actualizan las fichas sin asociar fechas o tecnologías del freelance anónimo del CV a Chartier. La aclaración sobre ARCA no acredita una integración productiva: se conserva la distinción del simulador observado en el código.
+
+Se unifican los siete proyectos en una sola grilla, manteniendo primero los cuatro aprobados, y se elimina el encabezado separador «Otros proyectos». Las capturas y enlaces existentes se conservan.
+
 No se modifica LinkedIn ni su banner durante esta revisión. Iris solicitó trabajar sobre el original editable y conservar su composición; se espera ese archivo antes de generar la versión 1584 × 396.
