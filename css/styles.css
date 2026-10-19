@@ -7,7 +7,7 @@
 }
 
 /* Design foundation */
-:root { color-scheme: dark; --background: #0d1117; --surface: #161b22; --text: #f8fafc; --muted: #94a3b8; --blue: #3b82f6; --cyan: #22d3ee; --line: #30363d; --elevated: #1c2128; --violet: #a78bfa; --green: #4ade80; --orange: #fb923c; --mono: 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; --font: Manrope, 'Segoe UI', sans-serif; --ease: 220ms ease; }
+:root { color-scheme: dark; --background: #10141e; --surface: #1a202d; --text: #f8fafc; --muted: #a5b2c7; --blue: #729bff; --cyan: #a6bcff; --line: #ffffff18; --elevated: #222b3a; --violet: #a78bfa; --green: #4ade80; --orange: #fb923c; --mono: 'Cascadia Code', 'SFMono-Regular', Consolas, 'Liberation Mono', monospace; --font: Manrope, 'Segoe UI', sans-serif; --ease: 220ms ease; }
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-padding-top: 110px; }
 html.js { scroll-behavior: smooth; }
@@ -619,4 +619,51 @@ img, svg { display: block; max-width: 100%; }
   .case-details > div { grid-template-columns: 80px 1fr; }
   h2 { font-size: 35px; }
   .contact-section h2 { font-size: 34px; }
+}
+
+/* Editorial refinement: quieter surfaces and a clearer reading rhythm. */
+.site-header { background: #10141ef2; backdrop-filter: blur(18px); }
+.hero { background: radial-gradient(ellipse at 85% 10%,#5969ab25,transparent 58%),var(--background); }
+.hero-layout { padding-block: 88px 72px; }
+.hero h1 { font-weight: 500; letter-spacing: -.06em; }
+.hero-highlight { color: #a6bcff; }
+.hero-role { color: #f3f5fc; font-weight: 700; }
+.hero-description { color: #b1bed0; }
+.hero-bottom { border-top-color: var(--line); }
+.button { border-radius: 12px; }
+.button.primary { background: #496bd6; border-color: #839ff2; box-shadow: none; }
+.button.primary:hover { background: #587ae4; }
+.hero-socials .text-link { border: 0; background: transparent; padding-inline: 0; }
+.hero-socials { gap: 24px; }
+.showcase-panel { border-color: #ffffff24; border-radius: 20px; background: #1a202d; box-shadow: 0 24px 65px #0003; }
+.showcase-image-link { border: 0; border-radius: 10px; }
+.editor-bar { background: transparent; border-bottom-color: var(--line); }
+.editor-dots, .workspace-path, .nav-index, .project-file { display: none; }
+.showcase-switcher { gap: 10px; }
+.showcase-switcher button { border-radius: 10px; background: transparent; border-color: var(--line); }
+.showcase-switcher button[aria-pressed='true'] { background: #a6bcff16; border-color: #829de77a; color: #e2eaff; }
+.section-tinted { background: #131925; }
+.case-visual { border-radius: 20px; background: #1a202d; border-color: var(--line); padding: 24px; }
+.project-preview { border: 0; border-radius: 12px; }
+.case-result { background: #a6bcff0c; border-left-color: #a6bcff; padding: 20px; }
+.project-small { background: #1a202d; border-radius: 18px; }
+.small-preview { border: 0; border-radius: 10px; padding: 0; }
+.tags li { border-radius: 6px; border-color: var(--line); }
+.about-profile { border: 0; border-radius: 20px; background: #1a202d; }
+.profile-signature { border-top: 1px solid var(--line); padding-top: 25px; }
+.profile-signature strong { font-size: 17px; }
+.profile-signature div > span { font-size: 12px; }
+.about-copy > p { line-height: 1.9; }
+.stack-workspace { border-radius: 18px; background: #1a202d; }
+.stack-toolbar { background: transparent; }
+.stack-row .tags li { background: #ffffff05; border-color: var(--line); }
+.project-index { border-radius: 14px; background: #ffffff03; }
+.contact-section { background: radial-gradient(ellipse at 10% 90%,#5969ab20,transparent 65%),#131925; }
+.email-link { border-radius: 12px; }
+@media (max-width: 767px) {
+  .hero-layout { padding-block: 52px 40px; }
+  .showcase-panel, .case-visual { border-radius: 16px; padding: 16px; }
+  .editor-bar { margin: -16px -16px 16px; padding: 14px 16px; }
+  .case-study, .case-study:nth-of-type(even) { gap: 26px; }
+  .hero-socials { gap: 20px; }
 }
