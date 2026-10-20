@@ -1,5 +1,13 @@
 # Auditoría de contenido — 22 de septiembre de 2026
 
+## Alineación con LinkedIn — 18 de octubre de 2026
+
+La presentación se orienta a Desarrolladora de Software Junior, desarrollo asistido por IA, análisis funcional y testing según lo acordado con Iris. Se describe la revisión de código generado, las pruebas funcionales y la verificación de correcciones sin atribuir dominio de sistemas de agentes ni enumerar marcas.
+
+Se actualiza el enlace confirmado de LinkedIn a `/in/iris-lazzarini/`. La pasantía incorpora documentación y desarrollo web con PHP/SQL, confirmados por Iris en esta conversación. Se incorpora el voluntariado de Fondo Becario (marzo de 2025–actualidad), con tareas de Excel, digitalización, clasificación y revisión de información que figuraban en su perfil y fueron revisadas con ella. No se atribuye desarrollo de software a ese voluntariado.
+
+Se conservan los proyectos, galerías, tecnologías y PDF del CV. Las versiones ES/EN y el HTML sin JavaScript mantienen el mismo contenido profesional.
+
 ## Fuentes y límites
 
 Se revisaron el HTML, CSS, JavaScript, documentación, enlaces y las 55 imágenes existentes. El rediseño parte del commit `caf5b93`, conservando su arquitectura estática y los seis proyectos visibles. La primera versión no incorporó datos de trayectoria laboral o formación sin fuente. Posteriormente Iris aportó su CV para añadirlos; esa integración se documenta abajo.

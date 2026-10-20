@@ -17,13 +17,12 @@ const BASE_URL = process.env.PORTFOLIO_BASE_URL || 'http://127.0.0.1:4173/Miport
 const OUTPUT = process.env.PORTFOLIO_TEST_OUTPUT;
 const EMAIL = 'irislazzarini81@gmail.com';
 const CV_PATH = 'assets/docs/iris-lazzarini-cv.pdf';
-const CV_DOWNLOAD_NAME = 'Iris-Lazzarini-CV.pdf';
 // SHA-256 of the unmodified CV supplied by Iris. No private source path is required to run the tests.
-const CV_SHA256 = '7f02b67671524e68676be0bd39a8546981ba0cc48dcab61a044b6790d9e6c4f6';
+const CV_SHA256 = 'ed098d8d18024306a652e20db854fb81c82ac63ed351b7fe92635d350915c6f6';
 const PUBLIC_URL = 'https://irislazzarini.github.io/Miport-folio/';
 const SPRITE_PATH = 'assets/icons/sprite.svg';
 const PROJECT_COUNTS = { scholarship: 12, accounting: 17, agromapa: 6, chartier: 5, polo: 5, comercio45: 7 };
-const SHOWCASE_KEYS = ['scholarship', 'accounting', 'agromapa'];
+const SHOWCASE_KEYS = ['scholarship', 'accounting', 'polo', 'chartier'];
 const results = [];
 let browser;
 
@@ -122,7 +121,7 @@ async function assertShowcase(page, galleries, key, language) {
   assert.equal((await page.locator('#showcase-title').textContent()).trim(), title);
   assert.deepEqual(await page.locator('[data-showcase][aria-pressed="true"]').evaluateAll(buttons => buttons.map(button => button.dataset.showcase)), [key],
     'Exactly the selected project is announced as pressed');
-  assert.equal((await page.locator('.showcase-number').textContent()).trim(), `0${SHOWCASE_KEYS.indexOf(key) + 1} / 03`);
+  assert.equal((await page.locator('.showcase-number').textContent()).trim(), `0${SHOWCASE_KEYS.indexOf(key) + 1} / 04`);
   for (const selector of ['.showcase-image-link', '.showcase-case']) {
     assert.equal(await page.locator(selector).getAttribute('href'), `#${key}`);
     assert.equal(await page.locator(`#${key}`).count(), 1, 'Showcase links target an existing case study');
@@ -202,22 +201,19 @@ function assertOriginalCv(bytes) {
 async function assertCvLinks(page, language) {
   const expectedURL = new URL(CV_PATH, BASE_URL).href;
   const links = page.locator('[data-cv]');
-  assert.equal(await links.count(), 3, 'CV has two viewing links and one download link');
+  assert.equal(await links.count(), 1, 'CV has one navigation link without repeated calls to action');
   for (const link of await links.all()) {
     assert.equal(new URL(await link.getAttribute('href'), page.url()).href, expectedURL,
       'CV resolves inside the served portfolio prefix');
   }
   const viewLinks = page.locator('[data-cv]:not([download])');
-  assert.equal(await viewLinks.count(), 2);
+  assert.equal(await viewLinks.count(), 1);
   for (const link of await viewLinks.all()) {
     assert.equal(await link.getAttribute('target'), '_blank');
     assert.ok((await link.getAttribute('rel')).split(/\s+/).includes('noopener'));
     assert.ok(normalized(await link.innerText()).includes(language === 'es' ? 'Ver CV' : 'View CV'));
   }
-  const download = page.locator('[data-cv][download]');
-  assert.equal(await download.count(), 1);
-  assert.equal(await download.getAttribute('download'), CV_DOWNLOAD_NAME);
-  assert.ok(normalized(await download.innerText()).includes(language === 'es' ? 'Descargar CV' : 'Download CV'));
+  assert.equal(await page.locator('[data-cv][download]').count(), 0);
 }
 
 async function assertCvDelivery(page) {
@@ -225,13 +221,7 @@ async function assertCvDelivery(page) {
   assert.equal(response.status(), 200, 'CV resource is available under the deployment prefix');
   assertOriginalCv(await response.body());
   assertOriginalCv(fs.readFileSync(path.resolve(__dirname, '..', CV_PATH)));
-  const [download] = await Promise.all([
-    page.waitForEvent('download'),
-    page.locator('[data-cv][download]').click(),
-  ]);
-  assert.equal(download.suggestedFilename(), CV_DOWNLOAD_NAME);
-  assert.equal(await download.failure(), null);
-  assertOriginalCv(fs.readFileSync(await download.path()));
+
 }
 
 async function professionalSnapshot(page) {
@@ -254,7 +244,7 @@ async function professionalSnapshot(page) {
 
 function assertCvFacts(snapshot) {
   assert.match(snapshot.heroRole, /Junior/i, 'Visible professional level matches the CV');
-  assert.equal(snapshot.experiences.length, 3, 'All three documented roles are represented exactly once');
+  assert.equal(snapshot.experiences.length, 4, 'CV roles and confirmed volunteering are represented exactly once');
   const [amplix, institutional, freelance] = snapshot.experiences;
   assert.match(amplix.organization, /AmplixMe/i);
   assert.match(amplix.role, /Trainee/i);
@@ -321,7 +311,7 @@ async function main() {
         .map(link => link.getAttribute('href')));
       assert.deepEqual(broken, [], 'Every in-page anchor has a real target');
       const links = page.locator('#navigation > a[href^="#"]');
-      assert.equal(await links.count(), 6);
+      assert.equal(await links.count(), 7);
       for (const link of await links.all()) {
         const hash = await link.getAttribute('href');
         await link.click();
@@ -363,7 +353,7 @@ async function main() {
       assert.deepEqual(errors, [], 'English copy and accessible attributes are fully translated');
       await page.reload({ waitUntil: 'networkidle' });
       await page.waitForFunction(() => document.documentElement.lang === 'en');
-      assert.equal((await page.locator('.hero-description').textContent()).trim(), 'I turn needs, processes and data into digital products that solve real problems.');
+      assert.equal((await page.locator('.hero-description').textContent()).trim(), 'I combine AI-assisted development, functional analysis and testing to build and improve web solutions.');
       await chooseLanguage(page, 'es');
       assert.deepEqual(await page.locator('[data-en]').evaluateAll(elements => elements.map(element => element.textContent)), spanish,
         'Switching back restores the original Spanish text');
@@ -434,7 +424,7 @@ async function main() {
         'https://github.com/IrisLazzarini', 'https://github.com/IrisLazzarini/Chartier',
         'https://github.com/IrisLazzarini/Comercio45', 'https://github.com/IrisLazzarini/Maquinaria',
         'https://hojalateriachartier.com/', 'https://irislazzarini.github.io/Maquinaria/',
-        'https://wa.me/543498522611', 'https://www.linkedin.com/in/iris-lazzarini-7600881a3',
+        'https://wa.me/543498522611', 'https://www.linkedin.com/in/iris-lazzarini/',
       ];
       assert.deepEqual([...new Set(original.filter(href => /^https?:/.test(href) && new URL(href).origin !== new URL(BASE_URL).origin))].sort(), expectedExternal.sort());
       assert.ok(original.includes(`mailto:${EMAIL}`));
@@ -448,8 +438,8 @@ async function main() {
         assert.equal(await page.locator('meta[name="twitter:card"]').getAttribute('content'), 'summary_large_image');
         const title = await page.title();
         assert.equal(title, language === 'es'
-          ? 'Iris Lazzarini — Análisis Funcional & Desarrollo de Software'
-          : 'Iris Lazzarini — Functional Analyst & Software Developer');
+          ? 'Iris Lazzarini — Desarrolladora de Software Junior'
+          : 'Iris Lazzarini — Junior Software Developer');
         assert.equal(await page.locator('meta[property="og:title"]').getAttribute('content'), title);
         const description = await page.locator('meta[name="description"]').getAttribute('content');
         assert.ok(description.length > 80);
@@ -467,7 +457,7 @@ async function main() {
       }
     }));
 
-    await check('Featured showcase selects all three cases, links correctly, and retains selection across ES/EN changes', () => withPage({}, async page => {
+    await check('Featured showcase selects all four approved cases, links correctly, and retains selection across ES/EN changes', () => withPage({}, async page => {
       const galleries = await galleryData(page);
       assert.deepEqual(await page.locator('[data-showcase]').evaluateAll(buttons => buttons.map(button => button.dataset.showcase)), SHOWCASE_KEYS);
       assert.equal(await page.locator('.showcase-switcher').getAttribute('role'), 'group');
@@ -507,8 +497,8 @@ async function main() {
           const galleries = await galleryData(page);
           await page.locator('[data-showcase="scholarship"]').focus();
           for (const [key, selected] of [
-            ['ArrowLeft', 'agromapa'], ['ArrowRight', 'scholarship'], ['ArrowRight', 'accounting'],
-            ['End', 'agromapa'], ['Home', 'scholarship'], ['ArrowRight', 'accounting'],
+            ['ArrowLeft', 'chartier'], ['ArrowRight', 'scholarship'], ['ArrowRight', 'accounting'],
+            ['End', 'chartier'], ['Home', 'scholarship'], ['ArrowRight', 'accounting'],
           ]) {
             await page.keyboard.press(key);
             await assertShowcase(page, galleries, selected, 'es');
@@ -711,7 +701,7 @@ async function main() {
         assertCvFacts(spanish);
         assert.deepEqual(spanish, staticSnapshot, 'JavaScript rendering must not diverge from the readable HTML fallback');
         const profile = await page.evaluate(async () => (await import(new URL('js/profile.js', location.href).href)).profile);
-        assert.equal(profile.experiences.length, 3);
+        assert.equal(profile.experiences.length, 4);
         for (const language of ['en', 'es']) {
           await chooseLanguage(page, language);
           const snapshot = await professionalSnapshot(page);
@@ -728,19 +718,19 @@ async function main() {
       });
     });
 
-    await check('CV viewing and download links work without JavaScript and deliver the original PDF', () => withPage(
+    await check('Single CV link works without JavaScript and serves the original PDF', () => withPage(
       { javaScriptEnabled: false, viewport: { width: 390, height: 844 } }, async page => {
         await assertCvLinks(page, 'es');
         await assertCvDelivery(page);
       },
     ));
 
-    await check('Contact channels and CV viewing/download links remain correct in ES/EN', () => withPage({}, async page => {
+    await check('Contact channels and single CV link remain correct in ES/EN', () => withPage({}, async page => {
       assert.equal(await page.locator('.email-link').getAttribute('href'), `mailto:${EMAIL}`);
       await assertCvLinks(page, 'es');
       await assertCvDelivery(page);
       assert.ok(await page.locator('#contacto a[href="https://github.com/IrisLazzarini"]').count());
-      assert.ok(await page.locator('#contacto a[href="https://www.linkedin.com/in/iris-lazzarini-7600881a3"]').count());
+      assert.ok(await page.locator('#contacto a[href="https://www.linkedin.com/in/iris-lazzarini/"]').count());
       assert.equal(await page.locator('#contacto a[href^="https://wa.me/"]').getAttribute('href'), 'https://wa.me/543498522611');
       const unsafe = await page.locator('a[target="_blank"]').evaluateAll(links => links.filter(link => !link.relList.contains('noopener')).map(link => link.href));
       assert.deepEqual(unsafe, []);
