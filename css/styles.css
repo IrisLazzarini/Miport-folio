@@ -694,3 +694,27 @@ img, svg { display: block; max-width: 100%; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+
+/* Personal contribution within project cards. */
+.project-contribution { margin: 22px 0; padding: 16px 18px; border-left: 2px solid #59d9ed; border-radius: 0 10px 10px 0; background: rgba(89, 217, 237, .045); }
+.project-contribution .project-contribution-label { margin: 0 0 8px; color: #79e3f2; font-family: var(--mono); font-size: 10px; font-weight: 650; letter-spacing: .12em; line-height: 1.5; }
+.project-contribution > p:last-child { margin: 0; color: #d4e1ef; font-size: 14px; line-height: 1.75; }
+
+/* Contact: a clear invitation and a dedicated email action. */
+.contact-bottom > div:first-child > p { max-width: 510px; line-height: 1.85; }
+.contact-section .email-link { gap: 16px; padding: 22px; background: #11283f; color: #f0f6ff; border: 1px solid #375c7b; border-radius: 14px; }
+.contact-section .email-link > .glyph { color: #79e3f2; flex-shrink: 0; width: 24px; height: 24px; }
+.email-content { display: grid; gap: 7px; min-width: 0; }
+.email-caption { color: #90cbdc; font: 600 10px/1.5 var(--mono); letter-spacing: .1em; }
+.contact-section .email-address { font-size: clamp(15px, 1.6vw, 22px); line-height: 1.4; }
+.email-arrow { margin-left: auto; color: #79e3f2; font-size: 24px; }
+.contact-section .email-link:hover { background: #173650; border-color: #79e3f2; }
+.contact-section .email-tools { margin-top: 12px; }
+.contact-section .copy-email { padding: 10px 13px; border: 1px solid #37516b; border-radius: 8px; min-height: 44px; }
+.contact-section .copy-email:hover { background: #11283f; border-color: #79e3f2; }
+@media (max-width: 480px) {
+  .contact-section .email-link { padding: 18px 14px; gap: 11px; }
+  .contact-section .email-link > .glyph { width: 20px; height: 20px; }
+  .email-caption { font-size: 9px; }
+  .email-arrow { font-size: 20px; }
+}

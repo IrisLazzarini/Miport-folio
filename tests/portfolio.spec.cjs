@@ -17,9 +17,8 @@ const BASE_URL = process.env.PORTFOLIO_BASE_URL || 'http://127.0.0.1:4173/Miport
 const OUTPUT = process.env.PORTFOLIO_TEST_OUTPUT;
 const EMAIL = 'irislazzarini81@gmail.com';
 const CV_PATH = 'assets/docs/iris-lazzarini-cv.pdf';
-const CV_DOWNLOAD_NAME = 'Iris-Lazzarini-CV.pdf';
 // SHA-256 of the unmodified CV supplied by Iris. No private source path is required to run the tests.
-const CV_SHA256 = '7f02b67671524e68676be0bd39a8546981ba0cc48dcab61a044b6790d9e6c4f6';
+const CV_SHA256 = 'ed098d8d18024306a652e20db854fb81c82ac63ed351b7fe92635d350915c6f6';
 const PUBLIC_URL = 'https://irislazzarini.github.io/Miport-folio/';
 const SPRITE_PATH = 'assets/icons/sprite.svg';
 const PROJECT_COUNTS = { scholarship: 12, accounting: 17, agromapa: 6, chartier: 5, polo: 5, comercio45: 7 };
@@ -202,22 +201,19 @@ function assertOriginalCv(bytes) {
 async function assertCvLinks(page, language) {
   const expectedURL = new URL(CV_PATH, BASE_URL).href;
   const links = page.locator('[data-cv]');
-  assert.equal(await links.count(), 3, 'CV has two viewing links and one download link');
+  assert.equal(await links.count(), 1, 'CV has one navigation link without repeated calls to action');
   for (const link of await links.all()) {
     assert.equal(new URL(await link.getAttribute('href'), page.url()).href, expectedURL,
       'CV resolves inside the served portfolio prefix');
   }
   const viewLinks = page.locator('[data-cv]:not([download])');
-  assert.equal(await viewLinks.count(), 2);
+  assert.equal(await viewLinks.count(), 1);
   for (const link of await viewLinks.all()) {
     assert.equal(await link.getAttribute('target'), '_blank');
     assert.ok((await link.getAttribute('rel')).split(/\s+/).includes('noopener'));
     assert.ok(normalized(await link.innerText()).includes(language === 'es' ? 'Ver CV' : 'View CV'));
   }
-  const download = page.locator('[data-cv][download]');
-  assert.equal(await download.count(), 1);
-  assert.equal(await download.getAttribute('download'), CV_DOWNLOAD_NAME);
-  assert.ok(normalized(await download.innerText()).includes(language === 'es' ? 'Descargar CV' : 'Download CV'));
+  assert.equal(await page.locator('[data-cv][download]').count(), 0);
 }
 
 async function assertCvDelivery(page) {
@@ -225,13 +221,7 @@ async function assertCvDelivery(page) {
   assert.equal(response.status(), 200, 'CV resource is available under the deployment prefix');
   assertOriginalCv(await response.body());
   assertOriginalCv(fs.readFileSync(path.resolve(__dirname, '..', CV_PATH)));
-  const [download] = await Promise.all([
-    page.waitForEvent('download'),
-    page.locator('[data-cv][download]').click(),
-  ]);
-  assert.equal(download.suggestedFilename(), CV_DOWNLOAD_NAME);
-  assert.equal(await download.failure(), null);
-  assertOriginalCv(fs.readFileSync(await download.path()));
+
 }
 
 async function professionalSnapshot(page) {
@@ -728,14 +718,14 @@ async function main() {
       });
     });
 
-    await check('CV viewing and download links work without JavaScript and deliver the original PDF', () => withPage(
+    await check('Single CV link works without JavaScript and serves the original PDF', () => withPage(
       { javaScriptEnabled: false, viewport: { width: 390, height: 844 } }, async page => {
         await assertCvLinks(page, 'es');
         await assertCvDelivery(page);
       },
     ));
 
-    await check('Contact channels and CV viewing/download links remain correct in ES/EN', () => withPage({}, async page => {
+    await check('Contact channels and single CV link remain correct in ES/EN', () => withPage({}, async page => {
       assert.equal(await page.locator('.email-link').getAttribute('href'), `mailto:${EMAIL}`);
       await assertCvLinks(page, 'es');
       await assertCvDelivery(page);
