@@ -25,6 +25,10 @@ function renderExperience() {
   const list = document.querySelector('.experience-list');
   const entries = profile.experiences.filter(entry => localized(entry.role) && entry.organization);
   if (!entries.length) return;
+  const projectSections = Array.from(list.querySelectorAll('.experience-item')).map(article => ({
+    organization: article.querySelector('.experience-projects')?.textContent.trim().toLowerCase(),
+    sections: Array.from(article.querySelectorAll(':scope > section')),
+  }));
   list.replaceChildren(...entries.map(entry => {
     const fragment = template.content.cloneNode(true);
     const fields = {
@@ -39,6 +43,8 @@ function renderExperience() {
       element.textContent = localized(value);
       element.hidden = !element.textContent;
     }
+    const projects = projectSections.find(item => item.organization === localized(entry.organization).trim().toLowerCase());
+    if (projects) fragment.querySelector('.experience-item').append(...projects.sections);
     return fragment;
   }));
 }
