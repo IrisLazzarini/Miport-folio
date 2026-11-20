@@ -127,33 +127,152 @@ export const galleries = {
     ]
   },
   "opscore-design": {
-    "title": "OpsCore",
-    "titleEn": "OpsCore",
-    "cover": "assets/projects/opscore-dashboard.jpg",
-    "images": [
-      {
-        "src": "assets/projects/opscore-dashboard.jpg",
-        "es": "Panel de supervisión",
-        "en": "Supervision dashboard",
-        "width": 640,
-        "height": 503
-      },
-      {
-        "src": "assets/projects/opscore-incidencia.jpg",
-        "es": "Detalle de una incidencia",
-        "en": "Incident details",
-        "width": 640,
-        "height": 503
-      },
-      {
-        "src": "assets/projects/opscore-overview.jpg",
-        "es": "Pantallas en modo claro y oscuro",
-        "en": "Light and dark screens",
-        "width": 920,
-        "height": 264
-      }
-    ]
-  },
+  "title": "OpsCore Mobile",
+  "titleEn": "OpsCore Mobile",
+  "cover": "assets/projects/opscore-mobile-03.webp",
+  "images": [
+    {
+      "src": "assets/projects/opscore-mobile-01.webp",
+      "width": 412,
+      "height": 540,
+      "es": "Inicio de sesión · modo claro",
+      "en": "Sign in · light mode"
+    },
+    {
+      "src": "assets/projects/opscore-mobile-02.webp",
+      "width": 380,
+      "height": 520,
+      "es": "Inicio de sesión · modo oscuro",
+      "en": "Sign in · dark mode"
+    },
+    {
+      "src": "assets/projects/opscore-mobile-03.webp",
+      "width": 288,
+      "height": 552,
+      "es": "Panel de supervisión · modo claro",
+      "en": "Supervision dashboard · light mode"
+    },
+    {
+      "src": "assets/projects/opscore-mobile-04.webp",
+      "width": 316,
+      "height": 544,
+      "es": "Panel de supervisión · modo oscuro",
+      "en": "Supervision dashboard · dark mode"
+    },
+    {
+      "src": "assets/projects/opscore-mobile-05.webp",
+      "width": 324,
+      "height": 556,
+      "es": "Detalle de incidencia · modo claro",
+      "en": "Incident details · light mode"
+    },
+    {
+      "src": "assets/projects/opscore-mobile-06.webp",
+      "width": 320,
+      "height": 572,
+      "es": "Detalle de incidencia · modo oscuro",
+      "en": "Incident details · dark mode"
+    },
+    {
+      "src": "assets/projects/opscore-mobile-07.webp",
+      "width": 400,
+      "height": 636,
+      "es": "Nuevo reporte · modo claro",
+      "en": "New report · light mode"
+    },
+    {
+      "src": "assets/projects/opscore-mobile-08.webp",
+      "width": 400,
+      "height": 636,
+      "es": "Nuevo reporte · modo oscuro",
+      "en": "New report · dark mode"
+    },
+    {
+      "src": "assets/projects/opscore-mobile-09.webp",
+      "width": 368,
+      "height": 612,
+      "es": "Panel de incidencias · modo claro",
+      "en": "Incident list · light mode"
+    },
+    {
+      "src": "assets/projects/opscore-mobile-10.webp",
+      "width": 424,
+      "height": 652,
+      "es": "Panel de incidencias · modo oscuro",
+      "en": "Incident list · dark mode"
+    },
+    {
+      "src": "assets/projects/opscore-mobile-11.webp",
+      "width": 336,
+      "height": 612,
+      "es": "Administración de usuarios · modo claro",
+      "en": "User administration · light mode"
+    },
+    {
+      "src": "assets/projects/opscore-mobile-12.webp",
+      "width": 356,
+      "height": 608,
+      "es": "Administración de usuarios · modo oscuro",
+      "en": "User administration · dark mode"
+    },
+    {
+      "src": "assets/projects/opscore-mobile-13.webp",
+      "width": 444,
+      "height": 780,
+      "es": "Detalle de incidencia con telemetría · modo claro",
+      "en": "Incident details with telemetry · light mode"
+    },
+    {
+      "src": "assets/projects/opscore-mobile-14.webp",
+      "width": 432,
+      "height": 788,
+      "es": "Detalle de incidencia con telemetría · modo oscuro",
+      "en": "Incident details with telemetry · dark mode"
+    },
+    {
+      "src": "assets/projects/opscore-mobile-15.webp",
+      "width": 408,
+      "height": 756,
+      "es": "Nuevo reporte con adjuntos · modo claro",
+      "en": "New report with attachments · light mode"
+    },
+    {
+      "src": "assets/projects/opscore-mobile-16.webp",
+      "width": 408,
+      "height": 776,
+      "es": "Nuevo reporte con adjuntos · modo oscuro",
+      "en": "New report with attachments · dark mode"
+    },
+    {
+      "src": "assets/projects/opscore-mobile-17.webp",
+      "width": 468,
+      "height": 780,
+      "es": "Panel de incidencias con filtros · modo claro",
+      "en": "Incident list with filters · light mode"
+    },
+    {
+      "src": "assets/projects/opscore-mobile-18.webp",
+      "width": 408,
+      "height": 752,
+      "es": "Panel de incidencias con filtros · modo oscuro",
+      "en": "Incident list with filters · dark mode"
+    },
+    {
+      "src": "assets/projects/opscore-mobile-19.webp",
+      "width": 420,
+      "height": 792,
+      "es": "Administración de usuarios con navegación inferior · modo claro",
+      "en": "User administration with bottom navigation · light mode"
+    },
+    {
+      "src": "assets/projects/opscore-mobile-20.webp",
+      "width": 416,
+      "height": 824,
+      "es": "Administración de usuarios con navegación inferior · modo oscuro",
+      "en": "User administration with bottom navigation · dark mode"
+    }
+  ]
+},
   "scholarship": {
     "title": "Fondo Becario",
     "titleEn": "Scholarship Fund",
