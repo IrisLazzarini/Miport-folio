@@ -732,3 +732,12 @@ img, svg { display: block; max-width: 100%; }
 .amplix-projects .case-context, .amplix-projects .tags { margin: 0; }
 .amplix-projects .text-link { margin-top: auto; }
 @media (max-width: 720px) { .amplix-projects { grid-template-columns: 1fr; gap: 2rem; } }
+
+/* Clear, distinct symbols for the technology workspace. */
+.stack-number { display: grid; place-items: center; width: 30px; height: 30px; margin-left: -3px; border-radius: 9px; background: #67dbef12; color: #79c9ff; }
+.stack-category-icon { width: 19px; height: 19px; }
+.stack-row:nth-child(2) .stack-number, .stack-row:nth-child(6) .stack-number { color: #bdadff; background: #a78bfa17; }
+.stack-row:nth-child(3) .stack-number, .stack-row:nth-child(7) .stack-number { color: #79dfdd; background: #67dbef15; }
+.stack-row:nth-child(4) .stack-number, .stack-row:nth-child(5) .stack-number { color: #87daa7; background: #4ade8014; }
+.stack-row .tags .tech-tag { display: inline-flex; align-items: center; gap: 7px; }
+.stack-row .tech-symbol { display: inline-grid; place-items: center; width: 14px; height: 14px; color: var(--tech-color,#c6d2e2); font-size: 15px; line-height: 1; font-family: sans-serif; }
